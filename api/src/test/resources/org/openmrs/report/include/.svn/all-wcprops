@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/23655/openmrs/trunk/api/src/test/resources/org/openmrs/report/include
+END
+RowPerObsDatasetTest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/!svn/ver/23655/openmrs/trunk/api/src/test/resources/org/openmrs/report/include/RowPerObsDatasetTest.xml
+END
+ReportTests-patients.xml
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/report/include/ReportTests-patients.xml
+END
+PatientSearchParameterTest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/report/include/PatientSearchParameterTest.xml
+END
+PatientSearchTest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/23655/openmrs/trunk/api/src/test/resources/org/openmrs/report/include/PatientSearchTest.xml
+END
+ReportTests-obs.xml
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/report/include/ReportTests-obs.xml
+END
+PepfarReportTest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/report/include/PepfarReportTest.xml
+END
+RowPerProgramEnrollment.xml
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/report/include/RowPerProgramEnrollment.xml
+END
+ReportSchemaXmlTest-initialData.xml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/report/include/ReportSchemaXmlTest-initialData.xml
+END

@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/!svn/ver/24075/openmrs/trunk/api/src/main/resources
+END
+applicationContext-service.xml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/23818/openmrs/trunk/api/src/main/resources/applicationContext-service.xml
+END
+hibernate.cfg.xml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/!svn/ver/23855/openmrs/trunk/api/src/main/resources/hibernate.cfg.xml
+END
+update-to-1.4.2.01-db.mysqldiff.sql
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/15075/openmrs/trunk/api/src/main/resources/update-to-1.4.2.01-db.mysqldiff.sql
+END
+liquibase-update-to-latest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/24075/openmrs/trunk/api/src/main/resources/liquibase-update-to-latest.xml
+END
+ehcache.xml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/!svn/ver/15153/openmrs/trunk/api/src/main/resources/ehcache.xml
+END
+c3p0-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/!svn/ver/15075/openmrs/trunk/api/src/main/resources/c3p0-config.xml
+END
+hibernate.default.properties
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/15153/openmrs/trunk/api/src/main/resources/hibernate.default.properties
+END
+liquibase-core-data.xml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/23513/openmrs/trunk/api/src/main/resources/liquibase-core-data.xml
+END
+liquibase-schema-only.xml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/23977/openmrs/trunk/api/src/main/resources/liquibase-schema-only.xml
+END

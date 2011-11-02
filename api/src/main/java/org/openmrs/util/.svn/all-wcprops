@@ -1,0 +1,209 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/!svn/ver/24082/openmrs/trunk/api/src/main/java/org/openmrs/util
+END
+HibernateEnumType.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/17341/openmrs/trunk/api/src/main/java/org/openmrs/util/HibernateEnumType.java
+END
+DoubleRange.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/util/DoubleRange.java
+END
+HandlerUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/17337/openmrs/trunk/api/src/main/java/org/openmrs/util/HandlerUtil.java
+END
+DatabaseUpdateException.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/util/DatabaseUpdateException.java
+END
+OpenmrsConstants.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/24075/openmrs/trunk/api/src/main/java/org/openmrs/util/OpenmrsConstants.java
+END
+OpenmrsSecurityManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/17337/openmrs/trunk/api/src/main/java/org/openmrs/util/OpenmrsSecurityManager.java
+END
+OpenmrsDateFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/19003/openmrs/trunk/api/src/main/java/org/openmrs/util/OpenmrsDateFormat.java
+END
+MemoryAppender.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/util/MemoryAppender.java
+END
+FormUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/17337/openmrs/trunk/api/src/main/java/org/openmrs/util/FormUtil.java
+END
+ClassLoaderFileOpener.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/22594/openmrs/trunk/api/src/main/java/org/openmrs/util/ClassLoaderFileOpener.java
+END
+PrivilegeConstants.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/23730/openmrs/trunk/api/src/main/java/org/openmrs/util/PrivilegeConstants.java
+END
+package.html
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/util/package.html
+END
+Reflect.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/19843/openmrs/trunk/api/src/main/java/org/openmrs/util/Reflect.java
+END
+RoleConstants.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/23402/openmrs/trunk/api/src/main/java/org/openmrs/util/RoleConstants.java
+END
+Format.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/19380/openmrs/trunk/api/src/main/java/org/openmrs/util/Format.java
+END
+LocationUtility.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/17918/openmrs/trunk/api/src/main/java/org/openmrs/util/LocationUtility.java
+END
+OpenmrsMemento.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/util/OpenmrsMemento.java
+END
+DatabaseUpdater.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/23012/openmrs/trunk/api/src/main/java/org/openmrs/util/DatabaseUpdater.java
+END
+PersonByNameComparator.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/15989/openmrs/trunk/api/src/main/java/org/openmrs/util/PersonByNameComparator.java
+END
+InsertedOrderComparator.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/util/InsertedOrderComparator.java
+END
+FormConstants.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/23855/openmrs/trunk/api/src/main/java/org/openmrs/util/FormConstants.java
+END
+DrugsByNameComparator.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/18266/openmrs/trunk/api/src/main/java/org/openmrs/util/DrugsByNameComparator.java
+END
+OpenmrsClassLoader.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/20516/openmrs/trunk/api/src/main/java/org/openmrs/util/OpenmrsClassLoader.java
+END
+OpenmrsUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/24082/openmrs/trunk/api/src/main/java/org/openmrs/util/OpenmrsUtil.java
+END
+InputRequiredException.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/17337/openmrs/trunk/api/src/main/java/org/openmrs/util/InputRequiredException.java
+END
+MetadataComparator.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/17341/openmrs/trunk/api/src/main/java/org/openmrs/util/MetadataComparator.java
+END
+TestTypeFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/17337/openmrs/trunk/api/src/main/java/org/openmrs/util/TestTypeFilter.java
+END
+UserByNameComparator.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/15987/openmrs/trunk/api/src/main/java/org/openmrs/util/UserByNameComparator.java
+END
+Security.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/18684/openmrs/trunk/api/src/main/java/org/openmrs/util/Security.java
+END
+DatabaseUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/17830/openmrs/trunk/api/src/main/java/org/openmrs/util/DatabaseUtil.java
+END
+NaturalStrings.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/17337/openmrs/trunk/api/src/main/java/org/openmrs/util/NaturalStrings.java
+END
+VelocityExceptionHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/util/VelocityExceptionHandler.java
+END
+LocaleUtility.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/19386/openmrs/trunk/api/src/main/java/org/openmrs/util/LocaleUtility.java
+END
+AttributableDate.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/util/AttributableDate.java
+END

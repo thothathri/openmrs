@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/!svn/ver/24082/openmrs/trunk/webapp/src/main/webapp
+END
+openmrs.js
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/24082/openmrs/trunk/webapp/src/main/webapp/openmrs.js
+END
+style.css
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/style.css
+END
+memoryUsage.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/memoryUsage.jsp
+END
+openmrs_legacy.css
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/!svn/ver/21777/openmrs/trunk/webapp/src/main/webapp/openmrs_legacy.css
+END
+openmrs.css
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/!svn/ver/23943/openmrs/trunk/webapp/src/main/webapp/openmrs.css
+END
+initialsetup
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/initialsetup
+END
+errorhandler.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/errorhandler.jsp
+END
+index.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/index.jsp
+END
+openmrs_purple.css
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/openmrs_purple.css
+END
+openmrs_green.css
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/openmrs_green.css
+END
+openmrs_orange.css
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/openmrs_orange.css
+END

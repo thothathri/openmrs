@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/17341/openmrs/trunk/web/src/main/java/org/openmrs/notification/web/controller
+END
+AlertFormController.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/!svn/ver/17341/openmrs/trunk/web/src/main/java/org/openmrs/notification/web/controller/AlertFormController.java
+END
+AlertListController.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/!svn/ver/17341/openmrs/trunk/web/src/main/java/org/openmrs/notification/web/controller/AlertListController.java
+END

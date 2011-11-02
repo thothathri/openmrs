@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/!svn/ver/23643/openmrs/trunk/api/src/main/java/org/openmrs/hl7/db
+END
+HL7DAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/23642/openmrs/trunk/api/src/main/java/org/openmrs/hl7/db/HL7DAO.java
+END
+package.html
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/hl7/db/package.html
+END

@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/23717/openmrs/trunk/api/src/main/java/org/openmrs/hl7
+END
+HL7InError.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/23644/openmrs/trunk/api/src/main/java/org/openmrs/hl7/HL7InError.java
+END
+HL7Source.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/hl7/HL7Source.java
+END
+package.html
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/hl7/package.html
+END
+HL7Constants.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/22841/openmrs/trunk/api/src/main/java/org/openmrs/hl7/HL7Constants.java
+END
+Hl7InArchivesMigrateThread.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/17341/openmrs/trunk/api/src/main/java/org/openmrs/hl7/Hl7InArchivesMigrateThread.java
+END
+HL7InArchive.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/23644/openmrs/trunk/api/src/main/java/org/openmrs/hl7/HL7InArchive.java
+END
+HL7InQueue.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/23644/openmrs/trunk/api/src/main/java/org/openmrs/hl7/HL7InQueue.java
+END
+HL7InQueueProcessor.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/hl7/HL7InQueueProcessor.java
+END
+HL7Util.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/17341/openmrs/trunk/api/src/main/java/org/openmrs/hl7/HL7Util.java
+END
+HL7Service.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/23644/openmrs/trunk/api/src/main/java/org/openmrs/hl7/HL7Service.java
+END
+HL7QueueItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/23644/openmrs/trunk/api/src/main/java/org/openmrs/hl7/HL7QueueItem.java
+END

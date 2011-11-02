@@ -1,0 +1,257 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/!svn/ver/23896/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr
+END
+DWRPatientService.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/23581/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/DWRPatientService.java
+END
+DWRVisitService.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/23214/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/DWRVisitService.java
+END
+FormFieldListItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/15075/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/FormFieldListItem.java
+END
+DWROrderService.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/17341/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/DWROrderService.java
+END
+LocationListItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/15075/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/LocationListItem.java
+END
+CohortListItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/17337/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/CohortListItem.java
+END
+DWRProviderService.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/23656/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/DWRProviderService.java
+END
+EncounterListItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/23484/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/EncounterListItem.java
+END
+EnteredField.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/15075/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/EnteredField.java
+END
+ProviderListItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/23741/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/ProviderListItem.java
+END
+DWRCohortService.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/15075/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/DWRCohortService.java
+END
+DWRHL7Service.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/17337/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/DWRHL7Service.java
+END
+DrugOrderListItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/15075/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/DrugOrderListItem.java
+END
+PatientStateItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/17337/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/PatientStateItem.java
+END
+DWRRelationshipService.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/19801/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/DWRRelationshipService.java
+END
+FormListItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/15075/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/FormListItem.java
+END
+DWRFormService.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/17341/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/DWRFormService.java
+END
+AllergyListItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/15075/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/AllergyListItem.java
+END
+ObsListItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/16398/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/ObsListItem.java
+END
+DWRProgramWorkflowService.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/22514/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/DWRProgramWorkflowService.java
+END
+ProblemListItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/17337/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/ProblemListItem.java
+END
+DWRException.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/17337/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/DWRException.java
+END
+DWRConceptService.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/23740/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/DWRConceptService.java
+END
+DWRUserService.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/15075/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/DWRUserService.java
+END
+FieldListItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/15075/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/FieldListItem.java
+END
+OpenmrsDWRServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/15075/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/OpenmrsDWRServlet.java
+END
+RelationshipListItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/19801/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/RelationshipListItem.java
+END
+PersonListItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/23581/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/PersonListItem.java
+END
+DWREncounterService.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/23896/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/DWREncounterService.java
+END
+DWRPersonService.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/17341/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/DWRPersonService.java
+END
+ConceptReferenceTermListItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/23077/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/ConceptReferenceTermListItem.java
+END
+VisitListItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/19788/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/VisitListItem.java
+END
+UserListItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/17337/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/UserListItem.java
+END
+ConceptListItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/17259/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/ConceptListItem.java
+END
+DWRPatientSetService.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/15075/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/DWRPatientSetService.java
+END
+ConceptDrugListItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/15075/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/ConceptDrugListItem.java
+END
+DWRAdministrationService.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/15075/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/DWRAdministrationService.java
+END
+PatientListItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/23581/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/PatientListItem.java
+END
+DrugSetItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/15075/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/DrugSetItem.java
+END
+DWRObsService.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/17341/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/DWRObsService.java
+END
+PatientProgramItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/22514/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/PatientProgramItem.java
+END
+ListItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/15075/openmrs/trunk/web/src/main/java/org/openmrs/web/dwr/ListItem.java
+END

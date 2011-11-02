@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/24082/openmrs/trunk/web/src/main/java/org/openmrs/web
+END
+DispatcherServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/15075/openmrs/trunk/web/src/main/java/org/openmrs/web/DispatcherServlet.java
+END
+WebConstants.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/15075/openmrs/trunk/web/src/main/java/org/openmrs/web/WebConstants.java
+END
+SessionListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/17337/openmrs/trunk/web/src/main/java/org/openmrs/web/SessionListener.java
+END
+OpenmrsCookieLocaleResolver.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/15075/openmrs/trunk/web/src/main/java/org/openmrs/web/OpenmrsCookieLocaleResolver.java
+END
+OpenmrsCookieThemeResolver.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/17337/openmrs/trunk/web/src/main/java/org/openmrs/web/OpenmrsCookieThemeResolver.java
+END
+WebUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/19386/openmrs/trunk/web/src/main/java/org/openmrs/web/WebUtil.java
+END
+StaticThemeSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/17337/openmrs/trunk/web/src/main/java/org/openmrs/web/StaticThemeSource.java
+END
+Listener.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/19404/openmrs/trunk/web/src/main/java/org/openmrs/web/Listener.java
+END
+OptionsForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/15075/openmrs/trunk/web/src/main/java/org/openmrs/web/OptionsForm.java
+END
+OpenmrsBindingInitializer.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/23077/openmrs/trunk/web/src/main/java/org/openmrs/web/OpenmrsBindingInitializer.java
+END

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/!svn/ver/21754/openmrs/trunk/web/src/test/java/org/openmrs/web/taglib
+END
+RequireTagTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/17337/openmrs/trunk/web/src/test/java/org/openmrs/web/taglib/RequireTagTest.java
+END
+ForEachEncounterTagTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/21754/openmrs/trunk/web/src/test/java/org/openmrs/web/taglib/ForEachEncounterTagTest.java
+END

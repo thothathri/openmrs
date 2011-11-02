@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/23818/openmrs/trunk/api/src/main/java/org/openmrs/attribute
+END
+Attribute.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/23818/openmrs/trunk/api/src/main/java/org/openmrs/attribute/Attribute.java
+END
+BaseAttribute.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/23818/openmrs/trunk/api/src/main/java/org/openmrs/attribute/BaseAttribute.java
+END
+AttributeType.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/23818/openmrs/trunk/api/src/main/java/org/openmrs/attribute/AttributeType.java
+END
+BaseAttributeType.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/23818/openmrs/trunk/api/src/main/java/org/openmrs/attribute/BaseAttributeType.java
+END

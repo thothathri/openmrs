@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/!svn/ver/23855/openmrs/trunk/api/src/test/resources
+END
+log4j.xml
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/log4j.xml
+END
+TestingApplicationContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/TestingApplicationContext.xml
+END

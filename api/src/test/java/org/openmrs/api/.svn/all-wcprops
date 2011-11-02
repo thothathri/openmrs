@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/23987/openmrs/trunk/api/src/test/java/org/openmrs/api
+END
+PatientSetServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/17470/openmrs/trunk/api/src/test/java/org/openmrs/api/PatientSetServiceTest.java
+END
+AdministrationServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/21675/openmrs/trunk/api/src/test/java/org/openmrs/api/AdministrationServiceTest.java
+END
+ObsServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/23510/openmrs/trunk/api/src/test/java/org/openmrs/api/ObsServiceTest.java
+END
+ProgramWorkflowServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/22514/openmrs/trunk/api/src/test/java/org/openmrs/api/ProgramWorkflowServiceTest.java
+END
+FormServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/23855/openmrs/trunk/api/src/test/java/org/openmrs/api/FormServiceTest.java
+END
+ActiveListServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/17337/openmrs/trunk/api/src/test/java/org/openmrs/api/ActiveListServiceTest.java
+END
+PatientServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/23655/openmrs/trunk/api/src/test/java/org/openmrs/api/PatientServiceTest.java
+END
+ConceptServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/23987/openmrs/trunk/api/src/test/java/org/openmrs/api/ConceptServiceTest.java
+END
+UserServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/23410/openmrs/trunk/api/src/test/java/org/openmrs/api/UserServiceTest.java
+END
+VisitServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/23897/openmrs/trunk/api/src/test/java/org/openmrs/api/VisitServiceTest.java
+END
+OrderServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/18363/openmrs/trunk/api/src/test/java/org/openmrs/api/OrderServiceTest.java
+END
+ProviderServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/23818/openmrs/trunk/api/src/test/java/org/openmrs/api/ProviderServiceTest.java
+END
+EncounterServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/23818/openmrs/trunk/api/src/test/java/org/openmrs/api/EncounterServiceTest.java
+END
+CohortServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/17535/openmrs/trunk/api/src/test/java/org/openmrs/api/CohortServiceTest.java
+END
+PersonServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/23410/openmrs/trunk/api/src/test/java/org/openmrs/api/PersonServiceTest.java
+END
+LocationServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/23818/openmrs/trunk/api/src/test/java/org/openmrs/api/LocationServiceTest.java
+END

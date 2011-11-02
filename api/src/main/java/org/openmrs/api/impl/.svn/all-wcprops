@@ -1,0 +1,125 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/!svn/ver/23987/openmrs/trunk/api/src/main/java/org/openmrs/api/impl
+END
+PatientServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/23063/openmrs/trunk/api/src/main/java/org/openmrs/api/impl/PatientServiceImpl.java
+END
+ConceptServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/23730/openmrs/trunk/api/src/main/java/org/openmrs/api/impl/ConceptServiceImpl.java
+END
+VisitServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/23818/openmrs/trunk/api/src/main/java/org/openmrs/api/impl/VisitServiceImpl.java
+END
+UserServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/17341/openmrs/trunk/api/src/main/java/org/openmrs/api/impl/UserServiceImpl.java
+END
+OrderServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/19385/openmrs/trunk/api/src/main/java/org/openmrs/api/impl/OrderServiceImpl.java
+END
+SerializationServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/23535/openmrs/trunk/api/src/main/java/org/openmrs/api/impl/SerializationServiceImpl.java
+END
+ProviderServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/23818/openmrs/trunk/api/src/main/java/org/openmrs/api/impl/ProviderServiceImpl.java
+END
+BaseOpenmrsService.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/api/impl/BaseOpenmrsService.java
+END
+EncounterServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/23818/openmrs/trunk/api/src/main/java/org/openmrs/api/impl/EncounterServiceImpl.java
+END
+CohortServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/17535/openmrs/trunk/api/src/main/java/org/openmrs/api/impl/CohortServiceImpl.java
+END
+PersonServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/23063/openmrs/trunk/api/src/main/java/org/openmrs/api/impl/PersonServiceImpl.java
+END
+LocationServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/23987/openmrs/trunk/api/src/main/java/org/openmrs/api/impl/LocationServiceImpl.java
+END
+GlobalLocaleList.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/16348/openmrs/trunk/api/src/main/java/org/openmrs/api/impl/GlobalLocaleList.java
+END
+PatientSetServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/22530/openmrs/trunk/api/src/main/java/org/openmrs/api/impl/PatientSetServiceImpl.java
+END
+AdministrationServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/22910/openmrs/trunk/api/src/main/java/org/openmrs/api/impl/AdministrationServiceImpl.java
+END
+ObsServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/17341/openmrs/trunk/api/src/main/java/org/openmrs/api/impl/ObsServiceImpl.java
+END
+ProgramWorkflowServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/23161/openmrs/trunk/api/src/main/java/org/openmrs/api/impl/ProgramWorkflowServiceImpl.java
+END
+FormServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/23855/openmrs/trunk/api/src/main/java/org/openmrs/api/impl/FormServiceImpl.java
+END
+ActiveListServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/17341/openmrs/trunk/api/src/main/java/org/openmrs/api/impl/ActiveListServiceImpl.java
+END
+DatatypeServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/23818/openmrs/trunk/api/src/main/java/org/openmrs/api/impl/DatatypeServiceImpl.java
+END

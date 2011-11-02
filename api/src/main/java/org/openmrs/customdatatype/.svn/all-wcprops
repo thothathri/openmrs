@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/!svn/ver/23832/openmrs/trunk/api/src/main/java/org/openmrs/customdatatype
+END
+CustomValueDescriptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/23818/openmrs/trunk/api/src/main/java/org/openmrs/customdatatype/CustomValueDescriptor.java
+END
+Customizable.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/23818/openmrs/trunk/api/src/main/java/org/openmrs/customdatatype/Customizable.java
+END
+CustomDatatypeException.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/!svn/ver/23818/openmrs/trunk/api/src/main/java/org/openmrs/customdatatype/CustomDatatypeException.java
+END
+RepeatingCustomValueDescriptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/!svn/ver/23818/openmrs/trunk/api/src/main/java/org/openmrs/customdatatype/RepeatingCustomValueDescriptor.java
+END
+SingleCustomValue.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/23818/openmrs/trunk/api/src/main/java/org/openmrs/customdatatype/SingleCustomValue.java
+END
+CustomDatatypeUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/23818/openmrs/trunk/api/src/main/java/org/openmrs/customdatatype/CustomDatatypeUtil.java
+END
+InvalidCustomValueException.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/!svn/ver/23818/openmrs/trunk/api/src/main/java/org/openmrs/customdatatype/InvalidCustomValueException.java
+END
+CustomDatatypeHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/23818/openmrs/trunk/api/src/main/java/org/openmrs/customdatatype/CustomDatatypeHandler.java
+END
+CustomDatatype.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/23818/openmrs/trunk/api/src/main/java/org/openmrs/customdatatype/CustomDatatype.java
+END

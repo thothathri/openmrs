@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/23656/openmrs/trunk/web/src/test/java/org/openmrs/web/controller/encounter
+END
+EncounterRoleFormControllerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/!svn/ver/23656/openmrs/trunk/web/src/test/java/org/openmrs/web/controller/encounter/EncounterRoleFormControllerTest.java
+END
+EncounterTypeListControllerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/!svn/ver/17337/openmrs/trunk/web/src/test/java/org/openmrs/web/controller/encounter/EncounterTypeListControllerTest.java
+END
+LocationFormControllerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/!svn/ver/17337/openmrs/trunk/web/src/test/java/org/openmrs/web/controller/encounter/LocationFormControllerTest.java
+END

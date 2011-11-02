@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/!svn/ver/23505/openmrs/trunk/web/src/main/java/org/openmrs/web/form/visit
+END
+VisitEncounterHandlerFormValidator.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/!svn/ver/23505/openmrs/trunk/web/src/main/java/org/openmrs/web/form/visit/VisitEncounterHandlerFormValidator.java
+END
+VisitEncounterHandlerForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/!svn/ver/23504/openmrs/trunk/web/src/main/java/org/openmrs/web/form/visit/VisitEncounterHandlerForm.java
+END

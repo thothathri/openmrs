@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/23831/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/query
+END
+LocationQueryController.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/!svn/ver/17341/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/query/LocationQueryController.java
+END
+LocalizationController.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/!svn/ver/23831/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/query/LocalizationController.java
+END

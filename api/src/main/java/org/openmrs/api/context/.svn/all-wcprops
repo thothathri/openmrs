@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/!svn/ver/24082/openmrs/trunk/api/src/main/java/org/openmrs/api/context
+END
+Context.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/24082/openmrs/trunk/api/src/main/java/org/openmrs/api/context/Context.java
+END
+package.html
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/api/context/package.html
+END
+ServiceContext.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/23818/openmrs/trunk/api/src/main/java/org/openmrs/api/context/ServiceContext.java
+END
+ContextAuthenticationException.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/api/context/ContextAuthenticationException.java
+END
+Daemon.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/19375/openmrs/trunk/api/src/main/java/org/openmrs/api/context/Daemon.java
+END
+UserContext.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/17795/openmrs/trunk/api/src/main/java/org/openmrs/api/context/UserContext.java
+END

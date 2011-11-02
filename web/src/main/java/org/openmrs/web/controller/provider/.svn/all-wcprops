@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/23818/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/provider
+END
+ProviderAttributeTypeListController.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/!svn/ver/23656/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/provider/ProviderAttributeTypeListController.java
+END
+ProviderAttributeTypeFormController.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/!svn/ver/23818/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/provider/ProviderAttributeTypeFormController.java
+END
+ProviderFormController.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/!svn/ver/23818/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/provider/ProviderFormController.java
+END

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/22514/openmrs/trunk/web/src/test/resources/org/openmrs/web/dwr/include
+END
+DWRPatientService-patientisauser.xml
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/!svn/ver/15075/openmrs/trunk/web/src/test/resources/org/openmrs/web/dwr/include/DWRPatientService-patientisauser.xml
+END
+DWRProgramWorkflowServiceTest-initialData.xml
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/!svn/ver/22514/openmrs/trunk/web/src/test/resources/org/openmrs/web/dwr/include/DWRProgramWorkflowServiceTest-initialData.xml
+END

@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/!svn/ver/22103/openmrs/trunk/api/src/main/java/org/openmrs/module
+END
+SqlDiffFileParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/19300/openmrs/trunk/api/src/main/java/org/openmrs/module/SqlDiffFileParser.java
+END
+VersionComparator.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/19326/openmrs/trunk/api/src/main/java/org/openmrs/module/VersionComparator.java
+END
+ModuleUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/20308/openmrs/trunk/api/src/main/java/org/openmrs/module/ModuleUtil.java
+END
+Module.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/19370/openmrs/trunk/api/src/main/java/org/openmrs/module/Module.java
+END
+MandatoryModuleException.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/17337/openmrs/trunk/api/src/main/java/org/openmrs/module/MandatoryModuleException.java
+END
+ModuleActivator.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/module/ModuleActivator.java
+END
+ModuleFileParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/18686/openmrs/trunk/api/src/main/java/org/openmrs/module/ModuleFileParser.java
+END
+UpdateFileParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/17337/openmrs/trunk/api/src/main/java/org/openmrs/module/UpdateFileParser.java
+END
+ModuleException.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/module/ModuleException.java
+END
+ModuleConstants.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/17746/openmrs/trunk/api/src/main/java/org/openmrs/module/ModuleConstants.java
+END
+ModuleMustStartException.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/module/ModuleMustStartException.java
+END
+OpenmrsCoreModuleException.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/17341/openmrs/trunk/api/src/main/java/org/openmrs/module/OpenmrsCoreModuleException.java
+END
+ModuleClassLoader.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/22103/openmrs/trunk/api/src/main/java/org/openmrs/module/ModuleClassLoader.java
+END
+Extension.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/module/Extension.java
+END
+ModuleFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/19375/openmrs/trunk/api/src/main/java/org/openmrs/module/ModuleFactory.java
+END
+package.html
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/module/package.html
+END
+AdvicePoint.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/19380/openmrs/trunk/api/src/main/java/org/openmrs/module/AdvicePoint.java
+END
+BaseModuleActivator.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/17337/openmrs/trunk/api/src/main/java/org/openmrs/module/BaseModuleActivator.java
+END
+Activator.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/module/Activator.java
+END

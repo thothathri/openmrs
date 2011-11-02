@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/animation
+END
+__package__.js
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/animation/__package__.js
+END
+AnimationEvent.js
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/animation/AnimationEvent.js
+END
+AnimationSequence.js
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/animation/AnimationSequence.js
+END
+Timer.js
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/animation/Timer.js
+END
+Animation.js
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/animation/Animation.js
+END

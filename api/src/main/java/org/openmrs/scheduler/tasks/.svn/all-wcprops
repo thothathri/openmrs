@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/23767/openmrs/trunk/api/src/main/java/org/openmrs/scheduler/tasks
+END
+ProcessHL7InQueueTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/scheduler/tasks/ProcessHL7InQueueTask.java
+END
+HelloWorldThread.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/scheduler/tasks/HelloWorldThread.java
+END
+SendEmailTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/17337/openmrs/trunk/api/src/main/java/org/openmrs/scheduler/tasks/SendEmailTask.java
+END
+ConceptIndexUpdateTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/!svn/ver/23767/openmrs/trunk/api/src/main/java/org/openmrs/scheduler/tasks/ConceptIndexUpdateTask.java
+END
+GenerateDataExportTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/scheduler/tasks/GenerateDataExportTask.java
+END
+TestTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/scheduler/tasks/TestTask.java
+END
+AbstractTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/scheduler/tasks/AbstractTask.java
+END
+CheckInternetConnectivityTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/scheduler/tasks/CheckInternetConnectivityTask.java
+END
+TaskThreadedInitializationWrapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/!svn/ver/17337/openmrs/trunk/api/src/main/java/org/openmrs/scheduler/tasks/TaskThreadedInitializationWrapper.java
+END
+HelloWorldTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/17337/openmrs/trunk/api/src/main/java/org/openmrs/scheduler/tasks/HelloWorldTask.java
+END
+AlertReminderTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/scheduler/tasks/AlertReminderTask.java
+END

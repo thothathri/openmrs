@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/15231/openmrs/trunk/web/src/main/java/org/openmrs/notification/web/dwr
+END
+AlertListItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/15075/openmrs/trunk/web/src/main/java/org/openmrs/notification/web/dwr/AlertListItem.java
+END
+DWRMessageService.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/!svn/ver/15075/openmrs/trunk/web/src/main/java/org/openmrs/notification/web/dwr/DWRMessageService.java
+END
+DWRAlertService.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/15231/openmrs/trunk/web/src/main/java/org/openmrs/notification/web/dwr/DWRAlertService.java
+END

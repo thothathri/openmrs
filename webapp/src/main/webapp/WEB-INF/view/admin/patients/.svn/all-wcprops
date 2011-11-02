@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/24036/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/patients
+END
+localHeader.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/patients/localHeader.jsp
+END
+patientForm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/19401/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/patients/patientForm.jsp
+END
+mergePatientsForm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/18261/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/patients/mergePatientsForm.jsp
+END
+patientIdentifierTypeForm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/!svn/ver/19040/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/patients/patientIdentifierTypeForm.jsp
+END
+tribeList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/patients/tribeList.jsp
+END
+shortPatientForm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/23704/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/patients/shortPatientForm.jsp
+END
+findDuplicatePatients.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/patients/findDuplicatePatients.jsp
+END
+index.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/17827/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/patients/index.jsp
+END
+patientIdentifierTypeList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/patients/patientIdentifierTypeList.jsp
+END

@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/!svn/ver/24082/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts
+END
+hl7_in_archive.js
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/16305/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/hl7_in_archive.js
+END
+easyAjax.js
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/easyAjax.js
+END
+dojoConfig.js
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojoConfig.js
+END
+obs.js
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/16817/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/obs.js
+END
+dojoUserSearchIncludes.js
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojoUserSearchIncludes.js
+END
+drugOrder.js.withjstl
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/drugOrder.js.withjstl
+END
+initialsetup.js
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/initialsetup.js
+END
+validation.js
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/validation.js
+END
+openmrsmessages.js.withjstl
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/23946/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/openmrsmessages.js.withjstl
+END

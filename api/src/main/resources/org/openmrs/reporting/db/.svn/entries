@@ -1,0 +1,31 @@
+10
+
+dir
+24091
+http://svn.openmrs.org/openmrs/trunk/api/src/main/resources/org/openmrs/reporting/db
+http://svn.openmrs.org
+
+
+
+2011-08-31T11:03:21.790311Z
+23022
+sunbiz
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+5bac5841-c719-aa4e-b3fe-cce5062f897a
+
+hibernate
+dir
+

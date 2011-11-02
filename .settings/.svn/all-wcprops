@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/!svn/ver/17822/openmrs/trunk/.settings
+END
+org.eclipse.jdt.core.prefs
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/!svn/ver/17340/openmrs/trunk/.settings/org.eclipse.jdt.core.prefs
+END
+org.maven.ide.eclipse.prefs
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/!svn/ver/17334/openmrs/trunk/.settings/org.maven.ide.eclipse.prefs
+END
+org.eclipse.core.resources.prefs
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/!svn/ver/17822/openmrs/trunk/.settings/org.eclipse.core.resources.prefs
+END
+org.eclipse.jdt.ui.prefs
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/!svn/ver/17340/openmrs/trunk/.settings/org.eclipse.jdt.ui.prefs
+END

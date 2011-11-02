@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/23410/openmrs/trunk/api/src/test/java/org/openmrs/hl7
+END
+HL7UtilTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/15075/openmrs/trunk/api/src/test/java/org/openmrs/hl7/HL7UtilTest.java
+END
+HL7ServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/23410/openmrs/trunk/api/src/test/java/org/openmrs/hl7/HL7ServiceTest.java
+END

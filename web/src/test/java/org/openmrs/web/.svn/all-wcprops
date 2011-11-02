@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/23818/openmrs/trunk/web/src/test/java/org/openmrs/web
+END
+ForgotPasswordFormControllerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/23410/openmrs/trunk/web/src/test/java/org/openmrs/web/ForgotPasswordFormControllerTest.java
+END
+WebUtilTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/23410/openmrs/trunk/web/src/test/java/org/openmrs/web/WebUtilTest.java
+END

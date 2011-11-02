@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/collections
+END
+ArrayList.js
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/collections/ArrayList.js
+END
+Dictionary.js
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/collections/Dictionary.js
+END
+__package__.js
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/collections/__package__.js
+END
+Collections.js
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/collections/Collections.js
+END
+Set.js
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/collections/Set.js
+END
+Queue.js
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/collections/Queue.js
+END
+BinaryTree.js
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/collections/BinaryTree.js
+END
+Graph.js
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/collections/Graph.js
+END
+SkipList.js
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/collections/SkipList.js
+END
+SortedList.js
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/collections/SortedList.js
+END
+Stack.js
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/collections/Stack.js
+END

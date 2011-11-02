@@ -1,0 +1,31 @@
+10
+
+dir
+24091
+http://svn.openmrs.org/openmrs/trunk/web/src/test/resources/org/openmrs/web/taglib
+http://svn.openmrs.org
+
+
+
+2011-09-27T05:53:27.725271Z
+23655
+darius
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+5bac5841-c719-aa4e-b3fe-cce5062f897a
+
+include
+dir
+

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/23879/openmrs/trunk/web/src/main/java/org/openmrs/web/attribute/handler
+END
+FieldGenDatatypeHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/!svn/ver/23853/openmrs/trunk/web/src/main/java/org/openmrs/web/attribute/handler/FieldGenDatatypeHandler.java
+END
+BooleanFieldGenDatatypeHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/!svn/ver/23879/openmrs/trunk/web/src/main/java/org/openmrs/web/attribute/handler/BooleanFieldGenDatatypeHandler.java
+END
+DateFieldGenDatatypeHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/!svn/ver/23818/openmrs/trunk/web/src/main/java/org/openmrs/web/attribute/handler/DateFieldGenDatatypeHandler.java
+END
+WebDatatypeHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/!svn/ver/23879/openmrs/trunk/web/src/main/java/org/openmrs/web/attribute/handler/WebDatatypeHandler.java
+END

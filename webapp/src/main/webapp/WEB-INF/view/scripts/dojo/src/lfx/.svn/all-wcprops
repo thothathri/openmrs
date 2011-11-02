@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/lfx
+END
+__package__.js
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/lfx/__package__.js
+END
+Animation.js
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/lfx/Animation.js
+END
+toggle.js
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/lfx/toggle.js
+END
+extras.js
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/lfx/extras.js
+END
+html.js
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/lfx/html.js
+END

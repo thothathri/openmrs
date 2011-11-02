@@ -1,0 +1,293 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/23410/openmrs/trunk/api/src/main/java/org/openmrs/reporting
+END
+ProgramStatePatientFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/ProgramStatePatientFilter.java
+END
+CohortFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/15833/openmrs/trunk/api/src/main/java/org/openmrs/reporting/CohortFilter.java
+END
+InversePatientFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/17341/openmrs/trunk/api/src/main/java/org/openmrs/reporting/InversePatientFilter.java
+END
+PatientSearch.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/PatientSearch.java
+END
+TableRow.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/TableRow.java
+END
+CompoundClassifier.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/CompoundClassifier.java
+END
+EncounterPatientFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/EncounterPatientFilter.java
+END
+LocationPatientFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/LocationPatientFilter.java
+END
+DrugOrderFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/DrugOrderFilter.java
+END
+SearchArgument.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/SearchArgument.java
+END
+RelationshipPatientFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/17337/openmrs/trunk/api/src/main/java/org/openmrs/reporting/RelationshipPatientFilter.java
+END
+ReportObjectFactoryModule.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/ReportObjectFactoryModule.java
+END
+ReportObjectWrapperExceptionListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/!svn/ver/17337/openmrs/trunk/api/src/main/java/org/openmrs/reporting/ReportObjectWrapperExceptionListener.java
+END
+ReportObjectService.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/ReportObjectService.java
+END
+ReportObjectXMLDecoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/ReportObjectXMLDecoder.java
+END
+AbstractPatientDataProducer.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/AbstractPatientDataProducer.java
+END
+CachingPatientFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/CachingPatientFilter.java
+END
+ObsPatientFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/ObsPatientFilter.java
+END
+package.html
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/package.html
+END
+PatientCharacteristicFilterValidator.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/PatientCharacteristicFilterValidator.java
+END
+ProgramPatientFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/17337/openmrs/trunk/api/src/main/java/org/openmrs/reporting/ProgramPatientFilter.java
+END
+PatientCharacteristicFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/23410/openmrs/trunk/api/src/main/java/org/openmrs/reporting/PatientCharacteristicFilter.java
+END
+ReportObjectFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/17341/openmrs/trunk/api/src/main/java/org/openmrs/reporting/ReportObjectFactory.java
+END
+DrugOrderPatientFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/17337/openmrs/trunk/api/src/main/java/org/openmrs/reporting/DrugOrderPatientFilter.java
+END
+TableRowClassifier.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/TableRowClassifier.java
+END
+SimpleColumnClassifier.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/SimpleColumnClassifier.java
+END
+DrugOrderStopFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/DrugOrderStopFilter.java
+END
+NumericRangeColumnClassifier.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/NumericRangeColumnClassifier.java
+END
+DateColumnClassifier.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/DateColumnClassifier.java
+END
+DataTable.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/DataTable.java
+END
+CohortHistoryCompositionFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/CohortHistoryCompositionFilter.java
+END
+DrugOrderPatientFilterValidator.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/DrugOrderPatientFilterValidator.java
+END
+ReportObjectWrapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/ReportObjectWrapper.java
+END
+EmptyReportObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/EmptyReportObject.java
+END
+PatientSearchReportObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/PatientSearchReportObject.java
+END
+PersonAttributeFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/PersonAttributeFilter.java
+END
+LogicPatientFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/23410/openmrs/trunk/api/src/main/java/org/openmrs/reporting/LogicPatientFilter.java
+END
+PatientFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/PatientFilter.java
+END
+AbstractPatientFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/17341/openmrs/trunk/api/src/main/java/org/openmrs/reporting/AbstractPatientFilter.java
+END
+TableGroupAndAggregate.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/TableGroupAndAggregate.java
+END
+ReportObjectXMLEncoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/ReportObjectXMLEncoder.java
+END
+CountAggregator.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/CountAggregator.java
+END
+AbstractReportObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/AbstractReportObject.java
+END
+TableRowAggregator.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/TableRowAggregator.java
+END
+Report.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/Report.java
+END
+ReportObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/ReportObject.java
+END
+CompoundPatientFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/CompoundPatientFilter.java
+END
+ReportObjectList.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/reporting/ReportObjectList.java
+END

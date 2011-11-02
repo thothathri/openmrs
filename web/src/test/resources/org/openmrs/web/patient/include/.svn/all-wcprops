@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/15075/openmrs/trunk/web/src/test/resources/org/openmrs/web/patient/include
+END
+NewPatientFormControllerTest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/!svn/ver/15075/openmrs/trunk/web/src/test/resources/org/openmrs/web/patient/include/NewPatientFormControllerTest.xml
+END
+NewPatientFormControllerTest-addRelationship.xml
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/!svn/ver/15075/openmrs/trunk/web/src/test/resources/org/openmrs/web/patient/include/NewPatientFormControllerTest-addRelationship.xml
+END
+NewPatientFormControllerTest-patients.xml
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/!svn/ver/15075/openmrs/trunk/web/src/test/resources/org/openmrs/web/patient/include/NewPatientFormControllerTest-patients.xml
+END

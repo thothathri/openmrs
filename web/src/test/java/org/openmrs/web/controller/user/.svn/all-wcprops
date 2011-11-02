@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/23410/openmrs/trunk/web/src/test/java/org/openmrs/web/controller/user
+END
+ChangePasswordFormControllerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/!svn/ver/17337/openmrs/trunk/web/src/test/java/org/openmrs/web/controller/user/ChangePasswordFormControllerTest.java
+END
+UserFormControllerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/!svn/ver/17337/openmrs/trunk/web/src/test/java/org/openmrs/web/controller/user/UserFormControllerTest.java
+END
+UserListControllerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/!svn/ver/23410/openmrs/trunk/web/src/test/java/org/openmrs/web/controller/user/UserListControllerTest.java
+END

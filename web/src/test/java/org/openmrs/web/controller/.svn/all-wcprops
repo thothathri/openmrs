@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/!svn/ver/23818/openmrs/trunk/web/src/test/java/org/openmrs/web/controller
+END
+GlobalPropertyPortletControllerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/!svn/ver/17337/openmrs/trunk/web/src/test/java/org/openmrs/web/controller/GlobalPropertyPortletControllerTest.java
+END
+OptionsFormControllerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/!svn/ver/17337/openmrs/trunk/web/src/test/java/org/openmrs/web/controller/OptionsFormControllerTest.java
+END
+UserPropertiesTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/17337/openmrs/trunk/web/src/test/java/org/openmrs/web/controller/UserPropertiesTest.java
+END
+ConceptFormControllerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/!svn/ver/23077/openmrs/trunk/web/src/test/java/org/openmrs/web/controller/ConceptFormControllerTest.java
+END
+PortletControllerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/17337/openmrs/trunk/web/src/test/java/org/openmrs/web/controller/PortletControllerTest.java
+END

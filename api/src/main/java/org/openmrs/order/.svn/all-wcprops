@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/!svn/ver/17341/openmrs/trunk/api/src/main/java/org/openmrs/order
+END
+OrderUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/17341/openmrs/trunk/api/src/main/java/org/openmrs/order/OrderUtil.java
+END
+RegimenSuggestion.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/order/RegimenSuggestion.java
+END
+DrugSuggestion.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/order/DrugSuggestion.java
+END
+DrugOrderSupport.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/order/DrugOrderSupport.java
+END

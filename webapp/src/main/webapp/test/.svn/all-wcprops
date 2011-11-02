@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/test
+END
+readme.txt
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/test/readme.txt
+END
+dwr_message_test.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/test/dwr_message_test.jsp
+END
+mailer_test.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/test/mailer_test.jsp
+END
+dojo.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/test/dojo.jsp
+END
+dojo_test.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/test/dojo_test.jsp
+END
+velocity_test.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/test/velocity_test.jsp
+END
+message_sender_test.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/test/message_sender_test.jsp
+END

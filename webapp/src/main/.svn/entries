@@ -1,0 +1,34 @@
+10
+
+dir
+24091
+http://svn.openmrs.org/openmrs/trunk/webapp/src/main
+http://svn.openmrs.org
+
+
+
+2011-10-24T13:14:32.582708Z
+24082
+dkayiwa
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+5bac5841-c719-aa4e-b3fe-cce5062f897a
+
+resources
+dir
+
+webapp
+dir
+

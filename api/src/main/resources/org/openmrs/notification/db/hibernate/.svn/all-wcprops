@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/23022/openmrs/trunk/api/src/main/resources/org/openmrs/notification/db/hibernate
+END
+Template.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/!svn/ver/23022/openmrs/trunk/api/src/main/resources/org/openmrs/notification/db/hibernate/Template.hbm.xml
+END
+Alert.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/!svn/ver/23022/openmrs/trunk/api/src/main/resources/org/openmrs/notification/db/hibernate/Alert.hbm.xml
+END
+AlertRecipient.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/!svn/ver/15075/openmrs/trunk/api/src/main/resources/org/openmrs/notification/db/hibernate/AlertRecipient.hbm.xml
+END

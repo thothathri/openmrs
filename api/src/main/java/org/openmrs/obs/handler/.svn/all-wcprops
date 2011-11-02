@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/!svn/ver/18408/openmrs/trunk/api/src/main/java/org/openmrs/obs/handler
+END
+ImageHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/obs/handler/ImageHandler.java
+END
+BinaryDataHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/18079/openmrs/trunk/api/src/main/java/org/openmrs/obs/handler/BinaryDataHandler.java
+END
+TextHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/18408/openmrs/trunk/api/src/main/java/org/openmrs/obs/handler/TextHandler.java
+END
+BinaryStreamHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/18063/openmrs/trunk/api/src/main/java/org/openmrs/obs/handler/BinaryStreamHandler.java
+END
+AbstractHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/18063/openmrs/trunk/api/src/main/java/org/openmrs/obs/handler/AbstractHandler.java
+END

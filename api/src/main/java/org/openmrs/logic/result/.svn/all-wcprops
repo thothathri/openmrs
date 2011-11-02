@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/!svn/ver/17341/openmrs/trunk/api/src/main/java/org/openmrs/logic/result
+END
+ImmutableResultException.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/logic/result/ImmutableResultException.java
+END
+Result.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/17341/openmrs/trunk/api/src/main/java/org/openmrs/logic/result/Result.java
+END
+EmptyResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/logic/result/EmptyResult.java
+END

@@ -1,0 +1,173 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/24082/openmrs/trunk/api/src/main/java/org/openmrs/api/db/hibernate
+END
+AuditableInterceptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/17699/openmrs/trunk/api/src/main/java/org/openmrs/api/db/hibernate/AuditableInterceptor.java
+END
+HibernateProviderDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/23747/openmrs/trunk/api/src/main/java/org/openmrs/api/db/hibernate/HibernateProviderDAO.java
+END
+HibernateNoteDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/api/db/hibernate/HibernateNoteDAO.java
+END
+PatientSearchCriteria.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/!svn/ver/20155/openmrs/trunk/api/src/main/java/org/openmrs/api/db/hibernate/PatientSearchCriteria.java
+END
+HibernateCohortDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/17535/openmrs/trunk/api/src/main/java/org/openmrs/api/db/hibernate/HibernateCohortDAO.java
+END
+HibernatePersonDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/21979/openmrs/trunk/api/src/main/java/org/openmrs/api/db/hibernate/HibernatePersonDAO.java
+END
+HibernateLocationDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/22653/openmrs/trunk/api/src/main/java/org/openmrs/api/db/hibernate/HibernateLocationDAO.java
+END
+NativeIfNotAssignedIdentityGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/!svn/ver/17337/openmrs/trunk/api/src/main/java/org/openmrs/api/db/hibernate/NativeIfNotAssignedIdentityGenerator.java
+END
+HibernateTemplateDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/api/db/hibernate/HibernateTemplateDAO.java
+END
+ChainingInterceptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/17501/openmrs/trunk/api/src/main/java/org/openmrs/api/db/hibernate/ChainingInterceptor.java
+END
+HibernateObsDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/17341/openmrs/trunk/api/src/main/java/org/openmrs/api/db/hibernate/HibernateObsDAO.java
+END
+HibernatePatientSetDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/!svn/ver/24082/openmrs/trunk/api/src/main/java/org/openmrs/api/db/hibernate/HibernatePatientSetDAO.java
+END
+HibernateAdministrationDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/!svn/ver/22910/openmrs/trunk/api/src/main/java/org/openmrs/api/db/hibernate/HibernateAdministrationDAO.java
+END
+HibernateProgramWorkflowDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/!svn/ver/17341/openmrs/trunk/api/src/main/java/org/openmrs/api/db/hibernate/HibernateProgramWorkflowDAO.java
+END
+AttributeMatcherPredicate.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/!svn/ver/23818/openmrs/trunk/api/src/main/java/org/openmrs/api/db/hibernate/AttributeMatcherPredicate.java
+END
+HibernatePatientDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/23655/openmrs/trunk/api/src/main/java/org/openmrs/api/db/hibernate/HibernatePatientDAO.java
+END
+package.html
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/api/db/hibernate/package.html
+END
+HibernateSerializedObjectDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/!svn/ver/17341/openmrs/trunk/api/src/main/java/org/openmrs/api/db/hibernate/HibernateSerializedObjectDAO.java
+END
+HibernateConceptDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/23952/openmrs/trunk/api/src/main/java/org/openmrs/api/db/hibernate/HibernateConceptDAO.java
+END
+HibernateFormDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/23855/openmrs/trunk/api/src/main/java/org/openmrs/api/db/hibernate/HibernateFormDAO.java
+END
+HibernateActiveListDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/!svn/ver/17341/openmrs/trunk/api/src/main/java/org/openmrs/api/db/hibernate/HibernateActiveListDAO.java
+END
+HibernateVisitDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/23913/openmrs/trunk/api/src/main/java/org/openmrs/api/db/hibernate/HibernateVisitDAO.java
+END
+HibernateOrderDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/17341/openmrs/trunk/api/src/main/java/org/openmrs/api/db/hibernate/HibernateOrderDAO.java
+END
+HibernateSessionFactoryBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/!svn/ver/17501/openmrs/trunk/api/src/main/java/org/openmrs/api/db/hibernate/HibernateSessionFactoryBean.java
+END
+HibernateUserDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/23228/openmrs/trunk/api/src/main/java/org/openmrs/api/db/hibernate/HibernateUserDAO.java
+END
+HibernateContextDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/23228/openmrs/trunk/api/src/main/java/org/openmrs/api/db/hibernate/HibernateContextDAO.java
+END
+HibernateUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/23494/openmrs/trunk/api/src/main/java/org/openmrs/api/db/hibernate/HibernateUtil.java
+END
+HibernateEncounterDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/!svn/ver/23879/openmrs/trunk/api/src/main/java/org/openmrs/api/db/hibernate/HibernateEncounterDAO.java
+END
