@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/17337/openmrs/trunk/api/src/test/java/org/openmrs/reporting
+END
+CachingPatientFilterTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/15075/openmrs/trunk/api/src/test/java/org/openmrs/reporting/CachingPatientFilterTest.java
+END
+InversePatientFilterTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/17337/openmrs/trunk/api/src/test/java/org/openmrs/reporting/InversePatientFilterTest.java
+END
+PatientFilterTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/15075/openmrs/trunk/api/src/test/java/org/openmrs/reporting/PatientFilterTest.java
+END
+ReportObjectServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/17337/openmrs/trunk/api/src/test/java/org/openmrs/reporting/ReportObjectServiceTest.java
+END

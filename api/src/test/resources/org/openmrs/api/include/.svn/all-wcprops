@@ -1,0 +1,269 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/23818/openmrs/trunk/api/src/test/resources/org/openmrs/api/include
+END
+ConceptServiceTest-getConceptsBySet.xml
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/ConceptServiceTest-getConceptsBySet.xml
+END
+FormServiceTest-initialFieldTypes.xml
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/FormServiceTest-initialFieldTypes.xml
+END
+AdministrationServiceTest-globalproperties.xml
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/AdministrationServiceTest-globalproperties.xml
+END
+ConceptServiceTest-words.xml
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/!svn/ver/23658/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/ConceptServiceTest-words.xml
+END
+ObsServiceTest-initial.xml
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/ObsServiceTest-initial.xml
+END
+PatientServiceTest-createPatient.xml
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/PatientServiceTest-createPatient.xml
+END
+ConceptServiceTest-initialConcepts.xml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/!svn/ver/16991/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/ConceptServiceTest-initialConcepts.xml
+END
+AdministrationServiceTest-general.xml
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/AdministrationServiceTest-general.xml
+END
+ProgramWorkflowServiceTest-createPatientProgram.xml
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/ProgramWorkflowServiceTest-createPatientProgram.xml
+END
+ProgramWorkflowServiceTest-initialData.xml
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/!svn/ver/22514/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/ProgramWorkflowServiceTest-initialData.xml
+END
+VisitServiceTest-otherVisits.xml
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/!svn/ver/23669/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/VisitServiceTest-otherVisits.xml
+END
+ConceptServiceTest-tags.xml
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/ConceptServiceTest-tags.xml
+END
+PersonServiceTest-names.xml
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/PersonServiceTest-names.xml
+END
+VisitServiceTest-visitAttributes.xml
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/!svn/ver/23818/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/VisitServiceTest-visitAttributes.xml
+END
+LocationServiceTest-attributes.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/!svn/ver/23818/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/LocationServiceTest-attributes.xml
+END
+PersonServiceTest-extranames.xml
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/PersonServiceTest-extranames.xml
+END
+formfield.xml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/18660/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/formfield.xml
+END
+PatientSetServiceTest-extraData.xml
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/!svn/ver/23655/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/PatientSetServiceTest-extraData.xml
+END
+PersionServiceTest-voidUnvoidPersonName.xml
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/!svn/ver/19476/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/PersionServiceTest-voidUnvoidPersonName.xml
+END
+EncounterServiceTest-pagingWithUniqueEncounters.xml
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/!svn/ver/23686/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/EncounterServiceTest-pagingWithUniqueEncounters.xml
+END
+UserServiceTest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/17535/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/UserServiceTest.xml
+END
+PersonServiceTest-updatePersonAttributeType.xml
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/PersonServiceTest-updatePersonAttributeType.xml
+END
+ProviderServiceTest-providerAttributes.xml
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/!svn/ver/23818/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/ProviderServiceTest-providerAttributes.xml
+END
+PatientServiceTest-createPatientIdentifierType.xml
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/PatientServiceTest-createPatientIdentifierType.xml
+END
+PatientServiceTest-userNotAPatient.xml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/!svn/ver/22422/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/PatientServiceTest-userNotAPatient.xml
+END
+PatientServiceTest-usersWhoArePatients.xml
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/PatientServiceTest-usersWhoArePatients.xml
+END
+PatientServiceTest-lotsOfJohns.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/PatientServiceTest-lotsOfJohns.xml
+END
+PersonServiceTest-createPersonPurgeVoidTest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/PersonServiceTest-createPersonPurgeVoidTest.xml
+END
+PersionServiceTest-voidUnvoidPersonAddress.xml
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/!svn/ver/19479/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/PersionServiceTest-voidUnvoidPersonAddress.xml
+END
+FormServiceTest-formFields.xml
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/!svn/ver/18660/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/FormServiceTest-formFields.xml
+END
+ProviderServiceTest-otherProviders.xml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/!svn/ver/23656/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/ProviderServiceTest-otherProviders.xml
+END
+ObsServiceTest-complex.xml
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/ObsServiceTest-complex.xml
+END
+PersonServiceTest-createRetiredRelationship.xml
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/PersonServiceTest-createRetiredRelationship.xml
+END
+ProviderServiceTest-initial.xml
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/!svn/ver/23656/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/ProviderServiceTest-initial.xml
+END
+PersonServiceTest-createRelationship.xml
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/PersonServiceTest-createRelationship.xml
+END
+PersonServiceTest-createRetiredPersonAttributeType.xml
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/PersonServiceTest-createRetiredPersonAttributeType.xml
+END
+CohortServiceTest-cohort.xml
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/CohortServiceTest-cohort.xml
+END
+PatientServiceTest-findPatients.xml
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/!svn/ver/20155/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/PatientServiceTest-findPatients.xml
+END
+PatientServiceTest-createPatientValidIdent.xml
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/PatientServiceTest-createPatientValidIdent.xml
+END
+LocationServiceTest-initialData.xml
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/!svn/ver/17795/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/LocationServiceTest-initialData.xml
+END
+ConceptServiceTest-numerics.xml
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/!svn/ver/23655/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/ConceptServiceTest-numerics.xml
+END
+EncounterServiceTest-initialData.xml
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/!svn/ver/23818/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/EncounterServiceTest-initialData.xml
+END
+ActiveListTest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/ActiveListTest.xml
+END
+ConceptServiceTest-conceptWithDuplicateName.xml
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/!svn/ver/23724/openmrs/trunk/api/src/test/resources/org/openmrs/api/include/ConceptServiceTest-conceptWithDuplicateName.xml
+END

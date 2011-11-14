@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/15075/openmrs/trunk/api/src/test/java/org/openmrs/reporting/export
+END
+DataExportTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/15075/openmrs/trunk/api/src/test/java/org/openmrs/reporting/export/DataExportTest.java
+END
+RowPerObsDataExportTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/!svn/ver/15075/openmrs/trunk/api/src/test/java/org/openmrs/reporting/export/RowPerObsDataExportTest.java
+END

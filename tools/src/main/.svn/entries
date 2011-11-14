@@ -1,0 +1,34 @@
+10
+
+dir
+24091
+http://svn.openmrs.org/openmrs/trunk/tools/src/main
+http://svn.openmrs.org
+
+
+
+2011-07-01T15:02:59.052128Z
+21213
+bwolfe
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+5bac5841-c719-aa4e-b3fe-cce5062f897a
+
+java
+dir
+
+resources
+dir
+

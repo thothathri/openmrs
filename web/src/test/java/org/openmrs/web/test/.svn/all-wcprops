@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/!svn/ver/17974/openmrs/trunk/web/src/test/java/org/openmrs/web/test
+END
+BaseModuleWebContextSensitiveTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/!svn/ver/17337/openmrs/trunk/web/src/test/java/org/openmrs/web/test/BaseModuleWebContextSensitiveTest.java
+END
+BaseWebContextSensitiveTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/17974/openmrs/trunk/web/src/test/java/org/openmrs/web/test/BaseWebContextSensitiveTest.java
+END
+OpenmrsWebTestsTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/17974/openmrs/trunk/web/src/test/java/org/openmrs/web/test/OpenmrsWebTestsTest.java
+END

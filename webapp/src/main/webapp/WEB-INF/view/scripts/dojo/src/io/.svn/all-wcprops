@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/io
+END
+__package__.js
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/io/__package__.js
+END
+cookie.js
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/io/cookie.js
+END
+ShortBusInit.html
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/io/ShortBusInit.html
+END
+ScriptSrcIO.js
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/io/ScriptSrcIO.js
+END
+cookies.js
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/io/cookies.js
+END
+BrowserIO.js
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/io/BrowserIO.js
+END
+RepubsubIO.js
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/io/RepubsubIO.js
+END
+RhinoIO.js
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/io/RhinoIO.js
+END
+IframeIO.js
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/io/IframeIO.js
+END
+ShortBusIO.js
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/io/ShortBusIO.js
+END

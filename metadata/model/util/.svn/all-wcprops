@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/!svn/ver/6505/openmrs/trunk/metadata/model/util
+END
+test-data-conventions.sql
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/!svn/ver/4610/openmrs/trunk/metadata/model/util/test-data-conventions.sql
+END
+restore.sql
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/!svn/ver/5893/openmrs/trunk/metadata/model/util/restore.sql
+END
+reset.sql
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/!svn/ver/5893/openmrs/trunk/metadata/model/util/reset.sql
+END
+openmrs_utilities.sql
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/!svn/ver/5908/openmrs/trunk/metadata/model/util/openmrs_utilities.sql
+END

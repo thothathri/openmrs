@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/20500/openmrs/trunk/web/src/main/java/org/openmrs/module/web/filter
+END
+ForcePasswordChangeFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/!svn/ver/17341/openmrs/trunk/web/src/main/java/org/openmrs/module/web/filter/ForcePasswordChangeFilter.java
+END
+ModuleFilterChain.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/17337/openmrs/trunk/web/src/main/java/org/openmrs/module/web/filter/ModuleFilterChain.java
+END
+ModuleFilterMapping.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/20500/openmrs/trunk/web/src/main/java/org/openmrs/module/web/filter/ModuleFilterMapping.java
+END
+ModuleFilterDefinition.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/!svn/ver/17337/openmrs/trunk/web/src/main/java/org/openmrs/module/web/filter/ModuleFilterDefinition.java
+END
+ModuleFilterConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/17337/openmrs/trunk/web/src/main/java/org/openmrs/module/web/filter/ModuleFilterConfig.java
+END
+ModuleFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/17341/openmrs/trunk/web/src/main/java/org/openmrs/module/web/filter/ModuleFilter.java
+END

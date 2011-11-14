@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/23987/openmrs/trunk/web/src/main/java/org/openmrs/layout/web/address
+END
+AddressTemplate.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/22913/openmrs/trunk/web/src/main/java/org/openmrs/layout/web/address/AddressTemplate.java
+END
+AddressSupport.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/23987/openmrs/trunk/web/src/main/java/org/openmrs/layout/web/address/AddressSupport.java
+END

@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/!svn/ver/24082/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view
+END
+login.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/login.jsp
+END
+uncaughtException.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/16349/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/uncaughtException.jsp
+END
+findPatient.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/findPatient.jsp
+END
+help.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/!svn/ver/19551/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/help.jsp
+END
+forgotPasswordForm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/forgotPasswordForm.jsp
+END
+index.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/index.jsp
+END
+optionsForm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/24037/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/optionsForm.jsp
+END
+patientDashboardForm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/23802/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/patientDashboardForm.jsp
+END
+personDashboardForm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/19653/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/personDashboardForm.jsp
+END
+feedback.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/feedback.jsp
+END
+patientGraphJsonForm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/patientGraphJsonForm.jsp
+END
+missing.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/missing.jsp
+END

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/23104/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/person
+END
+RelationshipTypeListController.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/!svn/ver/15075/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/person/RelationshipTypeListController.java
+END
+PersonDashboardController.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/!svn/ver/15075/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/person/PersonDashboardController.java
+END
+PersonAttributeTypeListController.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/!svn/ver/17341/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/person/PersonAttributeTypeListController.java
+END
+RelationshipTypeViewFormController.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/!svn/ver/17341/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/person/RelationshipTypeViewFormController.java
+END
+PersonFormController.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/!svn/ver/23104/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/person/PersonFormController.java
+END
+AddPersonController.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/!svn/ver/23039/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/person/AddPersonController.java
+END
+RelationshipTypeFormController.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/!svn/ver/17341/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/person/RelationshipTypeFormController.java
+END
+PersonAttributeTypeFormController.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/!svn/ver/22534/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/person/PersonAttributeTypeFormController.java
+END

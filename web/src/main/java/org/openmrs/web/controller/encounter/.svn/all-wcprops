@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/23920/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/encounter
+END
+LocationListController.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/!svn/ver/17341/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/encounter/LocationListController.java
+END
+EncounterTypeFormController.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/!svn/ver/23023/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/encounter/EncounterTypeFormController.java
+END
+EncounterDisplayController.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/!svn/ver/17337/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/encounter/EncounterDisplayController.java
+END
+EncounterNativeFormController.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/!svn/ver/23920/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/encounter/EncounterNativeFormController.java
+END
+AddressTemplateController.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/!svn/ver/22913/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/encounter/AddressTemplateController.java
+END
+EncounterRoleFormController.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/!svn/ver/23656/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/encounter/EncounterRoleFormController.java
+END
+EncounterTypeListController.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/!svn/ver/15075/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/encounter/EncounterTypeListController.java
+END
+LocationFormController.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/!svn/ver/23818/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/encounter/LocationFormController.java
+END
+EncounterTypeValidator.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/!svn/ver/15075/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/encounter/EncounterTypeValidator.java
+END
+EncounterFormController.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/!svn/ver/23896/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/encounter/EncounterFormController.java
+END
+HierarchyController.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/!svn/ver/17341/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/encounter/HierarchyController.java
+END
+LocationTagController.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/!svn/ver/17341/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/encounter/LocationTagController.java
+END

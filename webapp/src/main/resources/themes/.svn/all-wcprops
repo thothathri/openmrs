@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/18987/openmrs/trunk/webapp/src/main/resources/themes
+END
+orange.properties
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/17502/openmrs/trunk/webapp/src/main/resources/themes/orange.properties
+END
+purple.properties
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/17502/openmrs/trunk/webapp/src/main/resources/themes/purple.properties
+END
+legacy.properties
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/17502/openmrs/trunk/webapp/src/main/resources/themes/legacy.properties
+END
+green.properties
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/17502/openmrs/trunk/webapp/src/main/resources/themes/green.properties
+END
+defaults.properties
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/18987/openmrs/trunk/webapp/src/main/resources/themes/defaults.properties
+END

@@ -1,0 +1,149 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/!svn/ver/24082/openmrs/trunk/api/src/main/java/org/openmrs/api/db
+END
+SerializedObjectDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/17341/openmrs/trunk/api/src/main/java/org/openmrs/api/db/SerializedObjectDAO.java
+END
+ProgramWorkflowDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/17341/openmrs/trunk/api/src/main/java/org/openmrs/api/db/ProgramWorkflowDAO.java
+END
+FormDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/23855/openmrs/trunk/api/src/main/java/org/openmrs/api/db/FormDAO.java
+END
+ActiveListDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/17341/openmrs/trunk/api/src/main/java/org/openmrs/api/db/ActiveListDAO.java
+END
+PatientDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/17341/openmrs/trunk/api/src/main/java/org/openmrs/api/db/PatientDAO.java
+END
+ConceptDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/23730/openmrs/trunk/api/src/main/java/org/openmrs/api/db/ConceptDAO.java
+END
+UserDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/17341/openmrs/trunk/api/src/main/java/org/openmrs/api/db/UserDAO.java
+END
+VisitDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/23655/openmrs/trunk/api/src/main/java/org/openmrs/api/db/VisitDAO.java
+END
+OrderDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/17341/openmrs/trunk/api/src/main/java/org/openmrs/api/db/OrderDAO.java
+END
+ContextDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/17337/openmrs/trunk/api/src/main/java/org/openmrs/api/db/ContextDAO.java
+END
+SerializedObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/api/db/SerializedObject.java
+END
+ProviderDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/23656/openmrs/trunk/api/src/main/java/org/openmrs/api/db/ProviderDAO.java
+END
+LoginCredential.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/17341/openmrs/trunk/api/src/main/java/org/openmrs/api/db/LoginCredential.java
+END
+NoteDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/api/db/NoteDAO.java
+END
+EncounterDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/23818/openmrs/trunk/api/src/main/java/org/openmrs/api/db/EncounterDAO.java
+END
+package.html
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/api/db/package.html
+END
+CohortDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/api/db/CohortDAO.java
+END
+DAOException.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/api/db/DAOException.java
+END
+PersonDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/21979/openmrs/trunk/api/src/main/java/org/openmrs/api/db/PersonDAO.java
+END
+LocationDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/22653/openmrs/trunk/api/src/main/java/org/openmrs/api/db/LocationDAO.java
+END
+TemplateDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/api/db/TemplateDAO.java
+END
+PatientSetDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/17341/openmrs/trunk/api/src/main/java/org/openmrs/api/db/PatientSetDAO.java
+END
+AdministrationDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/22910/openmrs/trunk/api/src/main/java/org/openmrs/api/db/AdministrationDAO.java
+END
+ObsDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/17341/openmrs/trunk/api/src/main/java/org/openmrs/api/db/ObsDAO.java
+END

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/23730/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/jquery/autocomplete
+END
+jquery.ui.autocomplete.autoSelect.js
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/!svn/ver/19402/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/jquery/autocomplete/jquery.ui.autocomplete.autoSelect.js
+END
+OpenmrsAutoComplete.js
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/!svn/ver/23730/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/jquery/autocomplete/OpenmrsAutoComplete.js
+END

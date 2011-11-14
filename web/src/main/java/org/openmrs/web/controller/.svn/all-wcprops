@@ -1,0 +1,125 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/!svn/ver/24082/openmrs/trunk/web/src/main/java/org/openmrs/web/controller
+END
+PersonRelationshipsPortletController.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/!svn/ver/15075/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/PersonRelationshipsPortletController.java
+END
+PatientVisitsPortletController.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/!svn/ver/23686/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/PatientVisitsPortletController.java
+END
+PseudoStaticContentController.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/!svn/ver/23732/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/PseudoStaticContentController.java
+END
+ConceptFormController.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/23077/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/ConceptFormController.java
+END
+ConceptFormValidator.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/23077/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/ConceptFormValidator.java
+END
+RequireNameValidator.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/15075/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/RequireNameValidator.java
+END
+PatientProgramsPortletController.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/!svn/ver/15641/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/PatientProgramsPortletController.java
+END
+OptionsFormController.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/23745/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/OptionsFormController.java
+END
+ForgotPasswordFormController.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/!svn/ver/21213/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/ForgotPasswordFormController.java
+END
+GlobalPropertyPortletController.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/!svn/ver/15075/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/GlobalPropertyPortletController.java
+END
+PersonFormEntryPortletController.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/!svn/ver/17341/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/PersonFormEntryPortletController.java
+END
+RedirectController.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/17341/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/RedirectController.java
+END
+PortletControllerUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/23802/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/PortletControllerUtil.java
+END
+ConceptStatsFormController.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/!svn/ver/17341/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/ConceptStatsFormController.java
+END
+PortletController.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/23913/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/PortletController.java
+END
+PatientSummaryPortletController.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/!svn/ver/15075/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/PatientSummaryPortletController.java
+END
+RegimenPortletController.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/!svn/ver/15075/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/RegimenPortletController.java
+END
+ActiveListPortletController.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/!svn/ver/17337/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/ActiveListPortletController.java
+END
+FieldGenController.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/17341/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/FieldGenController.java
+END
+PatientEncountersPortletController.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/!svn/ver/23523/openmrs/trunk/web/src/main/java/org/openmrs/web/controller/PatientEncountersPortletController.java
+END

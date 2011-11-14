@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/!svn/ver/22594/openmrs/trunk/api/src/test/java/org/openmrs/util
+END
+DatabaseUpdaterTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/22594/openmrs/trunk/api/src/test/java/org/openmrs/util/DatabaseUpdaterTest.java
+END
+ReflectTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/19843/openmrs/trunk/api/src/test/java/org/openmrs/util/ReflectTest.java
+END
+PersonByNameComparatorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/17337/openmrs/trunk/api/src/test/java/org/openmrs/util/PersonByNameComparatorTest.java
+END
+HandlerUtilTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/17337/openmrs/trunk/api/src/test/java/org/openmrs/util/HandlerUtilTest.java
+END
+DrugsByNameComparatorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/18266/openmrs/trunk/api/src/test/java/org/openmrs/util/DrugsByNameComparatorTest.java
+END
+OpenmrsSecurityManagerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/17337/openmrs/trunk/api/src/test/java/org/openmrs/util/OpenmrsSecurityManagerTest.java
+END
+OpenmrsClassLoaderTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/20640/openmrs/trunk/api/src/test/java/org/openmrs/util/OpenmrsClassLoaderTest.java
+END
+LocationUtilityTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/17918/openmrs/trunk/api/src/test/java/org/openmrs/util/LocationUtilityTest.java
+END
+OpenmrsUtilTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/18180/openmrs/trunk/api/src/test/java/org/openmrs/util/OpenmrsUtilTest.java
+END
+UserByNameComparatorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/17337/openmrs/trunk/api/src/test/java/org/openmrs/util/UserByNameComparatorTest.java
+END
+LocaleUtilityTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/17974/openmrs/trunk/api/src/test/java/org/openmrs/util/LocaleUtilityTest.java
+END
+SecurityTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/18328/openmrs/trunk/api/src/test/java/org/openmrs/util/SecurityTest.java
+END

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/!svn/ver/23513/openmrs/trunk/webapp/src/main/resources
+END
+liquibase-demo-data.zip
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/23513/openmrs/trunk/webapp/src/main/resources/liquibase-demo-data.zip
+END
+log4j.xml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/resources/log4j.xml
+END
+velocity.properties
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/resources/velocity.properties
+END

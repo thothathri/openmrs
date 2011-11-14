@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/!svn/ver/24031/openmrs/trunk/web/src/main/java/org/openmrs/web/filter
+END
+OpenmrsFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/21213/openmrs/trunk/web/src/main/java/org/openmrs/web/filter/OpenmrsFilter.java
+END
+GZIPResponseStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/15075/openmrs/trunk/web/src/main/java/org/openmrs/web/filter/GZIPResponseStream.java
+END
+GZIPResponseWrapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/15075/openmrs/trunk/web/src/main/java/org/openmrs/web/filter/GZIPResponseWrapper.java
+END
+StartupFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/17341/openmrs/trunk/web/src/main/java/org/openmrs/web/filter/StartupFilter.java
+END
+GZIPFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/17341/openmrs/trunk/web/src/main/java/org/openmrs/web/filter/GZIPFilter.java
+END

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/!svn/ver/23410/openmrs/trunk/api/src/test/java/org/openmrs/logic/result
+END
+ResultTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/23410/openmrs/trunk/api/src/test/java/org/openmrs/logic/result/ResultTest.java
+END
+EmptyResultTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/17337/openmrs/trunk/api/src/test/java/org/openmrs/logic/result/EmptyResultTest.java
+END

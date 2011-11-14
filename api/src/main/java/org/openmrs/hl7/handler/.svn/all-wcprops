@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/!svn/ver/23410/openmrs/trunk/api/src/main/java/org/openmrs/hl7/handler
+END
+ORUR01Handler.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/23410/openmrs/trunk/api/src/main/java/org/openmrs/hl7/handler/ORUR01Handler.java
+END
+ADTA28Handler.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/18988/openmrs/trunk/api/src/main/java/org/openmrs/hl7/handler/ADTA28Handler.java
+END
+ProposingConceptException.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/hl7/handler/ProposingConceptException.java
+END

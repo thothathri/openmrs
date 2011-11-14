@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/!svn/ver/19326/openmrs/trunk/api/src/test/java/org/openmrs/module
+END
+ModuleUtilTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/17470/openmrs/trunk/api/src/test/java/org/openmrs/module/ModuleUtilTest.java
+END
+VersionComparatorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/19326/openmrs/trunk/api/src/test/java/org/openmrs/module/VersionComparatorTest.java
+END
+ModuleInteroperabilityTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/18554/openmrs/trunk/api/src/test/java/org/openmrs/module/ModuleInteroperabilityTest.java
+END
+ModuleTestSuite.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/15075/openmrs/trunk/api/src/test/java/org/openmrs/module/ModuleTestSuite.java
+END

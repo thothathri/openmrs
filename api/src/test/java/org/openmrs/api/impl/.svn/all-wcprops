@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/!svn/ver/17539/openmrs/trunk/api/src/test/java/org/openmrs/api/impl
+END
+ConceptServiceImplTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/17539/openmrs/trunk/api/src/test/java/org/openmrs/api/impl/ConceptServiceImplTest.java
+END
+SerializationServiceImplTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/17337/openmrs/trunk/api/src/test/java/org/openmrs/api/impl/SerializationServiceImplTest.java
+END

@@ -1,0 +1,227 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/!svn/ver/23855/openmrs/trunk/api/src/main/java/org/openmrs/api/handler
+END
+ConceptProposalHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/17341/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/ConceptProposalHandler.java
+END
+SaveHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/17337/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/SaveHandler.java
+END
+VisitVoidHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/23669/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/VisitVoidHandler.java
+END
+PatientDataVoidHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/19385/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/PatientDataVoidHandler.java
+END
+ConceptSaveHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/ConceptSaveHandler.java
+END
+BaseVoidHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/17337/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/BaseVoidHandler.java
+END
+BaseEncounterVisitHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/23104/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/BaseEncounterVisitHandler.java
+END
+PersonVoidHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/23063/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/PersonVoidHandler.java
+END
+BaseRetireHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/17337/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/BaseRetireHandler.java
+END
+OpenmrsMetadataSaveHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/OpenmrsMetadataSaveHandler.java
+END
+AuditableSaveHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/17501/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/AuditableSaveHandler.java
+END
+VoidHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/17337/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/VoidHandler.java
+END
+VisitUnvoidHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/23669/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/VisitUnvoidHandler.java
+END
+EncounterVisitHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/23104/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/EncounterVisitHandler.java
+END
+RequireVoidReasonSaveHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/!svn/ver/17341/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/RequireVoidReasonSaveHandler.java
+END
+RetireHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/17337/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/RetireHandler.java
+END
+PatientDataUnvoidHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/19385/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/PatientDataUnvoidHandler.java
+END
+PersonNameSaveHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/PersonNameSaveHandler.java
+END
+BaseUnvoidHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/17337/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/BaseUnvoidHandler.java
+END
+OpenmrsObjectSaveHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/23855/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/OpenmrsObjectSaveHandler.java
+END
+PatientSaveHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/PatientSaveHandler.java
+END
+PersonUnvoidHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/17337/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/PersonUnvoidHandler.java
+END
+BaseUnretireHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/17337/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/BaseUnretireHandler.java
+END
+ExistingOrNewVisitAssignmentHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/!svn/ver/23676/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/ExistingOrNewVisitAssignmentHandler.java
+END
+UserSaveHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/17337/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/UserSaveHandler.java
+END
+RequiredDataHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/17337/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/RequiredDataHandler.java
+END
+OrderSaveHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/OrderSaveHandler.java
+END
+ConceptReferenceTermSaveHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/!svn/ver/23730/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/ConceptReferenceTermSaveHandler.java
+END
+UnvoidHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/17337/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/UnvoidHandler.java
+END
+ExistingVisitAssignmentHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/!svn/ver/23524/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/ExistingVisitAssignmentHandler.java
+END
+ConceptNameSaveHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/21197/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/ConceptNameSaveHandler.java
+END
+VoidSaveHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/17341/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/VoidSaveHandler.java
+END
+RequireVoidReasonVoidHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/!svn/ver/17535/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/RequireVoidReasonVoidHandler.java
+END
+PersonSaveHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/18850/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/PersonSaveHandler.java
+END
+UnretireHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/17337/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/UnretireHandler.java
+END
+NoVisitAssignmentHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/23104/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/NoVisitAssignmentHandler.java
+END
+RetireSaveHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/17337/openmrs/trunk/api/src/main/java/org/openmrs/api/handler/RetireSaveHandler.java
+END

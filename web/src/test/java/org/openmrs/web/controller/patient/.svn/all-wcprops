@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/23581/openmrs/trunk/web/src/test/java/org/openmrs/web/controller/patient
+END
+ShortPatientFormControllerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/!svn/ver/23581/openmrs/trunk/web/src/test/java/org/openmrs/web/controller/patient/ShortPatientFormControllerTest.java
+END
+ShortPatientFormValidatorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/!svn/ver/23581/openmrs/trunk/web/src/test/java/org/openmrs/web/controller/patient/ShortPatientFormValidatorTest.java
+END

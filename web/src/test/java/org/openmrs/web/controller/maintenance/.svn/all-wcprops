@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/21675/openmrs/trunk/web/src/test/java/org/openmrs/web/controller/maintenance
+END
+SystemInformationControllerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/!svn/ver/17470/openmrs/trunk/web/src/test/java/org/openmrs/web/controller/maintenance/SystemInformationControllerTest.java
+END
+GlobalPropertyControllerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/!svn/ver/21675/openmrs/trunk/web/src/test/java/org/openmrs/web/controller/maintenance/GlobalPropertyControllerTest.java
+END

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/!svn/ver/17918/openmrs/trunk/api/src/test/java/org/openmrs/api/context
+END
+DaemonTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/17485/openmrs/trunk/api/src/test/java/org/openmrs/api/context/DaemonTest.java
+END
+ContextWithModuleTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/17337/openmrs/trunk/api/src/test/java/org/openmrs/api/context/ContextWithModuleTest.java
+END
+ContextTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/17918/openmrs/trunk/api/src/test/java/org/openmrs/api/context/ContextTest.java
+END

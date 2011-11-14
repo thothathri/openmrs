@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/23763/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/forms
+END
+formSchemaDesignForm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/forms/formSchemaDesignForm.jsp
+END
+fieldTypeForm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/forms/fieldTypeForm.jsp
+END
+fieldList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/forms/fieldList.jsp
+END
+localHeader.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/forms/localHeader.jsp
+END
+fieldForm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/17825/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/forms/fieldForm.jsp
+END
+formEditForm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/23763/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/forms/formEditForm.jsp
+END
+formList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/forms/formList.jsp
+END
+fieldTypeList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/forms/fieldTypeList.jsp
+END
+auditFieldForm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/forms/auditFieldForm.jsp
+END

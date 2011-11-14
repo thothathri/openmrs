@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/16878/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/orders
+END
+localHeader.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/16878/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/orders/localHeader.jsp
+END
+orderList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/orders/orderList.jsp
+END
+orderDrugList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/orders/orderDrugList.jsp
+END
+orderTypeForm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/orders/orderTypeForm.jsp
+END
+choosePatient.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/orders/choosePatient.jsp
+END
+orderListByPatient.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/orders/orderListByPatient.jsp
+END
+orderForm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/orders/orderForm.jsp
+END
+orderDrugForm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/16878/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/orders/orderDrugForm.jsp
+END
+orderTypeList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/orders/orderTypeList.jsp
+END

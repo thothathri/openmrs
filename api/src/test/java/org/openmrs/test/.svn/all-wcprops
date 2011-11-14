@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/!svn/ver/23410/openmrs/trunk/api/src/test/java/org/openmrs/test
+END
+CreateInitialDataSet.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/15075/openmrs/trunk/api/src/test/java/org/openmrs/test/CreateInitialDataSet.java
+END
+SkipBaseSetupAnnotationExecutionListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/!svn/ver/15075/openmrs/trunk/api/src/test/java/org/openmrs/test/SkipBaseSetupAnnotationExecutionListener.java
+END
+StartModule.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/15075/openmrs/trunk/api/src/test/java/org/openmrs/test/StartModule.java
+END
+StartModuleExecutionListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/18554/openmrs/trunk/api/src/test/java/org/openmrs/test/StartModuleExecutionListener.java
+END
+SkipBaseSetup.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/15075/openmrs/trunk/api/src/test/java/org/openmrs/test/SkipBaseSetup.java
+END
+CreateCoreUuids.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/17974/openmrs/trunk/api/src/test/java/org/openmrs/test/CreateCoreUuids.java
+END
+MigrateDataSet.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/15075/openmrs/trunk/api/src/test/java/org/openmrs/test/MigrateDataSet.java
+END
+package.html
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/15075/openmrs/trunk/api/src/test/java/org/openmrs/test/package.html
+END
+BaseContextSensitiveTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/17974/openmrs/trunk/api/src/test/java/org/openmrs/test/BaseContextSensitiveTest.java
+END
+Verifies.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/17337/openmrs/trunk/api/src/test/java/org/openmrs/test/Verifies.java
+END
+BaseModuleContextSensitiveTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/15075/openmrs/trunk/api/src/test/java/org/openmrs/test/BaseModuleContextSensitiveTest.java
+END
+TestUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/!svn/ver/23410/openmrs/trunk/api/src/test/java/org/openmrs/test/TestUtil.java
+END

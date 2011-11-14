@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/!svn/ver/23410/openmrs/trunk/api/src/main/java/org/openmrs/notification
+END
+MessageService.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/17341/openmrs/trunk/api/src/main/java/org/openmrs/notification/MessageService.java
+END
+AlertRecipient.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/23410/openmrs/trunk/api/src/main/java/org/openmrs/notification/AlertRecipient.java
+END
+Alert.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/23410/openmrs/trunk/api/src/main/java/org/openmrs/notification/Alert.java
+END
+NoteType.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/notification/NoteType.java
+END
+MessageSender.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/notification/MessageSender.java
+END
+MessagePreparator.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/notification/MessagePreparator.java
+END
+Template.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/notification/Template.java
+END
+AlertService.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/17441/openmrs/trunk/api/src/main/java/org/openmrs/notification/AlertService.java
+END
+MessageException.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/notification/MessageException.java
+END
+Message.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/notification/Message.java
+END
+NotificationConstants.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/notification/NotificationConstants.java
+END
+NoteService.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/notification/NoteService.java
+END
+Note.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/15075/openmrs/trunk/api/src/main/java/org/openmrs/notification/Note.java
+END

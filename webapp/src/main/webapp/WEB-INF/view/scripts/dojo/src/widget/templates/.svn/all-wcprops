@@ -1,0 +1,437 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates
+END
+HtmlFloatingPane.html
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlFloatingPane.html
+END
+decrementMonth.gif
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/decrementMonth.gif
+END
+HtmlDocPane.html
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlDocPane.html
+END
+HtmlTaskBarItemTemplate.html
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlTaskBarItemTemplate.html
+END
+HtmlSliderHorizontal.html
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlSliderHorizontal.html
+END
+HtmlComboButtonTemplate.html
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlComboButtonTemplate.html
+END
+HtmlDocPane.css
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlDocPane.css
+END
+HtmlCheckBox.html
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlCheckBox.html
+END
+HtmlButtonTemplate.css
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlButtonTemplate.css
+END
+check_off.gif
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/check_off.gif
+END
+HtmlFloatingPane.css
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlFloatingPane.css
+END
+HtmlResizableTextarea.css
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlResizableTextarea.css
+END
+HtmlComboBox.html
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlComboBox.html
+END
+HtmlInlineEditBox.css
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlInlineEditBox.css
+END
+PopUpButton.css
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/PopUpButton.css
+END
+Menu.css
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/Menu.css
+END
+grabCorner.gif
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/grabCorner.gif
+END
+HtmlTaskBar.css
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlTaskBar.css
+END
+TitlePane.html
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/TitlePane.html
+END
+HtmlDatePicker.css
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlDatePicker.css
+END
+HtmlResizableTextarea.html
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlResizableTextarea.html
+END
+Wizard.css
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/Wizard.css
+END
+HtmlSlider.css
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlSlider.css
+END
+check_disabled_on.gif
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/check_disabled_on.gif
+END
+HtmlEditorToolbarOneline.html
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlEditorToolbarOneline.html
+END
+HtmlMenuItemTemplate.html
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlMenuItemTemplate.html
+END
+incrementMonth.gif
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/incrementMonth.gif
+END
+HtmlSimpleDropdownButtons.css
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlSimpleDropdownButtons.css
+END
+Wizard.html
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/Wizard.html
+END
+HtmlDatePicker.html
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlDatePicker.html
+END
+HtmlTimePicker.html
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlTimePicker.html
+END
+HtmlMonthlyCalendar.css
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlMonthlyCalendar.css
+END
+HtmlMonthlyCalendar.html
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlMonthlyCalendar.html
+END
+HtmlMenu2.css
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlMenu2.css
+END
+HtmlShowSlide.css
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlShowSlide.css
+END
+HtmlButtonTemplate.html
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlButtonTemplate.html
+END
+HtmlToolbar.css
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlToolbar.css
+END
+HtmlDialog.html
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlDialog.html
+END
+HtmlSplitContainer.css
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlSplitContainer.css
+END
+HtmlTooltipTemplate.html
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlTooltipTemplate.html
+END
+HtmlSpinner.html
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlSpinner.html
+END
+check_hover_off.gif
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/check_hover_off.gif
+END
+check_on.gif
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/check_on.gif
+END
+HtmlSlider.html
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlSlider.html
+END
+HtmlShowSlide.html
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlShowSlide.html
+END
+HtmlDropDownButtonTemplate.html
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlDropDownButtonTemplate.html
+END
+Tree.css
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/Tree.css
+END
+DemoEngine.html
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/DemoEngine.html
+END
+richtextframe.html
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/richtextframe.html
+END
+HtmlEditorToolbar.css
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlEditorToolbar.css
+END
+HtmlSlideShow.css
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlSlideShow.css
+END
+check_disabled_off.gif
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/check_disabled_off.gif
+END
+incrementWeek.gif
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/incrementWeek.gif
+END
+HtmlComboBox.css
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlComboBox.css
+END
+HtmlFisheyeList.css
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlFisheyeList.css
+END
+HtmlTabContainer.html
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlTabContainer.html
+END
+HtmlCiviCrmDatePicker.html
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlCiviCrmDatePicker.html
+END
+HtmlSpinner.css
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlSpinner.css
+END
+HslColorPicker.svg
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HslColorPicker.svg
+END
+HtmlTooltipTemplate.css
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlTooltipTemplate.css
+END
+HtmlTabContainer.css
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlTabContainer.css
+END
+check_hover_on.gif
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/check_hover_on.gif
+END
+HtmlShow.html
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlShow.html
+END
+HtmlSlideShow.html
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlSlideShow.html
+END
+HtmlEditorToolbar.html
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlEditorToolbar.html
+END
+HtmlSliderVertical.html
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlSliderVertical.html
+END
+HtmlTimePicker.css
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlTimePicker.css
+END
+HtmlContextMenuTemplate.html
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlContextMenuTemplate.html
+END
+HtmlInlineEditBox.html
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlInlineEditBox.html
+END
+HtmlResizeHandle.css
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlResizeHandle.css
+END
+decrementWeek.gif
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/decrementWeek.gif
+END
+HtmlShow.css
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/dojo/src/widget/templates/HtmlShow.css
+END

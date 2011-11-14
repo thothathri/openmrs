@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/23655/openmrs/trunk/api/src/test/resources/org/openmrs/api/db/include
+END
+EncounterDAOTest-initialData.xml
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/!svn/ver/23655/openmrs/trunk/api/src/test/resources/org/openmrs/api/db/include/EncounterDAOTest-initialData.xml
+END
+SerializedObjectDAOTest-initialData.xml
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/api/db/include/SerializedObjectDAOTest-initialData.xml
+END
+contextDAOTest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/api/db/include/contextDAOTest.xml
+END
+serialization.xstream-0.1.1.omod
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/api/db/include/serialization.xstream-0.1.1.omod
+END

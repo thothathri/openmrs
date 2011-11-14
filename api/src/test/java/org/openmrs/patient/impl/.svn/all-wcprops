@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/!svn/ver/15075/openmrs/trunk/api/src/test/java/org/openmrs/patient/impl
+END
+VerhoeffIdentifierValidatorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/!svn/ver/15075/openmrs/trunk/api/src/test/java/org/openmrs/patient/impl/VerhoeffIdentifierValidatorTest.java
+END
+LuhnIdentifierValidatorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/!svn/ver/15075/openmrs/trunk/api/src/test/java/org/openmrs/patient/impl/LuhnIdentifierValidatorTest.java
+END

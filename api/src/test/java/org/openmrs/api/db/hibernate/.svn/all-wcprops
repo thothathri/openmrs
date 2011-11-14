@@ -1,0 +1,11 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/17667/openmrs/trunk/api/src/test/java/org/openmrs/api/db/hibernate
+END
+AuditableInterceptorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/!svn/ver/17667/openmrs/trunk/api/src/test/java/org/openmrs/api/db/hibernate/AuditableInterceptorTest.java
+END

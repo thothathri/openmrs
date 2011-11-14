@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/15075/openmrs/trunk/web/src/main/resources/org/openmrs/web/filter/startuperror
+END
+generalerror.vm
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/!svn/ver/15075/openmrs/trunk/web/src/main/resources/org/openmrs/web/filter/startuperror/generalerror.vm
+END
+coremoduleerror.vm
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/!svn/ver/15075/openmrs/trunk/web/src/main/resources/org/openmrs/web/filter/startuperror/coremoduleerror.vm
+END
+header.vm
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/15075/openmrs/trunk/web/src/main/resources/org/openmrs/web/filter/startuperror/header.vm
+END
+footer.vm
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/15075/openmrs/trunk/web/src/main/resources/org/openmrs/web/filter/startuperror/footer.vm
+END

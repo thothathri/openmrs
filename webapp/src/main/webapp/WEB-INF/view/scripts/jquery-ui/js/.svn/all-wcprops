@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/24082/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/jquery-ui/js
+END
+jquery-ui-timepicker-i18n.js
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/!svn/ver/24082/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/jquery-ui/js/jquery-ui-timepicker-i18n.js
+END
+jquery-ui-datepicker-i18n.js
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/jquery-ui/js/jquery-ui-datepicker-i18n.js
+END
+jquery-ui.custom.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/!svn/ver/17502/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/jquery-ui/js/jquery-ui.custom.min.js
+END
+openmrsSearch.js
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/!svn/ver/23953/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/jquery-ui/js/openmrsSearch.js
+END
+jquery-ui-timepicker-addon.js
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/!svn/ver/24082/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/scripts/jquery-ui/js/jquery-ui-timepicker-addon.js
+END

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/!svn/ver/21213/openmrs/trunk/tools/src/main/resources/checkstyle
+END
+license-header.txt
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/17340/openmrs/trunk/tools/src/main/resources/checkstyle/license-header.txt
+END
+openmrs-checkstyle.xml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/21213/openmrs/trunk/tools/src/main/resources/checkstyle/openmrs-checkstyle.xml
+END
+checkstyle-suppressions.xml
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/17340/openmrs/trunk/tools/src/main/resources/checkstyle/checkstyle-suppressions.xml
+END
+openmrs-checkstyle.properties
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/17340/openmrs/trunk/tools/src/main/resources/checkstyle/openmrs-checkstyle.properties
+END

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/!svn/ver/17441/openmrs/trunk/api/src/test/java/org/openmrs/notification
+END
+MessageServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/15075/openmrs/trunk/api/src/test/java/org/openmrs/notification/MessageServiceTest.java
+END
+AlertServiceTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/17441/openmrs/trunk/api/src/test/java/org/openmrs/notification/AlertServiceTest.java
+END
+MessageTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/15075/openmrs/trunk/api/src/test/java/org/openmrs/notification/MessageTest.java
+END

@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/23906/openmrs/trunk/web/src/main/resources/org/openmrs/web/filter/initialization
+END
+wizardcomplete.vm
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/!svn/ver/21163/openmrs/trunk/web/src/main/resources/org/openmrs/web/filter/initialization/wizardcomplete.vm
+END
+adminusersetup.vm
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/!svn/ver/17727/openmrs/trunk/web/src/main/resources/org/openmrs/web/filter/initialization/adminusersetup.vm
+END
+databasetablesanduser.vm
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/!svn/ver/17727/openmrs/trunk/web/src/main/resources/org/openmrs/web/filter/initialization/databasetablesanduser.vm
+END
+databasesetup.vm
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/!svn/ver/18193/openmrs/trunk/web/src/main/resources/org/openmrs/web/filter/initialization/databasesetup.vm
+END
+implementationidsetup.vm
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/!svn/ver/17727/openmrs/trunk/web/src/main/resources/org/openmrs/web/filter/initialization/implementationidsetup.vm
+END
+testingsetup.vm
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/!svn/ver/21163/openmrs/trunk/web/src/main/resources/org/openmrs/web/filter/initialization/testingsetup.vm
+END
+progress.vm
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/22840/openmrs/trunk/web/src/main/resources/org/openmrs/web/filter/initialization/progress.vm
+END
+header.vm
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/21163/openmrs/trunk/web/src/main/resources/org/openmrs/web/filter/initialization/header.vm
+END
+installmethod.vm
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/!svn/ver/23906/openmrs/trunk/web/src/main/resources/org/openmrs/web/filter/initialization/installmethod.vm
+END
+footer.vm
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/15075/openmrs/trunk/web/src/main/resources/org/openmrs/web/filter/initialization/footer.vm
+END
+otherruntimeproperties.vm
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/!svn/ver/17727/openmrs/trunk/web/src/main/resources/org/openmrs/web/filter/initialization/otherruntimeproperties.vm
+END
+simplesetup.vm
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/!svn/ver/23556/openmrs/trunk/web/src/main/resources/org/openmrs/web/filter/initialization/simplesetup.vm
+END

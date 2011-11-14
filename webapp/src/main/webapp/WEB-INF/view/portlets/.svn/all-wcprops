@@ -1,0 +1,161 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/!svn/ver/23921/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/portlets
+END
+login.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/portlets/login.jsp
+END
+patientGraphs.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/22352/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/portlets/patientGraphs.jsp
+END
+findPatient.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/20155/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/portlets/findPatient.jsp
+END
+patientVisits.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/23921/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/portlets/patientVisits.jsp
+END
+patientRegimenCompleted.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/16348/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/portlets/patientRegimenCompleted.jsp
+END
+customMostRecentObs.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/20152/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/portlets/customMostRecentObs.jsp
+END
+patientHeader.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/23913/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/portlets/patientHeader.jsp
+END
+patientDemographics.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/20439/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/portlets/patientDemographics.jsp
+END
+findObservation.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/23733/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/portlets/findObservation.jsp
+END
+patientPrograms.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/23743/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/portlets/patientPrograms.jsp
+END
+cohort.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/portlets/cohort.jsp
+END
+nameLayout.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/17521/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/portlets/nameLayout.jsp
+END
+globalProperties.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/portlets/globalProperties.jsp
+END
+personFormEntry.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/portlets/personFormEntry.jsp
+END
+addPersonForm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/22911/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/portlets/addPersonForm.jsp
+END
+activeListProblem.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/17920/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/portlets/activeListProblem.jsp
+END
+activeListAllergy.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/16817/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/portlets/activeListAllergy.jsp
+END
+patientRegimen.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/portlets/patientRegimen.jsp
+END
+patientRegimenCurrent.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/portlets/patientRegimenCurrent.jsp
+END
+patientOverview.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/20588/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/portlets/patientOverview.jsp
+END
+addressLayout.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/22913/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/portlets/addressLayout.jsp
+END
+welcome.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/23680/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/portlets/welcome.jsp
+END
+personHeader.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/portlets/personHeader.jsp
+END
+patientIdentifiers.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/portlets/patientIdentifiers.jsp
+END
+patientEncounters.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/23920/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/portlets/patientEncounters.jsp
+END
+personRelationships.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/23558/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/portlets/personRelationships.jsp
+END

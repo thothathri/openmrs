@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/23962/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/encounters
+END
+encounterForm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/23920/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/encounters/encounterForm.jsp
+END
+encounterRoleList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/!svn/ver/23656/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/encounters/encounterRoleList.jsp
+END
+localHeader.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/23655/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/encounters/localHeader.jsp
+END
+encounterTypeList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/!svn/ver/15075/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/encounters/encounterTypeList.jsp
+END
+encounterRoleForm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/!svn/ver/23656/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/encounters/encounterRoleForm.jsp
+END
+encounterNativeForm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/!svn/ver/23962/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/encounters/encounterNativeForm.jsp
+END
+encounterTypeForm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/!svn/ver/22953/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/encounters/encounterTypeForm.jsp
+END
+index.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/17827/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/encounters/index.jsp
+END
+obsDisplay.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/17346/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin/encounters/obsDisplay.jsp
+END

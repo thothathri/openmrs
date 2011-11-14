@@ -1,0 +1,4264 @@
+Index: .settings/org.eclipse.m2e.core.prefs
+===================================================================
+--- .settings/org.eclipse.m2e.core.prefs	(revision 0)
++++ .settings/org.eclipse.m2e.core.prefs	(revision 0)
+@@ -0,0 +1,5 @@
++#Sat Oct 29 20:14:22 EDT 2011
++activeProfiles=
++eclipse.preferences.version=1
++resolveWorkspaceProjects=false
++version=1
+Index: .settings/org.eclipse.core.resources.prefs
+===================================================================
+--- .settings/org.eclipse.core.resources.prefs	(revision 24091)
++++ .settings/org.eclipse.core.resources.prefs	(working copy)
+@@ -1,4 +1,4 @@
+-#Tue Jan 25 11:03:23 EST 2011
++#Tue Oct 25 02:57:34 EDT 2011
+ eclipse.preferences.version=1
+ encoding//web/WEB-INF/messages_es.properties=UTF-8
+ encoding//web/WEB-INF/messages_fr.properties=UTF-8
+@@ -15,3 +15,4 @@
+ encoding//webapp/src/main/webapp/WEB-INF/module_messages_fr.properties=UTF-8
+ encoding//webapp/src/main/webapp/WEB-INF/module_messages_it.properties=UTF-8
+ encoding//webapp/src/main/webapp/WEB-INF/module_messages_pt.properties=UTF-8
++encoding/<project>=UTF-8
+Index: diff_file.diff
+===================================================================
+Index: api/pom.xml
+===================================================================
+--- api/pom.xml	(revision 24091)
++++ api/pom.xml	(working copy)
+@@ -209,17 +209,6 @@
+                <grammars>ArdenRecognizer.g</grammars>
+             </configuration>
+          </plugin>
+-         <plugin>
+-            <groupId>com.googlecode.maven-java-formatter-plugin</groupId>
+-            <artifactId>maven-java-formatter-plugin</artifactId>
+-            <executions>
+-               <execution>
+-                  <goals>
+-                     <goal>format</goal>
+-                  </goals>
+-               </execution>
+-            </executions>
+-         </plugin>
+       </plugins>
+    </build>
+ </project>
+\ No newline at end of file
+Index: api/src/main/resources/hibernate.cfg.xml
+===================================================================
+--- api/src/main/resources/hibernate.cfg.xml	(revision 24091)
++++ api/src/main/resources/hibernate.cfg.xml	(working copy)
+@@ -77,6 +77,7 @@
+ 		<mapping resource="org/openmrs/hl7/db/hibernate/HL7InQueue.hbm.xml" />
+ 		<mapping resource="org/openmrs/hl7/db/hibernate/HL7InArchive.hbm.xml" />
+ 		<mapping resource="org/openmrs/hl7/db/hibernate/HL7InError.hbm.xml" />
++		<mapping resource="org/openmrs/hl7/db/hibernate/HL7OutQueue.hbm.xml" />
+ 		
+ 		<!-- Reporting -->
+ 		<mapping resource="org/openmrs/reporting/db/hibernate/Report.hbm.xml" />
+Index: api/src/main/resources/org/openmrs/hl7/db/hibernate/HL7OutQueue.hbm.xml
+===================================================================
+--- api/src/main/resources/org/openmrs/hl7/db/hibernate/HL7OutQueue.hbm.xml	(revision 0)
++++ api/src/main/resources/org/openmrs/hl7/db/hibernate/HL7OutQueue.hbm.xml	(revision 0)
+@@ -0,0 +1,36 @@
++<?xml version="1.0"?>
++<!DOCTYPE hibernate-mapping PUBLIC
++    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
++    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
++
++<hibernate-mapping package="org.openmrs">
++
++	<class name="org.openmrs.hl7.HL7OutQueue" table="hl7_out_queue">
++
++		<id name="HL7OutQueueId" type="int" column="hl7_out_queue_id" unsaved-value="0">
++			<generator class="native">
++				<param name="sequence">hl7_out_queue_hl7_out_queue_id_seq</param>
++			</generator>
++		</id>
++
++		<discriminator column="hl7_out_queue_id" insert="false" />
++			
++		<property name="HL7Data" type="java.lang.String" 
++			column="hl7_data" not-null="true" length="16777215" />
++			
++ 		<property name="dateCreated" type="java.util.Date" 
++			column="date_created" not-null="false" length="19" />
++			
++		<property name="dateProcessed" type="java.util.Date" 
++			column="date_processed" not-null="false" length="19" />
++		
++		<property name="errorMessage" type="java.lang.String" 
++			column="error_msg" not-null="false" length="16777215" />
++			
++		<property name="messageState" type="java.lang.Integer" 
++			column="message_state" not-null="true" length="4" />
++		
++		<property name="uuid" type="java.lang.String"
++			column="uuid" length="38" unique="true" />
++	</class>
++</hibernate-mapping>
+Index: api/src/main/resources/liquibase-update-to-latest.xml
+===================================================================
+--- api/src/main/resources/liquibase-update-to-latest.xml	(revision 24091)
++++ api/src/main/resources/liquibase-update-to-latest.xml	(working copy)
+@@ -5959,6 +5959,24 @@
+             <column name="template" type="text"/>
+         </addColumn>
+ 	</changeSet>
+-
++	<changeSet id="201010291835" author="thothathri">
++		<preConditions onFail="MARK_RAN">
++			<not><tableExists tableName="hl7_out_queue"/></not>
++		</preConditions>
++		<comment>	
++			Create the hl7_out_queue table
++		</comment>
++		<createTable tableName="hl7_out_queue">
++		<column name="hl7_out_queue_id" type="int" autoIncrement="true">
++                 <constraints primaryKey="true" nullable="false" />
++         </column>
++             <column name="hl7_data" type="text"><constraints nullable="false" /></column>
++             <column defaultValueNumeric="0" name="message_state" type="int(11)"><constraints nullable="false" /> </column>
++             <column name="date_processed" type="datetime" defaultValue="null"></column>
++             <column name="error_msg" type="text"/>
++             <column name="date_created" type="datetime" defaultValue="null" />
++             <column name="uuid" type="char(38)" defaultValue="null"><constraints unique="true" /></column>
++		</createTable>
++	</changeSet>
+ </databaseChangeLog>
+ 
+Index: api/src/main/java/org/openmrs/hl7/impl/HL7ServiceImpl.java
+===================================================================
+--- api/src/main/java/org/openmrs/hl7/impl/HL7ServiceImpl.java	(revision 24091)
++++ api/src/main/java/org/openmrs/hl7/impl/HL7ServiceImpl.java	(working copy)
+@@ -50,6 +50,7 @@
+ import org.openmrs.hl7.HL7InArchive;
+ import org.openmrs.hl7.HL7InError;
+ import org.openmrs.hl7.HL7InQueue;
++import org.openmrs.hl7.HL7OutQueue;
+ import org.openmrs.hl7.HL7QueueItem;
+ import org.openmrs.hl7.HL7Service;
+ import org.openmrs.hl7.HL7Source;
+@@ -61,6 +62,8 @@
+ import org.openmrs.util.OpenmrsUtil;
+ import org.openmrs.util.PrivilegeConstants;
+ import org.openmrs.validator.PatientIdentifierValidator;
++import org.openmrs.hl7.handler.HL7ADTA28Encoder;
++import org.openmrs.hl7.handler.HL7ORUR01Encoder;
+ 
+ import ca.uhn.hl7v2.HL7Exception;
+ import ca.uhn.hl7v2.app.Application;
+@@ -249,6 +252,14 @@
+ 	}
+ 	
+ 	/**
++	 * @see org.openmrs.hl7.HL7Service#getHL7OutQueueBatch(int, int, java.lang.String)
++	 */
++	@Override
++	public List<HL7OutQueue> getHL7OutQueueBatch(int start, int length, int messageState, String query) throws APIException {
++		return dao.getHL7Batch(HL7OutQueue.class, start, length, messageState, query);
++	}
++	
++	/**
+ 	 * @see org.openmrs.hl7.HL7Service#getHL7InErrorBatch(int, int, java.lang.String)
+ 	 */
+ 	@Override
+@@ -273,6 +284,15 @@
+ 		return dao.countHL7s(HL7InQueue.class, messageState, query);
+ 	}
+ 	
++
++	/**
++	 * @see org.openmrs.hl7.HL7Service#countHL7OutQueue(int, java.lang.String)
++	 */
++	@Override
++	public Integer countHL7OutQueue(int messageState, String query) throws APIException {
++		return dao.countHL7s(HL7OutQueue.class, messageState, query);
++	}
++	
+ 	/**
+ 	 * @see org.openmrs.hl7.HL7Service#countHL7InError(java.lang.String)
+ 	 */
+@@ -310,6 +330,46 @@
+ 	}
+ 	
+ 	/**
++	 * @see org.openmrs.hl7.HL7Service#saveHL7OutQueue(org.openmrs.hl7.HL7OutQueue)
++	 */
++	public HL7OutQueue addToOutQueue(Patient patient, HL7OutQueue hl7outqueue) throws APIException {
++		HL7ADTA28Encoder A28Encoder = new HL7ADTA28Encoder();
++		String encodedMessage = new String();
++		try{
++		encodedMessage = A28Encoder.HL7EncodeAdtA05Msg(patient.getPatientId());
++		}
++		catch(HL7Exception e) {
++			log.error("HL7 Exception while saving out queue for patient "+ patient.getPatientId() ,e);
++		}
++		hl7outqueue.setHL7Data(encodedMessage);
++		hl7outqueue.setErrorMessage("");
++		if (hl7outqueue.getMessageState() == null)
++			hl7outqueue.setMessageState(HL7Constants.HL7_STATUS_PENDING);
++		return dao.saveHL7OutQueue(hl7outqueue);				
++	}
++	
++	/**
++	 * @see org.openmrs.hl7.HL7Service#saveEncounterHL7OutQueue(org.openmrs.hl7.HL7OutQueue)
++	 */
++	public HL7OutQueue addToOutQueue(Encounter encounter, HL7OutQueue hl7outqueue) throws APIException {
++		HL7ORUR01Encoder ORUEncoder = new HL7ORUR01Encoder();
++		String encodedMessage = new String();
++		try{
++			String [] a = {"CE","TX"};
++			String [] b = {"TestMessage","TestMessage2"};
++		encodedMessage = ORUEncoder.HL7EncodeOruR01Msg(encounter.getPatient().getPatientId(), a,b);
++		}
++		catch(HL7Exception e) {
++			log.error("HL7 Exception while saving encounter for patient "+encounter.getPatient().getPatientId() ,e);
++		}
++		hl7outqueue.setHL7Data(encodedMessage);
++		hl7outqueue.setErrorMessage("");
++		if (hl7outqueue.getMessageState() == null)
++			hl7outqueue.setMessageState(HL7Constants.HL7_STATUS_PENDING);
++		
++		return dao.saveHL7OutQueue(hl7outqueue);		
++	}
++	/**
+ 	 * @see org.openmrs.hl7.HL7Service#createHL7InQueue(org.openmrs.hl7.HL7InQueue)
+ 	 * @deprecated
+ 	 */
+Index: api/src/main/java/org/openmrs/hl7/HL7OutQueue.java
+===================================================================
+--- api/src/main/java/org/openmrs/hl7/HL7OutQueue.java	(revision 0)
++++ api/src/main/java/org/openmrs/hl7/HL7OutQueue.java	(revision 0)
+@@ -0,0 +1,157 @@
++/**
++ * The contents of this file are subject to the OpenMRS Public License
++ * Version 1.0 (the "License"); you may not use this file except in
++ * compliance with the License. You may obtain a copy of the License at
++ * http://license.openmrs.org
++ *
++ * Software distributed under the License is distributed on an "AS IS"
++ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
++ * License for the specific language governing rights and limitations
++ * under the License.
++ *
++ * Copyright (C) OpenMRS, LLC.  All Rights Reserved.
++ */
++package org.openmrs.hl7;
++
++import java.io.Serializable;
++import org.openmrs.BaseOpenmrsObject;
++import java.util.Date;
++
++
++/**
++ * Represents an hl7 message that is saved when a new Patient is saved or when new Encounter is saved.
++ * 
++ * @see HL7Service
++ */
++public class HL7OutQueue extends BaseOpenmrsObject implements Serializable {
++	
++	private static final long serialVersionUID = 8882704913734764446L;
++	
++	private Integer hl7OutQueueId;
++	
++	private String errorMessage;
++	
++	private Integer messageState;
++	
++	private String hl7Data;
++	
++	private Date dateCreated;
++	
++	private Date dateProcessed;
++	
++	/**
++	 * Default constructor
++	 */
++	public HL7OutQueue() {
++	}
++	
++	/**
++	 * @return Returns the hl7Data.
++	 */
++	public String getHL7Data() {
++		return hl7Data;
++	}
++	/**
++	 * @param hl7Data The hl7Data to set.
++	 */
++	public void setHL7Data(String hl7Data) {
++		this.hl7Data = hl7Data;
++	}
++	
++
++	/**
++	 * @return Returns the dateCreated.
++	 */
++	public Date getDateCreated() {
++		return dateCreated;
++	}
++	
++	/**
++	 * @param dateCreated The dateCreated to set.
++	 */
++	public void setDateCreated(Date dateCreated) {
++		this.dateCreated = dateCreated;
++	}
++	
++	/**
++	 * @return Returns the dateCreated.
++	 */
++	public Date getDateProcessed() {
++		return dateProcessed;
++	}
++	
++	/**
++	 * @param dateCreated The dateCreated to set.
++	 */
++	public void setDateProcessed(Date dateProcessed) {
++		this.dateCreated = dateProcessed;
++	}
++	
++	/**
++	 * @return Returns the hl7OutQueueId.
++	 */
++	public Integer getHL7OutQueueId() {
++		return hl7OutQueueId;
++	}
++	
++	/**
++	 * @param hl7OutQueueId The hl7OutQueueId to set.
++	 */
++	public void setHL7OutQueueId(Integer hl7OutQueueId) {
++		this.hl7OutQueueId = hl7OutQueueId;
++	}
++	
++	/**
++	 * @return Returns the errorMessage.
++	 * @since 1.5
++	 */
++	public String getErrorMessage() {
++		return errorMessage;
++	}
++	
++	/**
++	 * @param errorMessage The errorMessage to set.
++	 * @since 1.5
++	 */
++	public void setErrorMessage(String errorMessage) {
++		this.errorMessage = errorMessage;
++	}
++	
++	/**
++	 * Can be one of the states in the {@link HL7Constants} file.
++	 * 
++	 * @return Returns the message State.
++	 * @see HL7Constants#HL7_STATUS_PENDING
++	 * @see HL7Constants#HL7_STATUS_ERROR
++	 * @see HL7Constants#HL7_STATUS_PROCESSED
++	 * @see HL7Constants#HL7_STATUS_PROCESSING
++	 * @see HL7Constants#HL7_STATUS_DELETED
++	 */
++	public Integer getMessageState() {
++		return messageState;
++	}
++	
++	/**
++	 * @param messageState The message State to set.
++	 */
++	public void setMessageState(Integer messageState) {
++		this.messageState = messageState;
++	}
++	
++	/**
++	 * @see org.openmrs.OpenmrsObject#getId()
++	 * @since 1.5
++	 */
++	public Integer getId() {
++		return getHL7OutQueueId();
++	}
++	
++	/**
++	 * @see org.openmrs.OpenmrsObject#setId(java.lang.Integer)
++	 * @since 1.5
++	 */
++	public void setId(Integer id) {
++		setHL7OutQueueId(id);
++	}
++	
++}
+Index: api/src/main/java/org/openmrs/hl7/HL7Service.java
+===================================================================
+--- api/src/main/java/org/openmrs/hl7/HL7Service.java	(revision 24091)
++++ api/src/main/java/org/openmrs/hl7/HL7Service.java	(working copy)
+@@ -19,6 +19,7 @@
+ 
+ import org.openmrs.Encounter;
+ import org.openmrs.Person;
++import org.openmrs.Patient;
+ import org.openmrs.annotation.Authorized;
+ import org.openmrs.annotation.Logging;
+ import org.openmrs.api.APIException;
+@@ -49,6 +50,25 @@
+ 	public void setHL7DAO(HL7DAO dao);
+ 	
+ 	/**
++	 * Save the given <code>hl7OutQueue</code> to the database for each 
++	 * {@link org.openmrs.api.impl.PatientServiceImpl#savePatient(Patient) savePatient()} call made in PatientServiceImpl class
++	 * 
++	 * @param patient the Patient object
++	 * @param hl7OutQueue the item to be saved into the database
++	 * @return the saved HL7OutQueue object
++	 */
++	public HL7OutQueue addToOutQueue(Patient patient, HL7OutQueue hl7OutQueue) throws APIException;
++	
++	/**
++	 * Save the given <code>hl7OutQueue</code> to the database for each 
++	 * {@link org.openmrs.api.impl.EncounterServiceImpl#saveEncounter(Encounter) saveEncounter()} call made in EncounterServiceImpl class
++	 * 
++	 * @param patient the Patient object
++	 * @param hl7OutQueue the item to be saved into the database
++	 * @return the saved HL7OutQueue object
++	 */
++	public HL7OutQueue addToOutQueue(Encounter encounter, HL7OutQueue hl7outqueue) throws APIException;
++	/**
+ 	 * Save the given <code>hl7Source</code> to the database
+ 	 * 
+ 	 * @param hl7Source the source to save
+@@ -207,6 +227,22 @@
+ 	@Authorized(HL7Constants.PRIV_VIEW_HL7_IN_QUEUE)
+ 	public List<HL7InQueue> getHL7InQueueBatch(int start, int length, int messageState, String query) throws APIException;
+ 	
++	
++	/**
++	 * Return a list of all hl7 in queues based on batch settings and a query string
++	 * 
++	 * @param start beginning index
++	 * @param length size of the batch
++	 * @param messageState status of the HL7InQueue message
++	 * @param query search string
++	 * @return all matching hl7 queue items within batch window
++	 * @throws APIException
++	 * @since 1.7
++	 */
++	@Transactional(readOnly = true)
++	//@Authorized(HL7Constants.PRIV_VIEW_HL7_IN_QUEUE)
++	public List<HL7OutQueue> getHL7OutQueueBatch(int start, int length, int messageState, String query) throws APIException;
++	
+ 	/**
+ 	 * the total count of all HL7InQueue objects in the database
+ 	 * 
+@@ -221,6 +257,19 @@
+ 	public Integer countHL7InQueue(int messageState, String query) throws APIException;
+ 	
+ 	/**
++	 * the total count of all HL7OutQueue objects in the database
++	 * 
++	 * @param messageState HL7OutQueue status
++	 * @param query search string
++	 * @return the count of matching HL7OutQueue items
++	 * @throws APIException
++	 * @since 1.7
++	 */
++	@Transactional(readOnly = true)
++	//@Authorized(HL7Constants.PRIV_VIEW_HL7_IN_QUEUE)
++	public Integer countHL7OutQueue(int messageState, String query) throws APIException;
++	
++	/**
+ 	 * Return a list of all hl7 in errors based on batch settings and a query string
+ 	 * 
+ 	 * @param start beginning index
+Index: api/src/main/java/org/openmrs/hl7/handler/HL7ORUR01Encoder.java
+===================================================================
+--- api/src/main/java/org/openmrs/hl7/handler/HL7ORUR01Encoder.java	(revision 0)
++++ api/src/main/java/org/openmrs/hl7/handler/HL7ORUR01Encoder.java	(revision 0)
+@@ -0,0 +1,239 @@
++/**
++ * The contents of this file are subject to the OpenMRS Public License
++ * Version 1.0 (the "License"); you may not use this file except in
++ * compliance with the License. You may obtain a copy of the License at
++ * http://license.openmrs.org
++ *
++ * Software distributed under the License is distributed on an "AS IS"
++ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
++ * License for the specific language governing rights and limitations
++ * under the License.
++ *
++ * Copyright (C) OpenMRS, LLC.  All Rights Reserved.
++ */
++package org.openmrs.hl7.handler;
++
++import org.openmrs.Person;
++import org.openmrs.PersonName;
++import org.openmrs.api.context.Context;
++import java.util.ArrayList;
++import java.util.Calendar;
++import java.util.Date;
++import java.util.List;
++import java.util.Calendar;
++import java.text.SimpleDateFormat;
++
++import org.apache.commons.logging.Log;
++import org.apache.commons.logging.LogFactory;
++import org.openmrs.Location;
++import org.openmrs.Patient;
++import org.openmrs.PatientIdentifier;
++import org.openmrs.PatientIdentifierType;
++import org.openmrs.PersonName;
++import org.openmrs.User;
++import org.openmrs.api.PatientIdentifierException;
++import org.openmrs.api.context.Context;
++import org.openmrs.util.OpenmrsConstants;
++import org.openmrs.validator.PatientIdentifierValidator;
++
++import ca.uhn.hl7v2.HL7Exception;
++import ca.uhn.hl7v2.app.Application;
++import ca.uhn.hl7v2.app.ApplicationException;
++import ca.uhn.hl7v2.model.Message;
++import ca.uhn.hl7v2.HL7Exception;
++import ca.uhn.hl7v2.model.Varies;
++import ca.uhn.hl7v2.model.v25.datatype.*;
++import ca.uhn.hl7v2.model.v25.group.ORU_R01_ORDER_OBSERVATION;
++import ca.uhn.hl7v2.model.v25.datatype.CX;
++import ca.uhn.hl7v2.model.v25.datatype.ID;
++import ca.uhn.hl7v2.model.v25.datatype.TS;
++import ca.uhn.hl7v2.model.v25.datatype.XPN;
++import ca.uhn.hl7v2.model.v25.message.ADT_A05;
++import ca.uhn.hl7v2.model.v25.message.ADT_A01;
++import ca.uhn.hl7v2.model.v25.message.ORU_R01;
++import ca.uhn.hl7v2.model.v25.segment.MSH;
++import ca.uhn.hl7v2.model.v25.segment.PID;
++import ca.uhn.hl7v2.model.v25.segment.OBR;
++import ca.uhn.hl7v2.model.v25.segment.OBX;
++import ca.uhn.hl7v2.parser.DefaultXMLParser;
++import ca.uhn.hl7v2.parser.Parser;
++import ca.uhn.hl7v2.parser.PipeParser;
++
++/* HL7 using HAPI to encode into ORU R01 Messages
++ * 
++ * ADT/ACK - Add person or patient information (Event R01)
++ * 
++ * FYI:  The 3rd field of MSH contains the sending application.  
++ * For example, the Rwanda lab system uses 'neal_lims'.  
++ * If neal_lims exists as an OpenMRS username, then this handler
++ * will use that user as the creator for patients it creates.
++ * If the sending application isn't setup as an OpenMRS user,
++ * the creator will default to the user running this task.
++ *  
++ * TODO: You may wonder why the createPatient, validate, getMSH, 
++ * getPIH and tsToDate code is duplicated in this file (and the R01
++ * message handler file? It would be more useful to have these in the 
++ * HL7 Utility file.  It's a good question, and it will happen 
++ * soon.
++ * 
++ * The HL7 v2.5 manual table 0354 (section 2.17.3) describes A28.
++ *   
++ * There are many cases in HL7 where events (like A05, A14, A28, and A31) 
++ * share a common structure.  This table also represented in HL7APIs 
++ * eventmap properties file (http://tinyurl.com/2almfx)  -- describes 
++ * exactly which events share which structures.
++ *
++ * So the answer to the A28 event is to use the ADT_A05 message 
++ * structure from within the v2.5 object hierarchy.  Without going 
++ * to the table, you can see this relationship in the description 
++ * of the A28 event message structure (3.3.28), which is labeled as 
++ * ADT^A28^ADT_A05.  This represents the message type (ADT), 
++ * event (A28), and message structure (ADT_A05).
++ * 
++ * TODO: This ADT A28 handler does NOT currently handle ALL possible segments.
++ * 		 Some of the segments that are not handled include these:
++ * 			
++ * 			EVN (Event type) - required to be backwardly compatible
++ * 			SFT (Software segment)
++ * 			PD1 (Additional demographics) (*)
++ * 			ROL (Role)
++ * 			NK1 (Next of Kin / associated parties) (*)
++ * 			PV1/2 (Patient visit - additional information) (*)
++ * 			DB1 (Disability information)
++ * 			OBX (Observation / result)  (***)
++ * 			AL1 (Allergy information)
++ * 			DG1 (Diagnosis information)
++ * 			DRG (Diagnosis related group)
++ * 			PR1	(Procedures)
++ * 			GT1 (Guarantor)
++ * 			IN1 (Insurance)
++ * 			ACC (Accident information)
++ * 			UB1/2 (Universal Bill Information)
++ * 
++ *  NOTE:  The ones with (*) could be useful in the near future.
++ */
++
++/**
++ * 
++ * Encodes the HL7 messages(ORU_R01) using V25 of HAPI library
++ *
++ */
++public class HL7ORUR01Encoder {
++	
++	private static int sequenceNumber = 0;
++	
++	private Log log = LogFactory.getLog(HL7ORUR01Encoder.class);
++	
++	public  HL7ORUR01Encoder() {
++	/* Default Constructor*/	
++	}
++	
++	/**
++	 * @param mshSegment the MSH object, which is the Message Header of the ADT_A05 message
++	 * @param msgType the message code, in this case "ADT"
++	 * @param trigEvent the trigger event, in this case "A05"
++	 */
++	public void getGeneralMshSeg(MSH mshSegment,String msgType, String trigEvent) {
++		  Calendar currentDate = Calendar.getInstance();
++		  SimpleDateFormat formatter= new SimpleDateFormat("yyyyMMddHHmm");
++		  String dateNow = formatter.format(currentDate.getTime());
++		  System.out.println("Now the date is :=>  " + dateNow);
++		// Populate the MSH Segment
++		try{
++        mshSegment.getFieldSeparator().setValue("|");
++        mshSegment.getEncodingCharacters().setValue("^~\\&");
++        mshSegment.getDateTimeOfMessage().getTime().setValue(dateNow);
++        mshSegment.getSendingApplication().getNamespaceID().setValue("OpenMrs");
++        mshSegment.getSequenceNumber().setValue(Integer.toString(sequenceNumber++));
++        mshSegment.getMessageType().getMessageCode().setValue(msgType);
++        mshSegment.getMessageType().getTriggerEvent().setValue(trigEvent);
++        mshSegment.getMessageType().getMessageStructure().setValue(msgType+" "+trigEvent);
++		}
++		catch(Exception e) {
++			System.out.println("Exception at getGeneralMshSeg");
++		}
++	}
++
++	/**
++	 * @param pid the PID header
++	 * @param person a Person object
++	 * @param patientId the ID of the Patient
++	 */
++	public void getPatientInfo(PID pid,Person person,Integer patientId) {
++ 		try {
++ 		    pid.getPatientName(0).getFamilyName().getSurname().setValue(person.getFamilyName());
++ 		    pid.getPatientName(0).getGivenName().setValue(person.getGivenName());
++ 		    pid.getPatientIdentifierList(0).getIDNumber().setValue(patientId.toString());
++ 		}
++ 		
++ 		catch(Exception e) {
++ 			log.error("Error casting to HL7ORU_R01", e);
++ 		}
++	}
++	
++	/**
++	 * @param patientId the ID of the Patient
++	 * @param obxTypes[] a String array with the various types
++	 * @param obxMsg[] a String array with the various corresponding messages
++	 * @return the encoded String
++	 */
++	public String HL7EncodeOruR01Msg(Integer patientId, String obxTypes[], String obxMsg[]) throws HL7Exception {
++
++        ORU_R01 oru = new ORU_R01();
++
++        // Populate the MSH Segment
++        MSH mshSegment = oru.getMSH();
++        getGeneralMshSeg(mshSegment,"ORU","R01");
++
++
++        ORU_R01_ORDER_OBSERVATION orderObservation = oru.getPATIENT_RESULT().getORDER_OBSERVATION();
++     
++        // Populate the OBR
++        OBR obr = orderObservation.getOBR();
++        obr.getSetIDOBR().setValue("1");
++        obr.getFillerOrderNumber().getEntityIdentifier().setValue("1234");
++        obr.getFillerOrderNumber().getNamespaceID().setValue("OpenMrs");
++        obr.getUniversalServiceIdentifier().getIdentifier().setValue("88304");
++
++        for (int i = 0; i < obxTypes.length; i = i + 1) { 
++        	// Populate the OBX
++            OBX obx = orderObservation.getOBSERVATION(i).getOBX();
++            obx.getSetIDOBX().setValue(Integer.toString(i+1));
++            obx.getObservationIdentifier().getIdentifier().setValue("88304");
++            
++            if( obxTypes[i] == "CE")  {
++            	// The OBX has a value type of CE. So first, we populate OBX-2 with "CE"...
++                obx.getValueType().setValue("CE");
++                // ... then we create a CE instance to put in OBX-5.
++                CE ce = new CE(oru);
++                ce.getIdentifier().setValue("T57000");
++                ce.getText().setValue(obxMsg[i]);
++                ce.getNameOfCodingSystem().setValue("SNM");
++                Varies value = obx.getObservationValue(0);
++                value.setData(ce);
++            }
++            else if ( obxTypes[i] == "TX")  {
++            	// The OBX has a value type of TX. So first, we populate OBX-2 with "TX"...
++                obx.getValueType().setValue("TX");
++                
++                // ... then we create a SN instance to put in OBX-5.
++                TX tx = new TX(oru);
++                tx.setValue(obxMsg[i]);
++                Varies value = obx.getObservationValue(0);
++                value.setData(tx);
++            }
++            	
++        }
++        
++         // Print the message (remember, the MSH segment was not fully or correctly populated)
++        Parser parser = new PipeParser();
++        String encodedMessage = parser.encode(oru);
++        
++        System.out.println("Printing Encoded Message:");
++        System.out.println(encodedMessage);
++        
++        return encodedMessage;
++    }
++}
++
++
+Index: api/src/main/java/org/openmrs/hl7/handler/HL7ADTA28Encoder.java
+===================================================================
+--- api/src/main/java/org/openmrs/hl7/handler/HL7ADTA28Encoder.java	(revision 0)
++++ api/src/main/java/org/openmrs/hl7/handler/HL7ADTA28Encoder.java	(revision 0)
+@@ -0,0 +1,224 @@
++/**
++ * The contents of this file are subject to the OpenMRS Public License
++ * Version 1.0 (the "License"); you may not use this file except in
++ * compliance with the License. You may obtain a copy of the License at
++ * http://license.openmrs.org
++ *
++ * Software distributed under the License is distributed on an "AS IS"
++ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
++ * License for the specific language governing rights and limitations
++ * under the License.
++ *
++ * Copyright (C) OpenMRS, LLC.  All Rights Reserved.
++ */
++package org.openmrs.hl7.handler;
++
++import org.openmrs.Person;
++import org.openmrs.PersonName;
++import org.openmrs.api.context.Context;
++import java.util.ArrayList;
++import java.util.Calendar;
++import java.util.Date;
++import java.util.List;
++import java.util.Calendar;
++import java.text.SimpleDateFormat;
++
++import org.apache.commons.logging.Log;
++import org.apache.commons.logging.LogFactory;
++import org.openmrs.Location;
++import org.openmrs.Patient;
++import org.openmrs.PatientIdentifier;
++import org.openmrs.PatientIdentifierType;
++import org.openmrs.PersonName;
++import org.openmrs.User;
++import org.openmrs.api.PatientIdentifierException;
++import org.openmrs.api.context.Context;
++import org.openmrs.util.OpenmrsConstants;
++import org.openmrs.validator.PatientIdentifierValidator;
++
++import ca.uhn.hl7v2.HL7Exception;
++import ca.uhn.hl7v2.app.Application;
++import ca.uhn.hl7v2.app.ApplicationException;
++import ca.uhn.hl7v2.model.Message;
++import ca.uhn.hl7v2.model.v25.datatype.CX;
++import ca.uhn.hl7v2.model.v25.datatype.ID;
++import ca.uhn.hl7v2.model.v25.datatype.TS;
++import ca.uhn.hl7v2.model.v25.datatype.XPN;
++import ca.uhn.hl7v2.model.v25.message.ADT_A05;
++import ca.uhn.hl7v2.model.v25.message.ADT_A01;
++import ca.uhn.hl7v2.model.v25.segment.MSH;
++import ca.uhn.hl7v2.model.v25.segment.PID;
++import ca.uhn.hl7v2.parser.DefaultXMLParser;
++import ca.uhn.hl7v2.parser.Parser;
++import ca.uhn.hl7v2.parser.PipeParser;
++
++/* HL7 using HAPI to encode into ADT A05 Messages
++ * 
++ * ADT/ACK - Add person or patient information (Event A28)
++ * 
++ * FYI:  The 3rd field of MSH contains the sending application.  
++ * For example, the Rwanda lab system uses 'neal_lims'.  
++ * If neal_lims exists as an OpenMRS username, then this handler
++ * will use that user as the creator for patients it creates.
++ * If the sending application isn't setup as an OpenMRS user,
++ * the creator will default to the user running this task.
++ *  
++ * TODO: You may wonder why the createPatient, validate, getMSH, 
++ * getPIH and tsToDate code is duplicated in this file (and the R01
++ * message handler file? It would be more useful to have these in the 
++ * HL7 Utility file.  It's a good question, and it will happen 
++ * soon.
++ * 
++ * The HL7 v2.5 manual table 0354 (section 2.17.3) describes A28.
++ *   
++ * There are many cases in HL7 where events (like A05, A14, A28, and A31) 
++ * share a common structure.  This table also represented in HL7APIs 
++ * eventmap properties file (http://tinyurl.com/2almfx)  -- describes 
++ * exactly which events share which structures.
++ *
++ * So the answer to the A28 event is to use the ADT_A05 message 
++ * structure from within the v2.5 object hierarchy.  Without going 
++ * to the table, you can see this relationship in the description 
++ * of the A28 event message structure (3.3.28), which is labeled as 
++ * ADT^A28^ADT_A05.  This represents the message type (ADT), 
++ * event (A28), and message structure (ADT_A05).
++ * 
++ * TODO: This ADT A28 handler does NOT currently handle ALL possible segments.
++ * 		 Some of the segments that are not handled include these:
++ * 			
++ * 			EVN (Event type) - required to be backwardly compatible
++ * 			SFT (Software segment)
++ * 			PD1 (Additional demographics) (*)
++ * 			ROL (Role)
++ * 			NK1 (Next of Kin / associated parties) (*)
++ * 			PV1/2 (Patient visit - additional information) (*)
++ * 			DB1 (Disability information)
++ * 			OBX (Observation / result)  (***)
++ * 			AL1 (Allergy information)
++ * 			DG1 (Diagnosis information)
++ * 			DRG (Diagnosis related group)
++ * 			PR1	(Procedures)
++ * 			GT1 (Guarantor)
++ * 			IN1 (Insurance)
++ * 			ACC (Accident information)
++ * 			UB1/2 (Universal Bill Information)
++ * 
++ *  NOTE:  The ones with (*) could be useful in the near future.
++ */
++
++/**
++ * 
++ * Encodes the HL7 messages(ADT_A28) using V25 of HAPI library
++ *
++ */
++public class HL7ADTA28Encoder {
++	
++	private static int sequenceNumber = 0;
++	public  HL7ADTA28Encoder() {
++	/* Default Constructor*/	
++	}
++	/**
++	 * @param mshSegment the MSH object, which is the Message Header of the ADT_A05 message
++	 * @param msgType the message code, in this case "ADT"
++	 * @param trigEvent the trigger event, in this case "A05"
++	 */
++	public void getGeneralMshSeg(MSH mshSegment,String msgType, String trigEvent) {
++		Calendar currentDate = Calendar.getInstance();
++		SimpleDateFormat formatter= new SimpleDateFormat("yyyyMMddHHmm");
++		String dateNow = formatter.format(currentDate.getTime());
++		System.out.println("Now the date is :=>  " + dateNow);
++		// Populate the MSH Segment
++		try{
++        mshSegment.getFieldSeparator().setValue("|");
++        mshSegment.getEncodingCharacters().setValue("^~\\&");
++        mshSegment.getDateTimeOfMessage().getTime().setValue(dateNow);
++        mshSegment.getSendingApplication().getNamespaceID().setValue("OpenMrs");
++        mshSegment.getSequenceNumber().setValue(Integer.toString(sequenceNumber++));
++        mshSegment.getMessageType().getMessageCode().setValue(msgType);
++        mshSegment.getMessageType().getTriggerEvent().setValue(trigEvent);
++        mshSegment.getMessageType().getMessageStructure().setValue(msgType+" "+trigEvent);
++		}
++		catch(Exception e) {
++			System.out.println("Exception Encountered!");
++		}
++	}
++
++	/**
++	 * @param pid the PID header
++	 * @param person a Person object
++	 * @param patientId the ID of the Patient
++	 */
++	public void getPatientInfo(PID pid,Person person,Integer patientId) {
++ 		try {
++ 		    pid.getPatientName(0).getFamilyName().getSurname().setValue(person.getFamilyName());
++ 		    pid.getPatientName(0).getGivenName().setValue(person.getGivenName());
++ 		    pid.getPatientIdentifierList(0).getIDNumber().setValue(patientId.toString());
++ 		}
++ 		catch(Exception e) {
++ 			System.out.println("Exception in HL7ADTA28Encoder#getPatientInfo");
++ 		}
++	}
++	
++	/**
++	 * @param patientId the ID of the Patient
++	 * @return String with the encoded message
++	 */
++	public String HL7EncodeAdtA01Msg(Integer patientId) throws HL7Exception {
++
++        ADT_A01 adt = new ADT_A01();
++
++        // Populate the MSH Segment
++        MSH mshSegment = adt.getMSH();
++        getGeneralMshSeg(mshSegment,"ADT","A01");
++        
++       // Populate the PID Segment		
++ 		PersonName newPersonName = new PersonName();
++ 		
++ 		try {
++ 		   newPersonName = Context.getPersonService().getPersonName(patientId);
++ 		} 		
++ 		catch(Exception e)  {
++ 			System.out.println("Exception in HL7ADTA28Encoder");
++ 		}
++ 		
++ 		getPatientInfo(adt.getPID(),newPersonName.getPerson(),patientId);
++ 		
++        Parser parser = new PipeParser();
++        String encodedMessage = parser.encode(adt);
++ 
++        return encodedMessage;
++    }
++
++	/**
++	 * @param patientId the ID of the Patient object
++	 * @return String with the encoded message
++	 */
++	public String HL7EncodeAdtA05Msg(Integer patientId) throws HL7Exception {
++
++        ADT_A05 adt = new ADT_A05();
++
++        // Populate the MSH Segment
++        MSH mshSegment = adt.getMSH();
++        getGeneralMshSeg(mshSegment,"ADT","A05");
++
++       // Populate the PID Segment		
++ 		PersonName newPersonName = new PersonName();
++ 		
++ 		try {
++ 		   newPersonName = Context.getPersonService().getPersonName(patientId);
++ 		}
++ 		
++ 		catch(Exception e)  {
++ 			System.out.println("Exception in HL7ADTA28Encoder");
++ 		}
++ 		
++ 		getPatientInfo(adt.getPID(),newPersonName.getPerson(),patientId);
++		
++        Parser parser = new PipeParser();
++        String encodedMessage = parser.encode(adt);
++
++        return encodedMessage;
++    }
++}
++
++
+Index: api/src/main/java/org/openmrs/hl7/db/hibernate/HibernateHL7DAO.java
+===================================================================
+--- api/src/main/java/org/openmrs/hl7/db/hibernate/HibernateHL7DAO.java	(revision 24091)
++++ api/src/main/java/org/openmrs/hl7/db/hibernate/HibernateHL7DAO.java	(working copy)
+@@ -32,6 +32,7 @@
+ import org.openmrs.hl7.HL7InArchive;
+ import org.openmrs.hl7.HL7InError;
+ import org.openmrs.hl7.HL7InQueue;
++import org.openmrs.hl7.HL7OutQueue;
+ import org.openmrs.hl7.HL7Source;
+ import org.openmrs.hl7.Hl7InArchivesMigrateThread;
+ import org.openmrs.hl7.db.HL7DAO;
+@@ -118,6 +119,7 @@
+ 		return (HL7InQueue) sessionFactory.getCurrentSession().get(HL7InQueue.class, hl7InQueueId);
+ 	}
+ 	
++	
+ 	@Override
+ 	public HL7InQueue getHL7InQueueByUuid(String uuid) throws DAOException {
+ 		return (HL7InQueue) sessionFactory.getCurrentSession().createCriteria(HL7InQueue.class).add(
+@@ -135,6 +137,22 @@
+ 	}
+ 	
+ 	/**
++	 * @see org.openmrs.hl7.db.HL7DAO#saveHL7OutQueue(org.openmrs.hl7.HL7OutQueue)
++	 */
++	public HL7OutQueue saveHL7OutQueue(HL7OutQueue hl7OutQueue) throws DAOException {
++		sessionFactory.getCurrentSession().saveOrUpdate(hl7OutQueue);
++		return hl7OutQueue;
++	}
++	
++	/**
++	 * @see org.openmrs.hl7.db.HL7DAO#getHL7OutQueue(java.lang.Integer)
++	 */
++	public HL7OutQueue getHL7OutQueue(Integer hl7OutQueueId) throws DAOException {
++		return (HL7OutQueue) sessionFactory.getCurrentSession().get(HL7OutQueue.class, hl7OutQueueId);
++	}
++	
++	
++	/**
+ 	 * creates a Criteria object for use with counting and finding HL7InQueue objects
+ 	 * 
+ 	 * @param messageState status of HL7InQueue object
+Index: api/src/main/java/org/openmrs/hl7/db/HL7DAO.java
+===================================================================
+--- api/src/main/java/org/openmrs/hl7/db/HL7DAO.java	(revision 24091)
++++ api/src/main/java/org/openmrs/hl7/db/HL7DAO.java	(working copy)
+@@ -19,6 +19,7 @@
+ import org.openmrs.hl7.HL7InArchive;
+ import org.openmrs.hl7.HL7InError;
+ import org.openmrs.hl7.HL7InQueue;
++import org.openmrs.hl7.HL7OutQueue;
+ import org.openmrs.hl7.HL7Service;
+ import org.openmrs.hl7.HL7Source;
+ 
+@@ -89,7 +90,18 @@
+ 	 */
+ 	public void deleteHL7InQueue(HL7InQueue hl7InQueue) throws DAOException;
+ 	
++	/* HL7OutQueue */
++
++	/**
++	 * @see org.openmrs.hl7.HL7Service#saveHL7OutQueue(org.openmrs.hl7.HL7OutQueue)
++	 */
++	public HL7OutQueue saveHL7OutQueue(HL7OutQueue hl7OutQueue) throws DAOException;
++	
+ 	/**
++	 * @see org.openmrs.hl7.HL7Service#getHL7OutQueue(Integer)
++	 */
++	public HL7OutQueue getHL7OutQueue(Integer hl7OutQueueId) throws DAOException;
++	/**
+ 	 * Returns hl7s based on batch settings and filtered by a query
+ 	 * 
+ 	 * @param <T>
+Index: api/src/main/java/org/openmrs/api/impl/EncounterServiceImpl.java
+===================================================================
+--- api/src/main/java/org/openmrs/api/impl/EncounterServiceImpl.java	(revision 24091)
++++ api/src/main/java/org/openmrs/api/impl/EncounterServiceImpl.java	(working copy)
+@@ -43,6 +43,9 @@
+ import org.openmrs.api.context.Context;
+ import org.openmrs.api.db.EncounterDAO;
+ import org.openmrs.api.handler.EncounterVisitHandler;
++import org.openmrs.hl7.HL7OutQueue;
++import org.openmrs.hl7.HL7Service;
++import org.openmrs.hl7.impl.HL7ServiceImpl;
+ import org.openmrs.util.HandlerUtil;
+ import org.openmrs.util.OpenmrsClassLoader;
+ import org.openmrs.util.OpenmrsConstants;
+@@ -196,7 +199,9 @@
+ 		
+ 		// do the actual saving to the database
+ 		dao.saveEncounter(encounter);
+-		
++		// now saving in the HL7OutQueue table in the database
++		HL7OutQueue hl7outqueue = new HL7OutQueue();
++		hl7outqueue = Context.getHL7Service().addToOutQueue(encounter, hl7outqueue);
+ 		return encounter;
+ 	}
+ 	
+Index: api/src/main/java/org/openmrs/api/impl/PatientServiceImpl.java
+===================================================================
+--- api/src/main/java/org/openmrs/api/impl/PatientServiceImpl.java	(revision 24091)
++++ api/src/main/java/org/openmrs/api/impl/PatientServiceImpl.java	(working copy)
+@@ -67,6 +67,9 @@
+ import org.openmrs.util.PrivilegeConstants;
+ import org.openmrs.validator.PatientIdentifierValidator;
+ 
++import org.openmrs.hl7.HL7OutQueue;
++import org.openmrs.hl7.db.HL7DAO;
++
+ /**
+  * Default implementation of the patient service. This class should not be used on its own. The
+  * current OpenMRS implementation should be fetched from the Context via
+@@ -131,8 +134,15 @@
+ 			checkPatientIdentifiers(patient);
+ 		}
+ 		
+-		return dao.savePatient(patient);
+-	}
++		Patient tempPatient = new Patient();
++		tempPatient = dao.savePatient(patient);
++		
++		//saving HL7OutQueue message into database
++		HL7OutQueue hl7outqueue = new HL7OutQueue();	
++		hl7outqueue = Context.getHL7Service().addToOutQueue(patient, hl7outqueue);
++		
++		return tempPatient;
++	}	
+ 	
+ 	/**
+ 	 * @see org.openmrs.api.PatientService#getPatient(java.lang.Integer)
+Index: api/src/main/java/org/openmrs/util/PrivilegeConstants.java
+===================================================================
+--- api/src/main/java/org/openmrs/util/PrivilegeConstants.java	(revision 24091)
++++ api/src/main/java/org/openmrs/util/PrivilegeConstants.java	(working copy)
+@@ -532,4 +532,7 @@
+ 	
+ 	@AddOnStartup(description = "Able to add/edit/retire encounter roles")
+ 	public static final String MANAGE_ENCOUNTER_ROLES = "Manage Encounter Roles";
++	
++	@AddOnStartup(description = "Able to view HL7 Outbound Messages")
++	public static final String PRIV_VIEW_HL7_OUT_QUEUE = "View HL7 Outbound Queue";
+ }
+Index: doc/index-files/index-4.html
+===================================================================
+--- doc/index-files/index-4.html	(revision 0)
++++ doc/index-files/index-4.html	(revision 0)
+@@ -0,0 +1,143 @@
++<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
++<!--NewPage-->
++<HTML>
++<HEAD>
++<!-- Generated by javadoc (build 1.6.0_21) on Fri Oct 28 22:38:46 EDT 2011 -->
++<TITLE>
++R-Index
++</TITLE>
++
++<META NAME="date" CONTENT="2011-10-28">
++
++<LINK REL ="stylesheet" TYPE="text/css" HREF="../stylesheet.css" TITLE="Style">
++
++<SCRIPT type="text/javascript">
++function windowTitle()
++{
++    if (location.href.indexOf('is-external=true') == -1) {
++        parent.document.title="R-Index";
++    }
++}
++</SCRIPT>
++<NOSCRIPT>
++</NOSCRIPT>
++
++</HEAD>
++
++<BODY BGCOLOR="white" onload="windowTitle();">
++<HR>
++
++
++<!-- ========= START OF TOP NAVBAR ======= -->
++<A NAME="navbar_top"><!-- --></A>
++<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
++<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
++<TR>
++<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
++<A NAME="navbar_top_firstrow"><!-- --></A>
++<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
++  <TR ALIGN="center" VALIGN="top">
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../org/openmrs/tools/doclet/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Use</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../org/openmrs/tools/doclet/package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Index</B></FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
++  </TR>
++</TABLE>
++</TD>
++<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
++</EM>
++</TD>
++</TR>
++
++<TR>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++&nbsp;<A HREF="index-3.html"><B>PREV LETTER</B></A>&nbsp;
++&nbsp;<A HREF="index-5.html"><B>NEXT LETTER</B></A></FONT></TD>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++  <A HREF="../index.html?index-filesindex-4.html" target="_top"><B>FRAMES</B></A>  &nbsp;
++&nbsp;<A HREF="index-4.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
++&nbsp;<SCRIPT type="text/javascript">
++  <!--
++  if(window==top) {
++    document.writeln('<A HREF="../allclasses-noframe.html"><B>All Classes</B></A>');
++  }
++  //-->
++</SCRIPT>
++<NOSCRIPT>
++  <A HREF="../allclasses-noframe.html"><B>All Classes</B></A>
++</NOSCRIPT>
++
++
++</FONT></TD>
++</TR>
++</TABLE>
++<A NAME="skip-navbar_top"></A>
++<!-- ========= END OF TOP NAVBAR ========= -->
++
++<A HREF="index-1.html">G</A> <A HREF="index-2.html">I</A> <A HREF="index-3.html">O</A> <A HREF="index-4.html">R</A> <A HREF="index-5.html">S</A> <A HREF="index-6.html">T</A> <HR>
++<A NAME="_R_"><!-- --></A><H2>
++<B>R</B></H2>
++<DL>
++<DT><A HREF="../org/openmrs/tools/doclet/ShouldTaglet.html#register(java.util.Map)"><B>register(Map)</B></A> - 
++Static method in class org.openmrs.tools.doclet.<A HREF="../org/openmrs/tools/doclet/ShouldTaglet.html" title="class in org.openmrs.tools.doclet">ShouldTaglet</A>
++<DD>Register this Taglet.
++</DL>
++<HR>
++
++
++<!-- ======= START OF BOTTOM NAVBAR ====== -->
++<A NAME="navbar_bottom"><!-- --></A>
++<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
++<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
++<TR>
++<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
++<A NAME="navbar_bottom_firstrow"><!-- --></A>
++<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
++  <TR ALIGN="center" VALIGN="top">
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../org/openmrs/tools/doclet/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Use</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../org/openmrs/tools/doclet/package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Index</B></FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
++  </TR>
++</TABLE>
++</TD>
++<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
++</EM>
++</TD>
++</TR>
++
++<TR>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++&nbsp;<A HREF="index-3.html"><B>PREV LETTER</B></A>&nbsp;
++&nbsp;<A HREF="index-5.html"><B>NEXT LETTER</B></A></FONT></TD>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++  <A HREF="../index.html?index-filesindex-4.html" target="_top"><B>FRAMES</B></A>  &nbsp;
++&nbsp;<A HREF="index-4.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
++&nbsp;<SCRIPT type="text/javascript">
++  <!--
++  if(window==top) {
++    document.writeln('<A HREF="../allclasses-noframe.html"><B>All Classes</B></A>');
++  }
++  //-->
++</SCRIPT>
++<NOSCRIPT>
++  <A HREF="../allclasses-noframe.html"><B>All Classes</B></A>
++</NOSCRIPT>
++
++
++</FONT></TD>
++</TR>
++</TABLE>
++<A NAME="skip-navbar_bottom"></A>
++<!-- ======== END OF BOTTOM NAVBAR ======= -->
++
++<A HREF="index-1.html">G</A> <A HREF="index-2.html">I</A> <A HREF="index-3.html">O</A> <A HREF="index-4.html">R</A> <A HREF="index-5.html">S</A> <A HREF="index-6.html">T</A> <HR>
++
++</BODY>
++</HTML>
+Index: doc/index-files/index-6.html
+===================================================================
+--- doc/index-files/index-6.html	(revision 0)
++++ doc/index-files/index-6.html	(revision 0)
+@@ -0,0 +1,148 @@
++<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
++<!--NewPage-->
++<HTML>
++<HEAD>
++<!-- Generated by javadoc (build 1.6.0_21) on Fri Oct 28 22:38:46 EDT 2011 -->
++<TITLE>
++T-Index
++</TITLE>
++
++<META NAME="date" CONTENT="2011-10-28">
++
++<LINK REL ="stylesheet" TYPE="text/css" HREF="../stylesheet.css" TITLE="Style">
++
++<SCRIPT type="text/javascript">
++function windowTitle()
++{
++    if (location.href.indexOf('is-external=true') == -1) {
++        parent.document.title="T-Index";
++    }
++}
++</SCRIPT>
++<NOSCRIPT>
++</NOSCRIPT>
++
++</HEAD>
++
++<BODY BGCOLOR="white" onload="windowTitle();">
++<HR>
++
++
++<!-- ========= START OF TOP NAVBAR ======= -->
++<A NAME="navbar_top"><!-- --></A>
++<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
++<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
++<TR>
++<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
++<A NAME="navbar_top_firstrow"><!-- --></A>
++<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
++  <TR ALIGN="center" VALIGN="top">
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../org/openmrs/tools/doclet/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Use</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../org/openmrs/tools/doclet/package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Index</B></FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
++  </TR>
++</TABLE>
++</TD>
++<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
++</EM>
++</TD>
++</TR>
++
++<TR>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++&nbsp;<A HREF="index-5.html"><B>PREV LETTER</B></A>&nbsp;
++&nbsp;NEXT LETTER</FONT></TD>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++  <A HREF="../index.html?index-filesindex-6.html" target="_top"><B>FRAMES</B></A>  &nbsp;
++&nbsp;<A HREF="index-6.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
++&nbsp;<SCRIPT type="text/javascript">
++  <!--
++  if(window==top) {
++    document.writeln('<A HREF="../allclasses-noframe.html"><B>All Classes</B></A>');
++  }
++  //-->
++</SCRIPT>
++<NOSCRIPT>
++  <A HREF="../allclasses-noframe.html"><B>All Classes</B></A>
++</NOSCRIPT>
++
++
++</FONT></TD>
++</TR>
++</TABLE>
++<A NAME="skip-navbar_top"></A>
++<!-- ========= END OF TOP NAVBAR ========= -->
++
++<A HREF="index-1.html">G</A> <A HREF="index-2.html">I</A> <A HREF="index-3.html">O</A> <A HREF="index-4.html">R</A> <A HREF="index-5.html">S</A> <A HREF="index-6.html">T</A> <HR>
++<A NAME="_T_"><!-- --></A><H2>
++<B>T</B></H2>
++<DL>
++<DT><A HREF="../org/openmrs/tools/doclet/ShouldTaglet.html#toString(Tag)"><B>toString(Tag)</B></A> - 
++Method in class org.openmrs.tools.doclet.<A HREF="../org/openmrs/tools/doclet/ShouldTaglet.html" title="class in org.openmrs.tools.doclet">ShouldTaglet</A>
++<DD>Given the <code>Tag</code> representation of this custom tag, return its string
++ representation.
++<DT><A HREF="../org/openmrs/tools/doclet/ShouldTaglet.html#toString(Tag[])"><B>toString(Tag[])</B></A> - 
++Method in class org.openmrs.tools.doclet.<A HREF="../org/openmrs/tools/doclet/ShouldTaglet.html" title="class in org.openmrs.tools.doclet">ShouldTaglet</A>
++<DD>Given an array of <code>Tag</code>s representing this custom tag, return its string
++ representation.
++</DL>
++<HR>
++
++
++<!-- ======= START OF BOTTOM NAVBAR ====== -->
++<A NAME="navbar_bottom"><!-- --></A>
++<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
++<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
++<TR>
++<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
++<A NAME="navbar_bottom_firstrow"><!-- --></A>
++<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
++  <TR ALIGN="center" VALIGN="top">
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../org/openmrs/tools/doclet/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Use</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../org/openmrs/tools/doclet/package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Index</B></FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
++  </TR>
++</TABLE>
++</TD>
++<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
++</EM>
++</TD>
++</TR>
++
++<TR>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++&nbsp;<A HREF="index-5.html"><B>PREV LETTER</B></A>&nbsp;
++&nbsp;NEXT LETTER</FONT></TD>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++  <A HREF="../index.html?index-filesindex-6.html" target="_top"><B>FRAMES</B></A>  &nbsp;
++&nbsp;<A HREF="index-6.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
++&nbsp;<SCRIPT type="text/javascript">
++  <!--
++  if(window==top) {
++    document.writeln('<A HREF="../allclasses-noframe.html"><B>All Classes</B></A>');
++  }
++  //-->
++</SCRIPT>
++<NOSCRIPT>
++  <A HREF="../allclasses-noframe.html"><B>All Classes</B></A>
++</NOSCRIPT>
++
++
++</FONT></TD>
++</TR>
++</TABLE>
++<A NAME="skip-navbar_bottom"></A>
++<!-- ======== END OF BOTTOM NAVBAR ======= -->
++
++<A HREF="index-1.html">G</A> <A HREF="index-2.html">I</A> <A HREF="index-3.html">O</A> <A HREF="index-4.html">R</A> <A HREF="index-5.html">S</A> <A HREF="index-6.html">T</A> <HR>
++
++</BODY>
++</HTML>
+Index: doc/index-files/index-2.html
+===================================================================
+--- doc/index-files/index-2.html	(revision 0)
++++ doc/index-files/index-2.html	(revision 0)
+@@ -0,0 +1,162 @@
++<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
++<!--NewPage-->
++<HTML>
++<HEAD>
++<!-- Generated by javadoc (build 1.6.0_21) on Fri Oct 28 22:38:46 EDT 2011 -->
++<TITLE>
++I-Index
++</TITLE>
++
++<META NAME="date" CONTENT="2011-10-28">
++
++<LINK REL ="stylesheet" TYPE="text/css" HREF="../stylesheet.css" TITLE="Style">
++
++<SCRIPT type="text/javascript">
++function windowTitle()
++{
++    if (location.href.indexOf('is-external=true') == -1) {
++        parent.document.title="I-Index";
++    }
++}
++</SCRIPT>
++<NOSCRIPT>
++</NOSCRIPT>
++
++</HEAD>
++
++<BODY BGCOLOR="white" onload="windowTitle();">
++<HR>
++
++
++<!-- ========= START OF TOP NAVBAR ======= -->
++<A NAME="navbar_top"><!-- --></A>
++<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
++<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
++<TR>
++<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
++<A NAME="navbar_top_firstrow"><!-- --></A>
++<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
++  <TR ALIGN="center" VALIGN="top">
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../org/openmrs/tools/doclet/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Use</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../org/openmrs/tools/doclet/package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Index</B></FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
++  </TR>
++</TABLE>
++</TD>
++<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
++</EM>
++</TD>
++</TR>
++
++<TR>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++&nbsp;<A HREF="index-1.html"><B>PREV LETTER</B></A>&nbsp;
++&nbsp;<A HREF="index-3.html"><B>NEXT LETTER</B></A></FONT></TD>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++  <A HREF="../index.html?index-filesindex-2.html" target="_top"><B>FRAMES</B></A>  &nbsp;
++&nbsp;<A HREF="index-2.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
++&nbsp;<SCRIPT type="text/javascript">
++  <!--
++  if(window==top) {
++    document.writeln('<A HREF="../allclasses-noframe.html"><B>All Classes</B></A>');
++  }
++  //-->
++</SCRIPT>
++<NOSCRIPT>
++  <A HREF="../allclasses-noframe.html"><B>All Classes</B></A>
++</NOSCRIPT>
++
++
++</FONT></TD>
++</TR>
++</TABLE>
++<A NAME="skip-navbar_top"></A>
++<!-- ========= END OF TOP NAVBAR ========= -->
++
++<A HREF="index-1.html">G</A> <A HREF="index-2.html">I</A> <A HREF="index-3.html">O</A> <A HREF="index-4.html">R</A> <A HREF="index-5.html">S</A> <A HREF="index-6.html">T</A> <HR>
++<A NAME="_I_"><!-- --></A><H2>
++<B>I</B></H2>
++<DL>
++<DT><A HREF="../org/openmrs/tools/doclet/ShouldTaglet.html#inConstructor()"><B>inConstructor()</B></A> - 
++Method in class org.openmrs.tools.doclet.<A HREF="../org/openmrs/tools/doclet/ShouldTaglet.html" title="class in org.openmrs.tools.doclet">ShouldTaglet</A>
++<DD>Will return true since <code> @should</code> can be used in constructor documentation.
++<DT><A HREF="../org/openmrs/tools/doclet/ShouldTaglet.html#inField()"><B>inField()</B></A> - 
++Method in class org.openmrs.tools.doclet.<A HREF="../org/openmrs/tools/doclet/ShouldTaglet.html" title="class in org.openmrs.tools.doclet">ShouldTaglet</A>
++<DD>Will return false since <code> @should</code> cannot be used in field documentation.
++<DT><A HREF="../org/openmrs/tools/doclet/ShouldTaglet.html#inMethod()"><B>inMethod()</B></A> - 
++Method in class org.openmrs.tools.doclet.<A HREF="../org/openmrs/tools/doclet/ShouldTaglet.html" title="class in org.openmrs.tools.doclet">ShouldTaglet</A>
++<DD>Will return true since <code> @should</code> can be used in method documentation.
++<DT><A HREF="../org/openmrs/tools/doclet/ShouldTaglet.html#inOverview()"><B>inOverview()</B></A> - 
++Method in class org.openmrs.tools.doclet.<A HREF="../org/openmrs/tools/doclet/ShouldTaglet.html" title="class in org.openmrs.tools.doclet">ShouldTaglet</A>
++<DD>Will return true since <code> @should</code> can be used in method documentation.
++<DT><A HREF="../org/openmrs/tools/doclet/ShouldTaglet.html#inPackage()"><B>inPackage()</B></A> - 
++Method in class org.openmrs.tools.doclet.<A HREF="../org/openmrs/tools/doclet/ShouldTaglet.html" title="class in org.openmrs.tools.doclet">ShouldTaglet</A>
++<DD>Will return false since <code> @should</code> cannot be used in package documentation.
++<DT><A HREF="../org/openmrs/tools/doclet/ShouldTaglet.html#inType()"><B>inType()</B></A> - 
++Method in class org.openmrs.tools.doclet.<A HREF="../org/openmrs/tools/doclet/ShouldTaglet.html" title="class in org.openmrs.tools.doclet">ShouldTaglet</A>
++<DD>Will return true since <code> @should</code> can be used in type documentation (classes or
++ interfaces).
++<DT><A HREF="../org/openmrs/tools/doclet/ShouldTaglet.html#isInlineTag()"><B>isInlineTag()</B></A> - 
++Method in class org.openmrs.tools.doclet.<A HREF="../org/openmrs/tools/doclet/ShouldTaglet.html" title="class in org.openmrs.tools.doclet">ShouldTaglet</A>
++<DD>Will return false since <code> @should</code> is not an inline tag.
++</DL>
++<HR>
++
++
++<!-- ======= START OF BOTTOM NAVBAR ====== -->
++<A NAME="navbar_bottom"><!-- --></A>
++<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
++<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
++<TR>
++<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
++<A NAME="navbar_bottom_firstrow"><!-- --></A>
++<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
++  <TR ALIGN="center" VALIGN="top">
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../org/openmrs/tools/doclet/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Use</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../org/openmrs/tools/doclet/package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Index</B></FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
++  </TR>
++</TABLE>
++</TD>
++<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
++</EM>
++</TD>
++</TR>
++
++<TR>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++&nbsp;<A HREF="index-1.html"><B>PREV LETTER</B></A>&nbsp;
++&nbsp;<A HREF="index-3.html"><B>NEXT LETTER</B></A></FONT></TD>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++  <A HREF="../index.html?index-filesindex-2.html" target="_top"><B>FRAMES</B></A>  &nbsp;
++&nbsp;<A HREF="index-2.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
++&nbsp;<SCRIPT type="text/javascript">
++  <!--
++  if(window==top) {
++    document.writeln('<A HREF="../allclasses-noframe.html"><B>All Classes</B></A>');
++  }
++  //-->
++</SCRIPT>
++<NOSCRIPT>
++  <A HREF="../allclasses-noframe.html"><B>All Classes</B></A>
++</NOSCRIPT>
++
++
++</FONT></TD>
++</TR>
++</TABLE>
++<A NAME="skip-navbar_bottom"></A>
++<!-- ======== END OF BOTTOM NAVBAR ======= -->
++
++<A HREF="index-1.html">G</A> <A HREF="index-2.html">I</A> <A HREF="index-3.html">O</A> <A HREF="index-4.html">R</A> <A HREF="index-5.html">S</A> <A HREF="index-6.html">T</A> <HR>
++
++</BODY>
++</HTML>
+Index: doc/index-files/index-1.html
+===================================================================
+--- doc/index-files/index-1.html	(revision 0)
++++ doc/index-files/index-1.html	(revision 0)
+@@ -0,0 +1,143 @@
++<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
++<!--NewPage-->
++<HTML>
++<HEAD>
++<!-- Generated by javadoc (build 1.6.0_21) on Fri Oct 28 22:38:46 EDT 2011 -->
++<TITLE>
++G-Index
++</TITLE>
++
++<META NAME="date" CONTENT="2011-10-28">
++
++<LINK REL ="stylesheet" TYPE="text/css" HREF="../stylesheet.css" TITLE="Style">
++
++<SCRIPT type="text/javascript">
++function windowTitle()
++{
++    if (location.href.indexOf('is-external=true') == -1) {
++        parent.document.title="G-Index";
++    }
++}
++</SCRIPT>
++<NOSCRIPT>
++</NOSCRIPT>
++
++</HEAD>
++
++<BODY BGCOLOR="white" onload="windowTitle();">
++<HR>
++
++
++<!-- ========= START OF TOP NAVBAR ======= -->
++<A NAME="navbar_top"><!-- --></A>
++<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
++<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
++<TR>
++<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
++<A NAME="navbar_top_firstrow"><!-- --></A>
++<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
++  <TR ALIGN="center" VALIGN="top">
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../org/openmrs/tools/doclet/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Use</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../org/openmrs/tools/doclet/package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Index</B></FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
++  </TR>
++</TABLE>
++</TD>
++<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
++</EM>
++</TD>
++</TR>
++
++<TR>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++&nbsp;PREV LETTER&nbsp;
++&nbsp;<A HREF="index-2.html"><B>NEXT LETTER</B></A></FONT></TD>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++  <A HREF="../index.html?index-filesindex-1.html" target="_top"><B>FRAMES</B></A>  &nbsp;
++&nbsp;<A HREF="index-1.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
++&nbsp;<SCRIPT type="text/javascript">
++  <!--
++  if(window==top) {
++    document.writeln('<A HREF="../allclasses-noframe.html"><B>All Classes</B></A>');
++  }
++  //-->
++</SCRIPT>
++<NOSCRIPT>
++  <A HREF="../allclasses-noframe.html"><B>All Classes</B></A>
++</NOSCRIPT>
++
++
++</FONT></TD>
++</TR>
++</TABLE>
++<A NAME="skip-navbar_top"></A>
++<!-- ========= END OF TOP NAVBAR ========= -->
++
++<A HREF="index-1.html">G</A> <A HREF="index-2.html">I</A> <A HREF="index-3.html">O</A> <A HREF="index-4.html">R</A> <A HREF="index-5.html">S</A> <A HREF="index-6.html">T</A> <HR>
++<A NAME="_G_"><!-- --></A><H2>
++<B>G</B></H2>
++<DL>
++<DT><A HREF="../org/openmrs/tools/doclet/ShouldTaglet.html#getName()"><B>getName()</B></A> - 
++Method in class org.openmrs.tools.doclet.<A HREF="../org/openmrs/tools/doclet/ShouldTaglet.html" title="class in org.openmrs.tools.doclet">ShouldTaglet</A>
++<DD>Return the name of this custom tag.
++</DL>
++<HR>
++
++
++<!-- ======= START OF BOTTOM NAVBAR ====== -->
++<A NAME="navbar_bottom"><!-- --></A>
++<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
++<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
++<TR>
++<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
++<A NAME="navbar_bottom_firstrow"><!-- --></A>
++<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
++  <TR ALIGN="center" VALIGN="top">
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../org/openmrs/tools/doclet/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Use</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../org/openmrs/tools/doclet/package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Index</B></FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
++  </TR>
++</TABLE>
++</TD>
++<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
++</EM>
++</TD>
++</TR>
++
++<TR>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++&nbsp;PREV LETTER&nbsp;
++&nbsp;<A HREF="index-2.html"><B>NEXT LETTER</B></A></FONT></TD>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++  <A HREF="../index.html?index-filesindex-1.html" target="_top"><B>FRAMES</B></A>  &nbsp;
++&nbsp;<A HREF="index-1.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
++&nbsp;<SCRIPT type="text/javascript">
++  <!--
++  if(window==top) {
++    document.writeln('<A HREF="../allclasses-noframe.html"><B>All Classes</B></A>');
++  }
++  //-->
++</SCRIPT>
++<NOSCRIPT>
++  <A HREF="../allclasses-noframe.html"><B>All Classes</B></A>
++</NOSCRIPT>
++
++
++</FONT></TD>
++</TR>
++</TABLE>
++<A NAME="skip-navbar_bottom"></A>
++<!-- ======== END OF BOTTOM NAVBAR ======= -->
++
++<A HREF="index-1.html">G</A> <A HREF="index-2.html">I</A> <A HREF="index-3.html">O</A> <A HREF="index-4.html">R</A> <A HREF="index-5.html">S</A> <A HREF="index-6.html">T</A> <HR>
++
++</BODY>
++</HTML>
+Index: doc/index-files/index-3.html
+===================================================================
+--- doc/index-files/index-3.html	(revision 0)
++++ doc/index-files/index-3.html	(revision 0)
+@@ -0,0 +1,140 @@
++<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
++<!--NewPage-->
++<HTML>
++<HEAD>
++<!-- Generated by javadoc (build 1.6.0_21) on Fri Oct 28 22:38:46 EDT 2011 -->
++<TITLE>
++O-Index
++</TITLE>
++
++<META NAME="date" CONTENT="2011-10-28">
++
++<LINK REL ="stylesheet" TYPE="text/css" HREF="../stylesheet.css" TITLE="Style">
++
++<SCRIPT type="text/javascript">
++function windowTitle()
++{
++    if (location.href.indexOf('is-external=true') == -1) {
++        parent.document.title="O-Index";
++    }
++}
++</SCRIPT>
++<NOSCRIPT>
++</NOSCRIPT>
++
++</HEAD>
++
++<BODY BGCOLOR="white" onload="windowTitle();">
++<HR>
++
++
++<!-- ========= START OF TOP NAVBAR ======= -->
++<A NAME="navbar_top"><!-- --></A>
++<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
++<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
++<TR>
++<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
++<A NAME="navbar_top_firstrow"><!-- --></A>
++<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
++  <TR ALIGN="center" VALIGN="top">
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../org/openmrs/tools/doclet/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Use</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../org/openmrs/tools/doclet/package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Index</B></FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
++  </TR>
++</TABLE>
++</TD>
++<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
++</EM>
++</TD>
++</TR>
++
++<TR>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++&nbsp;<A HREF="index-2.html"><B>PREV LETTER</B></A>&nbsp;
++&nbsp;<A HREF="index-4.html"><B>NEXT LETTER</B></A></FONT></TD>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++  <A HREF="../index.html?index-filesindex-3.html" target="_top"><B>FRAMES</B></A>  &nbsp;
++&nbsp;<A HREF="index-3.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
++&nbsp;<SCRIPT type="text/javascript">
++  <!--
++  if(window==top) {
++    document.writeln('<A HREF="../allclasses-noframe.html"><B>All Classes</B></A>');
++  }
++  //-->
++</SCRIPT>
++<NOSCRIPT>
++  <A HREF="../allclasses-noframe.html"><B>All Classes</B></A>
++</NOSCRIPT>
++
++
++</FONT></TD>
++</TR>
++</TABLE>
++<A NAME="skip-navbar_top"></A>
++<!-- ========= END OF TOP NAVBAR ========= -->
++
++<A HREF="index-1.html">G</A> <A HREF="index-2.html">I</A> <A HREF="index-3.html">O</A> <A HREF="index-4.html">R</A> <A HREF="index-5.html">S</A> <A HREF="index-6.html">T</A> <HR>
++<A NAME="_O_"><!-- --></A><H2>
++<B>O</B></H2>
++<DL>
++<DT><A HREF="../org/openmrs/tools/doclet/package-summary.html"><B>org.openmrs.tools.doclet</B></A> - package org.openmrs.tools.doclet<DD>&nbsp;</DL>
++<HR>
++
++
++<!-- ======= START OF BOTTOM NAVBAR ====== -->
++<A NAME="navbar_bottom"><!-- --></A>
++<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
++<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
++<TR>
++<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
++<A NAME="navbar_bottom_firstrow"><!-- --></A>
++<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
++  <TR ALIGN="center" VALIGN="top">
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../org/openmrs/tools/doclet/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Use</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../org/openmrs/tools/doclet/package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Index</B></FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
++  </TR>
++</TABLE>
++</TD>
++<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
++</EM>
++</TD>
++</TR>
++
++<TR>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++&nbsp;<A HREF="index-2.html"><B>PREV LETTER</B></A>&nbsp;
++&nbsp;<A HREF="index-4.html"><B>NEXT LETTER</B></A></FONT></TD>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++  <A HREF="../index.html?index-filesindex-3.html" target="_top"><B>FRAMES</B></A>  &nbsp;
++&nbsp;<A HREF="index-3.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
++&nbsp;<SCRIPT type="text/javascript">
++  <!--
++  if(window==top) {
++    document.writeln('<A HREF="../allclasses-noframe.html"><B>All Classes</B></A>');
++  }
++  //-->
++</SCRIPT>
++<NOSCRIPT>
++  <A HREF="../allclasses-noframe.html"><B>All Classes</B></A>
++</NOSCRIPT>
++
++
++</FONT></TD>
++</TR>
++</TABLE>
++<A NAME="skip-navbar_bottom"></A>
++<!-- ======== END OF BOTTOM NAVBAR ======= -->
++
++<A HREF="index-1.html">G</A> <A HREF="index-2.html">I</A> <A HREF="index-3.html">O</A> <A HREF="index-4.html">R</A> <A HREF="index-5.html">S</A> <A HREF="index-6.html">T</A> <HR>
++
++</BODY>
++</HTML>
+Index: doc/index-files/index-5.html
+===================================================================
+--- doc/index-files/index-5.html	(revision 0)
++++ doc/index-files/index-5.html	(revision 0)
+@@ -0,0 +1,143 @@
++<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
++<!--NewPage-->
++<HTML>
++<HEAD>
++<!-- Generated by javadoc (build 1.6.0_21) on Fri Oct 28 22:38:46 EDT 2011 -->
++<TITLE>
++S-Index
++</TITLE>
++
++<META NAME="date" CONTENT="2011-10-28">
++
++<LINK REL ="stylesheet" TYPE="text/css" HREF="../stylesheet.css" TITLE="Style">
++
++<SCRIPT type="text/javascript">
++function windowTitle()
++{
++    if (location.href.indexOf('is-external=true') == -1) {
++        parent.document.title="S-Index";
++    }
++}
++</SCRIPT>
++<NOSCRIPT>
++</NOSCRIPT>
++
++</HEAD>
++
++<BODY BGCOLOR="white" onload="windowTitle();">
++<HR>
++
++
++<!-- ========= START OF TOP NAVBAR ======= -->
++<A NAME="navbar_top"><!-- --></A>
++<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
++<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
++<TR>
++<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
++<A NAME="navbar_top_firstrow"><!-- --></A>
++<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
++  <TR ALIGN="center" VALIGN="top">
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../org/openmrs/tools/doclet/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Use</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../org/openmrs/tools/doclet/package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Index</B></FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
++  </TR>
++</TABLE>
++</TD>
++<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
++</EM>
++</TD>
++</TR>
++
++<TR>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++&nbsp;<A HREF="index-4.html"><B>PREV LETTER</B></A>&nbsp;
++&nbsp;<A HREF="index-6.html"><B>NEXT LETTER</B></A></FONT></TD>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++  <A HREF="../index.html?index-filesindex-5.html" target="_top"><B>FRAMES</B></A>  &nbsp;
++&nbsp;<A HREF="index-5.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
++&nbsp;<SCRIPT type="text/javascript">
++  <!--
++  if(window==top) {
++    document.writeln('<A HREF="../allclasses-noframe.html"><B>All Classes</B></A>');
++  }
++  //-->
++</SCRIPT>
++<NOSCRIPT>
++  <A HREF="../allclasses-noframe.html"><B>All Classes</B></A>
++</NOSCRIPT>
++
++
++</FONT></TD>
++</TR>
++</TABLE>
++<A NAME="skip-navbar_top"></A>
++<!-- ========= END OF TOP NAVBAR ========= -->
++
++<A HREF="index-1.html">G</A> <A HREF="index-2.html">I</A> <A HREF="index-3.html">O</A> <A HREF="index-4.html">R</A> <A HREF="index-5.html">S</A> <A HREF="index-6.html">T</A> <HR>
++<A NAME="_S_"><!-- --></A><H2>
++<B>S</B></H2>
++<DL>
++<DT><A HREF="../org/openmrs/tools/doclet/ShouldTaglet.html" title="class in org.openmrs.tools.doclet"><B>ShouldTaglet</B></A> - Class in <A HREF="../org/openmrs/tools/doclet/package-summary.html">org.openmrs.tools.doclet</A><DD>Taglet for @should annotations.<DT><A HREF="../org/openmrs/tools/doclet/ShouldTaglet.html#ShouldTaglet()"><B>ShouldTaglet()</B></A> - 
++Constructor for class org.openmrs.tools.doclet.<A HREF="../org/openmrs/tools/doclet/ShouldTaglet.html" title="class in org.openmrs.tools.doclet">ShouldTaglet</A>
++<DD>&nbsp;
++</DL>
++<HR>
++
++
++<!-- ======= START OF BOTTOM NAVBAR ====== -->
++<A NAME="navbar_bottom"><!-- --></A>
++<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
++<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
++<TR>
++<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
++<A NAME="navbar_bottom_firstrow"><!-- --></A>
++<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
++  <TR ALIGN="center" VALIGN="top">
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../org/openmrs/tools/doclet/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Use</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../org/openmrs/tools/doclet/package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Index</B></FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
++  </TR>
++</TABLE>
++</TD>
++<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
++</EM>
++</TD>
++</TR>
++
++<TR>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++&nbsp;<A HREF="index-4.html"><B>PREV LETTER</B></A>&nbsp;
++&nbsp;<A HREF="index-6.html"><B>NEXT LETTER</B></A></FONT></TD>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++  <A HREF="../index.html?index-filesindex-5.html" target="_top"><B>FRAMES</B></A>  &nbsp;
++&nbsp;<A HREF="index-5.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
++&nbsp;<SCRIPT type="text/javascript">
++  <!--
++  if(window==top) {
++    document.writeln('<A HREF="../allclasses-noframe.html"><B>All Classes</B></A>');
++  }
++  //-->
++</SCRIPT>
++<NOSCRIPT>
++  <A HREF="../allclasses-noframe.html"><B>All Classes</B></A>
++</NOSCRIPT>
++
++
++</FONT></TD>
++</TR>
++</TABLE>
++<A NAME="skip-navbar_bottom"></A>
++<!-- ======== END OF BOTTOM NAVBAR ======= -->
++
++<A HREF="index-1.html">G</A> <A HREF="index-2.html">I</A> <A HREF="index-3.html">O</A> <A HREF="index-4.html">R</A> <A HREF="index-5.html">S</A> <A HREF="index-6.html">T</A> <HR>
++
++</BODY>
++</HTML>
+Index: doc/org/openmrs/tools/doclet/package-tree.html
+===================================================================
+--- doc/org/openmrs/tools/doclet/package-tree.html	(revision 0)
++++ doc/org/openmrs/tools/doclet/package-tree.html	(revision 0)
+@@ -0,0 +1,148 @@
++<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
++<!--NewPage-->
++<HTML>
++<HEAD>
++<!-- Generated by javadoc (build 1.6.0_21) on Fri Oct 28 22:38:46 EDT 2011 -->
++<TITLE>
++org.openmrs.tools.doclet Class Hierarchy
++</TITLE>
++
++<META NAME="date" CONTENT="2011-10-28">
++
++<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../stylesheet.css" TITLE="Style">
++
++<SCRIPT type="text/javascript">
++function windowTitle()
++{
++    if (location.href.indexOf('is-external=true') == -1) {
++        parent.document.title="org.openmrs.tools.doclet Class Hierarchy";
++    }
++}
++</SCRIPT>
++<NOSCRIPT>
++</NOSCRIPT>
++
++</HEAD>
++
++<BODY BGCOLOR="white" onload="windowTitle();">
++<HR>
++
++
++<!-- ========= START OF TOP NAVBAR ======= -->
++<A NAME="navbar_top"><!-- --></A>
++<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
++<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
++<TR>
++<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
++<A NAME="navbar_top_firstrow"><!-- --></A>
++<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
++  <TR ALIGN="center" VALIGN="top">
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../org/openmrs/tools/doclet/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Use</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Tree</B></FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../index-files/index-1.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
++  </TR>
++</TABLE>
++</TD>
++<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
++</EM>
++</TD>
++</TR>
++
++<TR>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++&nbsp;PREV&nbsp;
++&nbsp;NEXT</FONT></TD>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++  <A HREF="../../../../index.html?org/openmrs/tools/doclet/package-tree.html" target="_top"><B>FRAMES</B></A>  &nbsp;
++&nbsp;<A HREF="package-tree.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
++&nbsp;<SCRIPT type="text/javascript">
++  <!--
++  if(window==top) {
++    document.writeln('<A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>');
++  }
++  //-->
++</SCRIPT>
++<NOSCRIPT>
++  <A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>
++</NOSCRIPT>
++
++
++</FONT></TD>
++</TR>
++</TABLE>
++<A NAME="skip-navbar_top"></A>
++<!-- ========= END OF TOP NAVBAR ========= -->
++
++<HR>
++<CENTER>
++<H2>
++Hierarchy For Package org.openmrs.tools.doclet
++</H2>
++</CENTER>
++<H2>
++Class Hierarchy
++</H2>
++<UL>
++<LI TYPE="circle">java.lang.Object<UL>
++<LI TYPE="circle">org.openmrs.tools.doclet.<A HREF="../../../../org/openmrs/tools/doclet/ShouldTaglet.html" title="class in org.openmrs.tools.doclet"><B>ShouldTaglet</B></A></UL>
++</UL>
++<HR>
++
++
++<!-- ======= START OF BOTTOM NAVBAR ====== -->
++<A NAME="navbar_bottom"><!-- --></A>
++<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
++<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
++<TR>
++<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
++<A NAME="navbar_bottom_firstrow"><!-- --></A>
++<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
++  <TR ALIGN="center" VALIGN="top">
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../org/openmrs/tools/doclet/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Use</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Tree</B></FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../index-files/index-1.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
++  </TR>
++</TABLE>
++</TD>
++<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
++</EM>
++</TD>
++</TR>
++
++<TR>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++&nbsp;PREV&nbsp;
++&nbsp;NEXT</FONT></TD>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++  <A HREF="../../../../index.html?org/openmrs/tools/doclet/package-tree.html" target="_top"><B>FRAMES</B></A>  &nbsp;
++&nbsp;<A HREF="package-tree.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
++&nbsp;<SCRIPT type="text/javascript">
++  <!--
++  if(window==top) {
++    document.writeln('<A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>');
++  }
++  //-->
++</SCRIPT>
++<NOSCRIPT>
++  <A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>
++</NOSCRIPT>
++
++
++</FONT></TD>
++</TR>
++</TABLE>
++<A NAME="skip-navbar_bottom"></A>
++<!-- ======== END OF BOTTOM NAVBAR ======= -->
++
++<HR>
++
++</BODY>
++</HTML>
+Index: doc/org/openmrs/tools/doclet/package-use.html
+===================================================================
+--- doc/org/openmrs/tools/doclet/package-use.html	(revision 0)
++++ doc/org/openmrs/tools/doclet/package-use.html	(revision 0)
+@@ -0,0 +1,142 @@
++<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
++<!--NewPage-->
++<HTML>
++<HEAD>
++<!-- Generated by javadoc (build 1.6.0_21) on Fri Oct 28 22:38:46 EDT 2011 -->
++<TITLE>
++Uses of Package org.openmrs.tools.doclet
++</TITLE>
++
++<META NAME="date" CONTENT="2011-10-28">
++
++<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../stylesheet.css" TITLE="Style">
++
++<SCRIPT type="text/javascript">
++function windowTitle()
++{
++    if (location.href.indexOf('is-external=true') == -1) {
++        parent.document.title="Uses of Package org.openmrs.tools.doclet";
++    }
++}
++</SCRIPT>
++<NOSCRIPT>
++</NOSCRIPT>
++
++</HEAD>
++
++<BODY BGCOLOR="white" onload="windowTitle();">
++<HR>
++
++
++<!-- ========= START OF TOP NAVBAR ======= -->
++<A NAME="navbar_top"><!-- --></A>
++<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
++<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
++<TR>
++<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
++<A NAME="navbar_top_firstrow"><!-- --></A>
++<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
++  <TR ALIGN="center" VALIGN="top">
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../org/openmrs/tools/doclet/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Use</B></FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../index-files/index-1.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
++  </TR>
++</TABLE>
++</TD>
++<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
++</EM>
++</TD>
++</TR>
++
++<TR>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++&nbsp;PREV&nbsp;
++&nbsp;NEXT</FONT></TD>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++  <A HREF="../../../../index.html?org/openmrs/tools/doclet/package-use.html" target="_top"><B>FRAMES</B></A>  &nbsp;
++&nbsp;<A HREF="package-use.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
++&nbsp;<SCRIPT type="text/javascript">
++  <!--
++  if(window==top) {
++    document.writeln('<A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>');
++  }
++  //-->
++</SCRIPT>
++<NOSCRIPT>
++  <A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>
++</NOSCRIPT>
++
++
++</FONT></TD>
++</TR>
++</TABLE>
++<A NAME="skip-navbar_top"></A>
++<!-- ========= END OF TOP NAVBAR ========= -->
++
++<HR>
++<CENTER>
++<H2>
++<B>Uses of Package<br>org.openmrs.tools.doclet</B></H2>
++</CENTER>
++No usage of org.openmrs.tools.doclet
++<P>
++<HR>
++
++
++<!-- ======= START OF BOTTOM NAVBAR ====== -->
++<A NAME="navbar_bottom"><!-- --></A>
++<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
++<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
++<TR>
++<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
++<A NAME="navbar_bottom_firstrow"><!-- --></A>
++<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
++  <TR ALIGN="center" VALIGN="top">
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../org/openmrs/tools/doclet/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Use</B></FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../index-files/index-1.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
++  </TR>
++</TABLE>
++</TD>
++<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
++</EM>
++</TD>
++</TR>
++
++<TR>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++&nbsp;PREV&nbsp;
++&nbsp;NEXT</FONT></TD>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++  <A HREF="../../../../index.html?org/openmrs/tools/doclet/package-use.html" target="_top"><B>FRAMES</B></A>  &nbsp;
++&nbsp;<A HREF="package-use.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
++&nbsp;<SCRIPT type="text/javascript">
++  <!--
++  if(window==top) {
++    document.writeln('<A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>');
++  }
++  //-->
++</SCRIPT>
++<NOSCRIPT>
++  <A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>
++</NOSCRIPT>
++
++
++</FONT></TD>
++</TR>
++</TABLE>
++<A NAME="skip-navbar_bottom"></A>
++<!-- ======== END OF BOTTOM NAVBAR ======= -->
++
++<HR>
++
++</BODY>
++</HTML>
+Index: doc/org/openmrs/tools/doclet/package-summary.html
+===================================================================
+--- doc/org/openmrs/tools/doclet/package-summary.html	(revision 0)
++++ doc/org/openmrs/tools/doclet/package-summary.html	(revision 0)
+@@ -0,0 +1,155 @@
++<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
++<!--NewPage-->
++<HTML>
++<HEAD>
++<!-- Generated by javadoc (build 1.6.0_21) on Fri Oct 28 22:38:46 EDT 2011 -->
++<TITLE>
++org.openmrs.tools.doclet
++</TITLE>
++
++<META NAME="date" CONTENT="2011-10-28">
++
++<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../stylesheet.css" TITLE="Style">
++
++<SCRIPT type="text/javascript">
++function windowTitle()
++{
++    if (location.href.indexOf('is-external=true') == -1) {
++        parent.document.title="org.openmrs.tools.doclet";
++    }
++}
++</SCRIPT>
++<NOSCRIPT>
++</NOSCRIPT>
++
++</HEAD>
++
++<BODY BGCOLOR="white" onload="windowTitle();">
++<HR>
++
++
++<!-- ========= START OF TOP NAVBAR ======= -->
++<A NAME="navbar_top"><!-- --></A>
++<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
++<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
++<TR>
++<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
++<A NAME="navbar_top_firstrow"><!-- --></A>
++<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
++  <TR ALIGN="center" VALIGN="top">
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../org/openmrs/tools/doclet/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-use.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../index-files/index-1.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
++  </TR>
++</TABLE>
++</TD>
++<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
++</EM>
++</TD>
++</TR>
++
++<TR>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++&nbsp;PREV PACKAGE&nbsp;
++&nbsp;NEXT PACKAGE</FONT></TD>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++  <A HREF="../../../../index.html?org/openmrs/tools/doclet/package-summary.html" target="_top"><B>FRAMES</B></A>  &nbsp;
++&nbsp;<A HREF="package-summary.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
++&nbsp;<SCRIPT type="text/javascript">
++  <!--
++  if(window==top) {
++    document.writeln('<A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>');
++  }
++  //-->
++</SCRIPT>
++<NOSCRIPT>
++  <A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>
++</NOSCRIPT>
++
++
++</FONT></TD>
++</TR>
++</TABLE>
++<A NAME="skip-navbar_top"></A>
++<!-- ========= END OF TOP NAVBAR ========= -->
++
++<HR>
++<H2>
++Package org.openmrs.tools.doclet
++</H2>
++
++<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
++<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
++<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
++<B>Class Summary</B></FONT></TH>
++</TR>
++<TR BGCOLOR="white" CLASS="TableRowColor">
++<TD WIDTH="15%"><B><A HREF="../../../../org/openmrs/tools/doclet/ShouldTaglet.html" title="class in org.openmrs.tools.doclet">ShouldTaglet</A></B></TD>
++<TD>Taglet for @should annotations.</TD>
++</TR>
++</TABLE>
++&nbsp;
++
++<P>
++<DL>
++</DL>
++<HR>
++
++
++<!-- ======= START OF BOTTOM NAVBAR ====== -->
++<A NAME="navbar_bottom"><!-- --></A>
++<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
++<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
++<TR>
++<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
++<A NAME="navbar_bottom_firstrow"><!-- --></A>
++<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
++  <TR ALIGN="center" VALIGN="top">
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../org/openmrs/tools/doclet/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-use.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../index-files/index-1.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
++  </TR>
++</TABLE>
++</TD>
++<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
++</EM>
++</TD>
++</TR>
++
++<TR>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++&nbsp;PREV PACKAGE&nbsp;
++&nbsp;NEXT PACKAGE</FONT></TD>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++  <A HREF="../../../../index.html?org/openmrs/tools/doclet/package-summary.html" target="_top"><B>FRAMES</B></A>  &nbsp;
++&nbsp;<A HREF="package-summary.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
++&nbsp;<SCRIPT type="text/javascript">
++  <!--
++  if(window==top) {
++    document.writeln('<A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>');
++  }
++  //-->
++</SCRIPT>
++<NOSCRIPT>
++  <A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>
++</NOSCRIPT>
++
++
++</FONT></TD>
++</TR>
++</TABLE>
++<A NAME="skip-navbar_bottom"></A>
++<!-- ======== END OF BOTTOM NAVBAR ======= -->
++
++<HR>
++
++</BODY>
++</HTML>
+Index: doc/org/openmrs/tools/doclet/class-use/ShouldTaglet.html
+===================================================================
+--- doc/org/openmrs/tools/doclet/class-use/ShouldTaglet.html	(revision 0)
++++ doc/org/openmrs/tools/doclet/class-use/ShouldTaglet.html	(revision 0)
+@@ -0,0 +1,142 @@
++<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
++<!--NewPage-->
++<HTML>
++<HEAD>
++<!-- Generated by javadoc (build 1.6.0_21) on Fri Oct 28 22:38:46 EDT 2011 -->
++<TITLE>
++Uses of Class org.openmrs.tools.doclet.ShouldTaglet
++</TITLE>
++
++<META NAME="date" CONTENT="2011-10-28">
++
++<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
++
++<SCRIPT type="text/javascript">
++function windowTitle()
++{
++    if (location.href.indexOf('is-external=true') == -1) {
++        parent.document.title="Uses of Class org.openmrs.tools.doclet.ShouldTaglet";
++    }
++}
++</SCRIPT>
++<NOSCRIPT>
++</NOSCRIPT>
++
++</HEAD>
++
++<BODY BGCOLOR="white" onload="windowTitle();">
++<HR>
++
++
++<!-- ========= START OF TOP NAVBAR ======= -->
++<A NAME="navbar_top"><!-- --></A>
++<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
++<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
++<TR>
++<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
++<A NAME="navbar_top_firstrow"><!-- --></A>
++<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
++  <TR ALIGN="center" VALIGN="top">
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../org/openmrs/tools/doclet/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../org/openmrs/tools/doclet/ShouldTaglet.html" title="class in org.openmrs.tools.doclet"><FONT CLASS="NavBarFont1"><B>Class</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Use</B></FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-files/index-1.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
++  </TR>
++</TABLE>
++</TD>
++<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
++</EM>
++</TD>
++</TR>
++
++<TR>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++&nbsp;PREV&nbsp;
++&nbsp;NEXT</FONT></TD>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++  <A HREF="../../../../../index.html?org/openmrs/tools/doclet/\class-useShouldTaglet.html" target="_top"><B>FRAMES</B></A>  &nbsp;
++&nbsp;<A HREF="ShouldTaglet.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
++&nbsp;<SCRIPT type="text/javascript">
++  <!--
++  if(window==top) {
++    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
++  }
++  //-->
++</SCRIPT>
++<NOSCRIPT>
++  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
++</NOSCRIPT>
++
++
++</FONT></TD>
++</TR>
++</TABLE>
++<A NAME="skip-navbar_top"></A>
++<!-- ========= END OF TOP NAVBAR ========= -->
++
++<HR>
++<CENTER>
++<H2>
++<B>Uses of Class<br>org.openmrs.tools.doclet.ShouldTaglet</B></H2>
++</CENTER>
++No usage of org.openmrs.tools.doclet.ShouldTaglet
++<P>
++<HR>
++
++
++<!-- ======= START OF BOTTOM NAVBAR ====== -->
++<A NAME="navbar_bottom"><!-- --></A>
++<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
++<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
++<TR>
++<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
++<A NAME="navbar_bottom_firstrow"><!-- --></A>
++<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
++  <TR ALIGN="center" VALIGN="top">
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../org/openmrs/tools/doclet/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../org/openmrs/tools/doclet/ShouldTaglet.html" title="class in org.openmrs.tools.doclet"><FONT CLASS="NavBarFont1"><B>Class</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Use</B></FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-files/index-1.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
++  </TR>
++</TABLE>
++</TD>
++<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
++</EM>
++</TD>
++</TR>
++
++<TR>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++&nbsp;PREV&nbsp;
++&nbsp;NEXT</FONT></TD>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++  <A HREF="../../../../../index.html?org/openmrs/tools/doclet/\class-useShouldTaglet.html" target="_top"><B>FRAMES</B></A>  &nbsp;
++&nbsp;<A HREF="ShouldTaglet.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
++&nbsp;<SCRIPT type="text/javascript">
++  <!--
++  if(window==top) {
++    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
++  }
++  //-->
++</SCRIPT>
++<NOSCRIPT>
++  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
++</NOSCRIPT>
++
++
++</FONT></TD>
++</TR>
++</TABLE>
++<A NAME="skip-navbar_bottom"></A>
++<!-- ======== END OF BOTTOM NAVBAR ======= -->
++
++<HR>
++
++</BODY>
++</HTML>
+Index: doc/org/openmrs/tools/doclet/ShouldTaglet.html
+===================================================================
+--- doc/org/openmrs/tools/doclet/ShouldTaglet.html	(revision 0)
++++ doc/org/openmrs/tools/doclet/ShouldTaglet.html	(revision 0)
+@@ -0,0 +1,485 @@
++<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
++<!--NewPage-->
++<HTML>
++<HEAD>
++<!-- Generated by javadoc (build 1.6.0_21) on Fri Oct 28 22:38:46 EDT 2011 -->
++<TITLE>
++ShouldTaglet
++</TITLE>
++
++<META NAME="date" CONTENT="2011-10-28">
++
++<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../stylesheet.css" TITLE="Style">
++
++<SCRIPT type="text/javascript">
++function windowTitle()
++{
++    if (location.href.indexOf('is-external=true') == -1) {
++        parent.document.title="ShouldTaglet";
++    }
++}
++</SCRIPT>
++<NOSCRIPT>
++</NOSCRIPT>
++
++</HEAD>
++
++<BODY BGCOLOR="white" onload="windowTitle();">
++<HR>
++
++
++<!-- ========= START OF TOP NAVBAR ======= -->
++<A NAME="navbar_top"><!-- --></A>
++<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
++<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
++<TR>
++<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
++<A NAME="navbar_top_firstrow"><!-- --></A>
++<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
++  <TR ALIGN="center" VALIGN="top">
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../org/openmrs/tools/doclet/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/ShouldTaglet.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../index-files/index-1.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
++  </TR>
++</TABLE>
++</TD>
++<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
++</EM>
++</TD>
++</TR>
++
++<TR>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++&nbsp;PREV CLASS&nbsp;
++&nbsp;NEXT CLASS</FONT></TD>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++  <A HREF="../../../../index.html?org/openmrs/tools/doclet/ShouldTaglet.html" target="_top"><B>FRAMES</B></A>  &nbsp;
++&nbsp;<A HREF="ShouldTaglet.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
++&nbsp;<SCRIPT type="text/javascript">
++  <!--
++  if(window==top) {
++    document.writeln('<A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>');
++  }
++  //-->
++</SCRIPT>
++<NOSCRIPT>
++  <A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>
++</NOSCRIPT>
++
++
++</FONT></TD>
++</TR>
++<TR>
++<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
++  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
++<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
++DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
++</TR>
++</TABLE>
++<A NAME="skip-navbar_top"></A>
++<!-- ========= END OF TOP NAVBAR ========= -->
++
++<HR>
++<!-- ======== START OF CLASS DATA ======== -->
++<H2>
++<FONT SIZE="-1">
++org.openmrs.tools.doclet</FONT>
++<BR>
++Class ShouldTaglet</H2>
++<PRE>
++java.lang.Object
++  <IMG SRC="../../../../resources/inherit.gif" ALT="extended by "><B>org.openmrs.tools.doclet.ShouldTaglet</B>
++</PRE>
++<HR>
++<DL>
++<DT><PRE>public class <B>ShouldTaglet</B><DT>extends java.lang.Object</DL>
++</PRE>
++
++<P>
++Taglet for @should annotations.
++<P>
++
++<P>
++<HR>
++
++<P>
++
++<!-- ======== CONSTRUCTOR SUMMARY ======== -->
++
++<A NAME="constructor_summary"><!-- --></A>
++<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
++<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
++<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
++<B>Constructor Summary</B></FONT></TH>
++</TR>
++<TR BGCOLOR="white" CLASS="TableRowColor">
++<TD><CODE><B><A HREF="../../../../org/openmrs/tools/doclet/ShouldTaglet.html#ShouldTaglet()">ShouldTaglet</A></B>()</CODE>
++
++<BR>
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
++</TR>
++</TABLE>
++&nbsp;
++<!-- ========== METHOD SUMMARY =========== -->
++
++<A NAME="method_summary"><!-- --></A>
++<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
++<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
++<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
++<B>Method Summary</B></FONT></TH>
++</TR>
++<TR BGCOLOR="white" CLASS="TableRowColor">
++<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
++<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
++<TD><CODE><B><A HREF="../../../../org/openmrs/tools/doclet/ShouldTaglet.html#getName()">getName</A></B>()</CODE>
++
++<BR>
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return the name of this custom tag.</TD>
++</TR>
++<TR BGCOLOR="white" CLASS="TableRowColor">
++<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
++<CODE>&nbsp;boolean</CODE></FONT></TD>
++<TD><CODE><B><A HREF="../../../../org/openmrs/tools/doclet/ShouldTaglet.html#inConstructor()">inConstructor</A></B>()</CODE>
++
++<BR>
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Will return true since <code> @should</code> can be used in constructor documentation.</TD>
++</TR>
++<TR BGCOLOR="white" CLASS="TableRowColor">
++<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
++<CODE>&nbsp;boolean</CODE></FONT></TD>
++<TD><CODE><B><A HREF="../../../../org/openmrs/tools/doclet/ShouldTaglet.html#inField()">inField</A></B>()</CODE>
++
++<BR>
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Will return false since <code> @should</code> cannot be used in field documentation.</TD>
++</TR>
++<TR BGCOLOR="white" CLASS="TableRowColor">
++<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
++<CODE>&nbsp;boolean</CODE></FONT></TD>
++<TD><CODE><B><A HREF="../../../../org/openmrs/tools/doclet/ShouldTaglet.html#inMethod()">inMethod</A></B>()</CODE>
++
++<BR>
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Will return true since <code> @should</code> can be used in method documentation.</TD>
++</TR>
++<TR BGCOLOR="white" CLASS="TableRowColor">
++<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
++<CODE>&nbsp;boolean</CODE></FONT></TD>
++<TD><CODE><B><A HREF="../../../../org/openmrs/tools/doclet/ShouldTaglet.html#inOverview()">inOverview</A></B>()</CODE>
++
++<BR>
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Will return true since <code> @should</code> can be used in method documentation.</TD>
++</TR>
++<TR BGCOLOR="white" CLASS="TableRowColor">
++<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
++<CODE>&nbsp;boolean</CODE></FONT></TD>
++<TD><CODE><B><A HREF="../../../../org/openmrs/tools/doclet/ShouldTaglet.html#inPackage()">inPackage</A></B>()</CODE>
++
++<BR>
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Will return false since <code> @should</code> cannot be used in package documentation.</TD>
++</TR>
++<TR BGCOLOR="white" CLASS="TableRowColor">
++<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
++<CODE>&nbsp;boolean</CODE></FONT></TD>
++<TD><CODE><B><A HREF="../../../../org/openmrs/tools/doclet/ShouldTaglet.html#inType()">inType</A></B>()</CODE>
++
++<BR>
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Will return true since <code> @should</code> can be used in type documentation (classes or
++ interfaces).</TD>
++</TR>
++<TR BGCOLOR="white" CLASS="TableRowColor">
++<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
++<CODE>&nbsp;boolean</CODE></FONT></TD>
++<TD><CODE><B><A HREF="../../../../org/openmrs/tools/doclet/ShouldTaglet.html#isInlineTag()">isInlineTag</A></B>()</CODE>
++
++<BR>
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Will return false since <code> @should</code> is not an inline tag.</TD>
++</TR>
++<TR BGCOLOR="white" CLASS="TableRowColor">
++<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
++<CODE>static&nbsp;void</CODE></FONT></TD>
++<TD><CODE><B><A HREF="../../../../org/openmrs/tools/doclet/ShouldTaglet.html#register(java.util.Map)">register</A></B>(java.util.Map&nbsp;tagletMap)</CODE>
++
++<BR>
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Register this Taglet.</TD>
++</TR>
++<TR BGCOLOR="white" CLASS="TableRowColor">
++<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
++<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
++<TD><CODE><B><A HREF="../../../../org/openmrs/tools/doclet/ShouldTaglet.html#toString(Tag)">toString</A></B>(Tag&nbsp;tag)</CODE>
++
++<BR>
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Given the <code>Tag</code> representation of this custom tag, return its string
++ representation.</TD>
++</TR>
++<TR BGCOLOR="white" CLASS="TableRowColor">
++<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
++<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
++<TD><CODE><B><A HREF="../../../../org/openmrs/tools/doclet/ShouldTaglet.html#toString(Tag[])">toString</A></B>(Tag[]&nbsp;tags)</CODE>
++
++<BR>
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Given an array of <code>Tag</code>s representing this custom tag, return its string
++ representation.</TD>
++</TR>
++</TABLE>
++&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
++<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
++<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
++<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
++</TR>
++<TR BGCOLOR="white" CLASS="TableRowColor">
++<TD><CODE>equals, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
++</TR>
++</TABLE>
++&nbsp;
++<P>
++
++<!-- ========= CONSTRUCTOR DETAIL ======== -->
++
++<A NAME="constructor_detail"><!-- --></A>
++<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
++<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
++<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
++<B>Constructor Detail</B></FONT></TH>
++</TR>
++</TABLE>
++
++<A NAME="ShouldTaglet()"><!-- --></A><H3>
++ShouldTaglet</H3>
++<PRE>
++public <B>ShouldTaglet</B>()</PRE>
++<DL>
++</DL>
++
++<!-- ============ METHOD DETAIL ========== -->
++
++<A NAME="method_detail"><!-- --></A>
++<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
++<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
++<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
++<B>Method Detail</B></FONT></TH>
++</TR>
++</TABLE>
++
++<A NAME="getName()"><!-- --></A><H3>
++getName</H3>
++<PRE>
++public java.lang.String <B>getName</B>()</PRE>
++<DL>
++<DD>Return the name of this custom tag.
++<P>
++<DD><DL>
++</DL>
++</DD>
++</DL>
++<HR>
++
++<A NAME="inField()"><!-- --></A><H3>
++inField</H3>
++<PRE>
++public boolean <B>inField</B>()</PRE>
++<DL>
++<DD>Will return false since <code> @should</code> cannot be used in field documentation.
++<P>
++<DD><DL>
++
++<DT><B>Returns:</B><DD>false since <code> @should</code> can be used in field documentation and true
++         otherwise.</DL>
++</DD>
++</DL>
++<HR>
++
++<A NAME="inConstructor()"><!-- --></A><H3>
++inConstructor</H3>
++<PRE>
++public boolean <B>inConstructor</B>()</PRE>
++<DL>
++<DD>Will return true since <code> @should</code> can be used in constructor documentation.
++<P>
++<DD><DL>
++
++<DT><B>Returns:</B><DD>true since <code> @should</code> can be used in constructor documentation and false
++         otherwise.</DL>
++</DD>
++</DL>
++<HR>
++
++<A NAME="inMethod()"><!-- --></A><H3>
++inMethod</H3>
++<PRE>
++public boolean <B>inMethod</B>()</PRE>
++<DL>
++<DD>Will return true since <code> @should</code> can be used in method documentation.
++<P>
++<DD><DL>
++
++<DT><B>Returns:</B><DD>true since <code> @should</code> can be used in method documentation and false
++         otherwise.</DL>
++</DD>
++</DL>
++<HR>
++
++<A NAME="inOverview()"><!-- --></A><H3>
++inOverview</H3>
++<PRE>
++public boolean <B>inOverview</B>()</PRE>
++<DL>
++<DD>Will return true since <code> @should</code> can be used in method documentation.
++<P>
++<DD><DL>
++
++<DT><B>Returns:</B><DD>true since <code> @should</code> can be used in overview documentation and false
++         otherwise.</DL>
++</DD>
++</DL>
++<HR>
++
++<A NAME="inPackage()"><!-- --></A><H3>
++inPackage</H3>
++<PRE>
++public boolean <B>inPackage</B>()</PRE>
++<DL>
++<DD>Will return false since <code> @should</code> cannot be used in package documentation.
++<P>
++<DD><DL>
++
++<DT><B>Returns:</B><DD>false since <code> @should</code> cannot be used in package documentation and true
++         otherwise.</DL>
++</DD>
++</DL>
++<HR>
++
++<A NAME="inType()"><!-- --></A><H3>
++inType</H3>
++<PRE>
++public boolean <B>inType</B>()</PRE>
++<DL>
++<DD>Will return true since <code> @should</code> can be used in type documentation (classes or
++ interfaces).
++<P>
++<DD><DL>
++
++<DT><B>Returns:</B><DD>true since <code> @should</code> can be used in type documentation and false
++         otherwise.</DL>
++</DD>
++</DL>
++<HR>
++
++<A NAME="isInlineTag()"><!-- --></A><H3>
++isInlineTag</H3>
++<PRE>
++public boolean <B>isInlineTag</B>()</PRE>
++<DL>
++<DD>Will return false since <code> @should</code> is not an inline tag.
++<P>
++<DD><DL>
++
++<DT><B>Returns:</B><DD>false since <code> @should</code> is not an inline tag.</DL>
++</DD>
++</DL>
++<HR>
++
++<A NAME="register(java.util.Map)"><!-- --></A><H3>
++register</H3>
++<PRE>
++public static void <B>register</B>(java.util.Map&nbsp;tagletMap)</PRE>
++<DL>
++<DD>Register this Taglet.
++<P>
++<DD><DL>
++<DT><B>Parameters:</B><DD><CODE>tagletMap</CODE> - the map to register this tag to.</DL>
++</DD>
++</DL>
++<HR>
++
++<A NAME="toString(Tag)"><!-- --></A><H3>
++toString</H3>
++<PRE>
++public java.lang.String <B>toString</B>(Tag&nbsp;tag)</PRE>
++<DL>
++<DD>Given the <code>Tag</code> representation of this custom tag, return its string
++ representation.
++<P>
++<DD><DL>
++<DT><B>Parameters:</B><DD><CODE>tag</CODE> - the <code>Tag</code> representation of this custom tag.</DL>
++</DD>
++</DL>
++<HR>
++
++<A NAME="toString(Tag[])"><!-- --></A><H3>
++toString</H3>
++<PRE>
++public java.lang.String <B>toString</B>(Tag[]&nbsp;tags)</PRE>
++<DL>
++<DD>Given an array of <code>Tag</code>s representing this custom tag, return its string
++ representation.
++<P>
++<DD><DL>
++<DT><B>Parameters:</B><DD><CODE>tags</CODE> - the array of <code>Tag</code>s representing of this custom tag.</DL>
++</DD>
++</DL>
++<!-- ========= END OF CLASS DATA ========= -->
++<HR>
++
++
++<!-- ======= START OF BOTTOM NAVBAR ====== -->
++<A NAME="navbar_bottom"><!-- --></A>
++<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
++<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
++<TR>
++<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
++<A NAME="navbar_bottom_firstrow"><!-- --></A>
++<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
++  <TR ALIGN="center" VALIGN="top">
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../org/openmrs/tools/doclet/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/ShouldTaglet.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../index-files/index-1.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
++  </TR>
++</TABLE>
++</TD>
++<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
++</EM>
++</TD>
++</TR>
++
++<TR>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++&nbsp;PREV CLASS&nbsp;
++&nbsp;NEXT CLASS</FONT></TD>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++  <A HREF="../../../../index.html?org/openmrs/tools/doclet/ShouldTaglet.html" target="_top"><B>FRAMES</B></A>  &nbsp;
++&nbsp;<A HREF="ShouldTaglet.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
++&nbsp;<SCRIPT type="text/javascript">
++  <!--
++  if(window==top) {
++    document.writeln('<A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>');
++  }
++  //-->
++</SCRIPT>
++<NOSCRIPT>
++  <A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>
++</NOSCRIPT>
++
++
++</FONT></TD>
++</TR>
++<TR>
++<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
++  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
++<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
++DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
++</TR>
++</TABLE>
++<A NAME="skip-navbar_bottom"></A>
++<!-- ======== END OF BOTTOM NAVBAR ======= -->
++
++<HR>
++
++</BODY>
++</HTML>
+Index: doc/org/openmrs/tools/doclet/package-frame.html
+===================================================================
+--- doc/org/openmrs/tools/doclet/package-frame.html	(revision 0)
++++ doc/org/openmrs/tools/doclet/package-frame.html	(revision 0)
+@@ -0,0 +1,32 @@
++<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
++<!--NewPage-->
++<HTML>
++<HEAD>
++<!-- Generated by javadoc (build 1.6.0_21) on Fri Oct 28 22:38:46 EDT 2011 -->
++<TITLE>
++org.openmrs.tools.doclet
++</TITLE>
++
++<META NAME="date" CONTENT="2011-10-28">
++
++<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../stylesheet.css" TITLE="Style">
++
++
++</HEAD>
++
++<BODY BGCOLOR="white">
++<FONT size="+1" CLASS="FrameTitleFont">
++<A HREF="../../../../org/openmrs/tools/doclet/package-summary.html" target="classFrame">org.openmrs.tools.doclet</A></FONT>
++<TABLE BORDER="0" WIDTH="100%" SUMMARY="">
++<TR>
++<TD NOWRAP><FONT size="+1" CLASS="FrameHeadingFont">
++Classes</FONT>&nbsp;
++<FONT CLASS="FrameItemFont">
++<BR>
++<A HREF="ShouldTaglet.html" title="class in org.openmrs.tools.doclet" target="classFrame">ShouldTaglet</A></FONT></TD>
++</TR>
++</TABLE>
++
++
++</BODY>
++</HTML>
+Index: doc/overview-tree.html
+===================================================================
+--- doc/overview-tree.html	(revision 0)
++++ doc/overview-tree.html	(revision 0)
+@@ -0,0 +1,150 @@
++<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
++<!--NewPage-->
++<HTML>
++<HEAD>
++<!-- Generated by javadoc (build 1.6.0_21) on Fri Oct 28 22:38:46 EDT 2011 -->
++<TITLE>
++Class Hierarchy
++</TITLE>
++
++<META NAME="date" CONTENT="2011-10-28">
++
++<LINK REL ="stylesheet" TYPE="text/css" HREF="stylesheet.css" TITLE="Style">
++
++<SCRIPT type="text/javascript">
++function windowTitle()
++{
++    if (location.href.indexOf('is-external=true') == -1) {
++        parent.document.title="Class Hierarchy";
++    }
++}
++</SCRIPT>
++<NOSCRIPT>
++</NOSCRIPT>
++
++</HEAD>
++
++<BODY BGCOLOR="white" onload="windowTitle();">
++<HR>
++
++
++<!-- ========= START OF TOP NAVBAR ======= -->
++<A NAME="navbar_top"><!-- --></A>
++<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
++<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
++<TR>
++<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
++<A NAME="navbar_top_firstrow"><!-- --></A>
++<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
++  <TR ALIGN="center" VALIGN="top">
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="org/openmrs/tools/doclet/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Use</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Tree</B></FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="index-files/index-1.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
++  </TR>
++</TABLE>
++</TD>
++<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
++</EM>
++</TD>
++</TR>
++
++<TR>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++&nbsp;PREV&nbsp;
++&nbsp;NEXT</FONT></TD>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++  <A HREF="index.html?overview-tree.html" target="_top"><B>FRAMES</B></A>  &nbsp;
++&nbsp;<A HREF="overview-tree.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
++&nbsp;<SCRIPT type="text/javascript">
++  <!--
++  if(window==top) {
++    document.writeln('<A HREF="allclasses-noframe.html"><B>All Classes</B></A>');
++  }
++  //-->
++</SCRIPT>
++<NOSCRIPT>
++  <A HREF="allclasses-noframe.html"><B>All Classes</B></A>
++</NOSCRIPT>
++
++
++</FONT></TD>
++</TR>
++</TABLE>
++<A NAME="skip-navbar_top"></A>
++<!-- ========= END OF TOP NAVBAR ========= -->
++
++<HR>
++<CENTER>
++<H2>
++Hierarchy For All Packages</H2>
++</CENTER>
++<DL>
++<DT><B>Package Hierarchies:</B><DD><A HREF="org/openmrs/tools/doclet/package-tree.html">org.openmrs.tools.doclet</A></DL>
++<HR>
++<H2>
++Class Hierarchy
++</H2>
++<UL>
++<LI TYPE="circle">java.lang.Object<UL>
++<LI TYPE="circle">org.openmrs.tools.doclet.<A HREF="org/openmrs/tools/doclet/ShouldTaglet.html" title="class in org.openmrs.tools.doclet"><B>ShouldTaglet</B></A></UL>
++</UL>
++<HR>
++
++
++<!-- ======= START OF BOTTOM NAVBAR ====== -->
++<A NAME="navbar_bottom"><!-- --></A>
++<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
++<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
++<TR>
++<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
++<A NAME="navbar_bottom_firstrow"><!-- --></A>
++<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
++  <TR ALIGN="center" VALIGN="top">
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="org/openmrs/tools/doclet/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Use</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Tree</B></FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="index-files/index-1.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
++  </TR>
++</TABLE>
++</TD>
++<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
++</EM>
++</TD>
++</TR>
++
++<TR>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++&nbsp;PREV&nbsp;
++&nbsp;NEXT</FONT></TD>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++  <A HREF="index.html?overview-tree.html" target="_top"><B>FRAMES</B></A>  &nbsp;
++&nbsp;<A HREF="overview-tree.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
++&nbsp;<SCRIPT type="text/javascript">
++  <!--
++  if(window==top) {
++    document.writeln('<A HREF="allclasses-noframe.html"><B>All Classes</B></A>');
++  }
++  //-->
++</SCRIPT>
++<NOSCRIPT>
++  <A HREF="allclasses-noframe.html"><B>All Classes</B></A>
++</NOSCRIPT>
++
++
++</FONT></TD>
++</TR>
++</TABLE>
++<A NAME="skip-navbar_bottom"></A>
++<!-- ======== END OF BOTTOM NAVBAR ======= -->
++
++<HR>
++
++</BODY>
++</HTML>
+Index: doc/allclasses-frame.html
+===================================================================
+--- doc/allclasses-frame.html	(revision 0)
++++ doc/allclasses-frame.html	(revision 0)
+@@ -0,0 +1,31 @@
++<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
++<!--NewPage-->
++<HTML>
++<HEAD>
++<!-- Generated by javadoc (build 1.6.0_21) on Fri Oct 28 22:38:46 EDT 2011 -->
++<TITLE>
++All Classes
++</TITLE>
++
++<META NAME="date" CONTENT="2011-10-28">
++
++<LINK REL ="stylesheet" TYPE="text/css" HREF="stylesheet.css" TITLE="Style">
++
++
++</HEAD>
++
++<BODY BGCOLOR="white">
++<FONT size="+1" CLASS="FrameHeadingFont">
++<B>All Classes</B></FONT>
++<BR>
++
++<TABLE BORDER="0" WIDTH="100%" SUMMARY="">
++<TR>
++<TD NOWRAP><FONT CLASS="FrameItemFont"><A HREF="org/openmrs/tools/doclet/ShouldTaglet.html" title="class in org.openmrs.tools.doclet" target="classFrame">ShouldTaglet</A>
++<BR>
++</FONT></TD>
++</TR>
++</TABLE>
++
++</BODY>
++</HTML>
+Index: doc/constant-values.html
+===================================================================
+--- doc/constant-values.html	(revision 0)
++++ doc/constant-values.html	(revision 0)
+@@ -0,0 +1,144 @@
++<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
++<!--NewPage-->
++<HTML>
++<HEAD>
++<!-- Generated by javadoc (build 1.6.0_21) on Fri Oct 28 22:38:46 EDT 2011 -->
++<TITLE>
++Constant Field Values
++</TITLE>
++
++<META NAME="date" CONTENT="2011-10-28">
++
++<LINK REL ="stylesheet" TYPE="text/css" HREF="stylesheet.css" TITLE="Style">
++
++<SCRIPT type="text/javascript">
++function windowTitle()
++{
++    if (location.href.indexOf('is-external=true') == -1) {
++        parent.document.title="Constant Field Values";
++    }
++}
++</SCRIPT>
++<NOSCRIPT>
++</NOSCRIPT>
++
++</HEAD>
++
++<BODY BGCOLOR="white" onload="windowTitle();">
++<HR>
++
++
++<!-- ========= START OF TOP NAVBAR ======= -->
++<A NAME="navbar_top"><!-- --></A>
++<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
++<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
++<TR>
++<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
++<A NAME="navbar_top_firstrow"><!-- --></A>
++<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
++  <TR ALIGN="center" VALIGN="top">
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="org/openmrs/tools/doclet/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Use</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="org/openmrs/tools/doclet/package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="index-files/index-1.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
++  </TR>
++</TABLE>
++</TD>
++<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
++</EM>
++</TD>
++</TR>
++
++<TR>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++&nbsp;PREV&nbsp;
++&nbsp;NEXT</FONT></TD>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++  <A HREF="index.html?constant-values.html" target="_top"><B>FRAMES</B></A>  &nbsp;
++&nbsp;<A HREF="constant-values.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
++&nbsp;<SCRIPT type="text/javascript">
++  <!--
++  if(window==top) {
++    document.writeln('<A HREF="allclasses-noframe.html"><B>All Classes</B></A>');
++  }
++  //-->
++</SCRIPT>
++<NOSCRIPT>
++  <A HREF="allclasses-noframe.html"><B>All Classes</B></A>
++</NOSCRIPT>
++
++
++</FONT></TD>
++</TR>
++</TABLE>
++<A NAME="skip-navbar_top"></A>
++<!-- ========= END OF TOP NAVBAR ========= -->
++
++<HR>
++<CENTER>
++<H1>
++Constant Field Values</H1>
++</CENTER>
++<HR SIZE="4" NOSHADE>
++<B>Contents</B><UL>
++</UL>
++
++<HR>
++
++
++<!-- ======= START OF BOTTOM NAVBAR ====== -->
++<A NAME="navbar_bottom"><!-- --></A>
++<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
++<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
++<TR>
++<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
++<A NAME="navbar_bottom_firstrow"><!-- --></A>
++<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
++  <TR ALIGN="center" VALIGN="top">
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="org/openmrs/tools/doclet/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Use</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="org/openmrs/tools/doclet/package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="index-files/index-1.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
++  </TR>
++</TABLE>
++</TD>
++<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
++</EM>
++</TD>
++</TR>
++
++<TR>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++&nbsp;PREV&nbsp;
++&nbsp;NEXT</FONT></TD>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++  <A HREF="index.html?constant-values.html" target="_top"><B>FRAMES</B></A>  &nbsp;
++&nbsp;<A HREF="constant-values.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
++&nbsp;<SCRIPT type="text/javascript">
++  <!--
++  if(window==top) {
++    document.writeln('<A HREF="allclasses-noframe.html"><B>All Classes</B></A>');
++  }
++  //-->
++</SCRIPT>
++<NOSCRIPT>
++  <A HREF="allclasses-noframe.html"><B>All Classes</B></A>
++</NOSCRIPT>
++
++
++</FONT></TD>
++</TR>
++</TABLE>
++<A NAME="skip-navbar_bottom"></A>
++<!-- ======== END OF BOTTOM NAVBAR ======= -->
++
++<HR>
++
++</BODY>
++</HTML>
+Index: doc/package-list
+===================================================================
+--- doc/package-list	(revision 0)
++++ doc/package-list	(revision 0)
+@@ -0,0 +1 @@
++org.openmrs.tools.doclet
+Index: doc/deprecated-list.html
+===================================================================
+--- doc/deprecated-list.html	(revision 0)
++++ doc/deprecated-list.html	(revision 0)
+@@ -0,0 +1,144 @@
++<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
++<!--NewPage-->
++<HTML>
++<HEAD>
++<!-- Generated by javadoc (build 1.6.0_21) on Fri Oct 28 22:38:46 EDT 2011 -->
++<TITLE>
++Deprecated List
++</TITLE>
++
++<META NAME="date" CONTENT="2011-10-28">
++
++<LINK REL ="stylesheet" TYPE="text/css" HREF="stylesheet.css" TITLE="Style">
++
++<SCRIPT type="text/javascript">
++function windowTitle()
++{
++    if (location.href.indexOf('is-external=true') == -1) {
++        parent.document.title="Deprecated List";
++    }
++}
++</SCRIPT>
++<NOSCRIPT>
++</NOSCRIPT>
++
++</HEAD>
++
++<BODY BGCOLOR="white" onload="windowTitle();">
++<HR>
++
++
++<!-- ========= START OF TOP NAVBAR ======= -->
++<A NAME="navbar_top"><!-- --></A>
++<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
++<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
++<TR>
++<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
++<A NAME="navbar_top_firstrow"><!-- --></A>
++<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
++  <TR ALIGN="center" VALIGN="top">
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="org/openmrs/tools/doclet/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Use</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="org/openmrs/tools/doclet/package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Deprecated</B></FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="index-files/index-1.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
++  </TR>
++</TABLE>
++</TD>
++<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
++</EM>
++</TD>
++</TR>
++
++<TR>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++&nbsp;PREV&nbsp;
++&nbsp;NEXT</FONT></TD>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++  <A HREF="index.html?deprecated-list.html" target="_top"><B>FRAMES</B></A>  &nbsp;
++&nbsp;<A HREF="deprecated-list.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
++&nbsp;<SCRIPT type="text/javascript">
++  <!--
++  if(window==top) {
++    document.writeln('<A HREF="allclasses-noframe.html"><B>All Classes</B></A>');
++  }
++  //-->
++</SCRIPT>
++<NOSCRIPT>
++  <A HREF="allclasses-noframe.html"><B>All Classes</B></A>
++</NOSCRIPT>
++
++
++</FONT></TD>
++</TR>
++</TABLE>
++<A NAME="skip-navbar_top"></A>
++<!-- ========= END OF TOP NAVBAR ========= -->
++
++<HR>
++<CENTER>
++<H2>
++<B>Deprecated API</B></H2>
++</CENTER>
++<HR SIZE="4" NOSHADE>
++<B>Contents</B><UL>
++</UL>
++
++<HR>
++
++
++<!-- ======= START OF BOTTOM NAVBAR ====== -->
++<A NAME="navbar_bottom"><!-- --></A>
++<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
++<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
++<TR>
++<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
++<A NAME="navbar_bottom_firstrow"><!-- --></A>
++<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
++  <TR ALIGN="center" VALIGN="top">
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="org/openmrs/tools/doclet/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Use</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="org/openmrs/tools/doclet/package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Deprecated</B></FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="index-files/index-1.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
++  </TR>
++</TABLE>
++</TD>
++<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
++</EM>
++</TD>
++</TR>
++
++<TR>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++&nbsp;PREV&nbsp;
++&nbsp;NEXT</FONT></TD>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++  <A HREF="index.html?deprecated-list.html" target="_top"><B>FRAMES</B></A>  &nbsp;
++&nbsp;<A HREF="deprecated-list.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
++&nbsp;<SCRIPT type="text/javascript">
++  <!--
++  if(window==top) {
++    document.writeln('<A HREF="allclasses-noframe.html"><B>All Classes</B></A>');
++  }
++  //-->
++</SCRIPT>
++<NOSCRIPT>
++  <A HREF="allclasses-noframe.html"><B>All Classes</B></A>
++</NOSCRIPT>
++
++
++</FONT></TD>
++</TR>
++</TABLE>
++<A NAME="skip-navbar_bottom"></A>
++<!-- ======== END OF BOTTOM NAVBAR ======= -->
++
++<HR>
++
++</BODY>
++</HTML>
+Index: doc/index.html
+===================================================================
+--- doc/index.html	(revision 0)
++++ doc/index.html	(revision 0)
+@@ -0,0 +1,36 @@
++<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
++<!--NewPage-->
++<HTML>
++<HEAD>
++<!-- Generated by javadoc on Fri Oct 28 22:38:46 EDT 2011-->
++<TITLE>
++Generated Documentation (Untitled)
++</TITLE>
++<SCRIPT type="text/javascript">
++    targetPage = "" + window.location.search;
++    if (targetPage != "" && targetPage != "undefined")
++        targetPage = targetPage.substring(1);
++    if (targetPage.indexOf(":") != -1)
++        targetPage = "undefined";
++    function loadFrames() {
++        if (targetPage != "" && targetPage != "undefined")
++             top.classFrame.location = top.targetPage;
++    }
++</SCRIPT>
++<NOSCRIPT>
++</NOSCRIPT>
++</HEAD>
++<FRAMESET cols="20%,80%" title="" onLoad="top.loadFrames()">
++<FRAME src="allclasses-frame.html" name="packageFrame" title="All classes and interfaces (except non-static nested types)">
++<FRAME src="org/openmrs/tools/doclet/package-summary.html" name="classFrame" title="Package, class and interface descriptions" scrolling="yes">
++<NOFRAMES>
++<H2>
++Frame Alert</H2>
++
++<P>
++This document is designed to be viewed using the frames feature. If you see this message, you are using a non-frame-capable web client.
++<BR>
++Link to<A HREF="org/openmrs/tools/doclet/package-summary.html">Non-frame version.</A>
++</NOFRAMES>
++</FRAMESET>
++</HTML>
+Index: doc/allclasses-noframe.html
+===================================================================
+--- doc/allclasses-noframe.html	(revision 0)
++++ doc/allclasses-noframe.html	(revision 0)
+@@ -0,0 +1,31 @@
++<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
++<!--NewPage-->
++<HTML>
++<HEAD>
++<!-- Generated by javadoc (build 1.6.0_21) on Fri Oct 28 22:38:46 EDT 2011 -->
++<TITLE>
++All Classes
++</TITLE>
++
++<META NAME="date" CONTENT="2011-10-28">
++
++<LINK REL ="stylesheet" TYPE="text/css" HREF="stylesheet.css" TITLE="Style">
++
++
++</HEAD>
++
++<BODY BGCOLOR="white">
++<FONT size="+1" CLASS="FrameHeadingFont">
++<B>All Classes</B></FONT>
++<BR>
++
++<TABLE BORDER="0" WIDTH="100%" SUMMARY="">
++<TR>
++<TD NOWRAP><FONT CLASS="FrameItemFont"><A HREF="org/openmrs/tools/doclet/ShouldTaglet.html" title="class in org.openmrs.tools.doclet">ShouldTaglet</A>
++<BR>
++</FONT></TD>
++</TR>
++</TABLE>
++
++</BODY>
++</HTML>
+Index: doc/help-doc.html
+===================================================================
+--- doc/help-doc.html	(revision 0)
++++ doc/help-doc.html	(revision 0)
+@@ -0,0 +1,215 @@
++<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
++<!--NewPage-->
++<HTML>
++<HEAD>
++<!-- Generated by javadoc (build 1.6.0_21) on Fri Oct 28 22:38:46 EDT 2011 -->
++<TITLE>
++API Help
++</TITLE>
++
++<META NAME="date" CONTENT="2011-10-28">
++
++<LINK REL ="stylesheet" TYPE="text/css" HREF="stylesheet.css" TITLE="Style">
++
++<SCRIPT type="text/javascript">
++function windowTitle()
++{
++    if (location.href.indexOf('is-external=true') == -1) {
++        parent.document.title="API Help";
++    }
++}
++</SCRIPT>
++<NOSCRIPT>
++</NOSCRIPT>
++
++</HEAD>
++
++<BODY BGCOLOR="white" onload="windowTitle();">
++<HR>
++
++
++<!-- ========= START OF TOP NAVBAR ======= -->
++<A NAME="navbar_top"><!-- --></A>
++<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
++<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
++<TR>
++<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
++<A NAME="navbar_top_firstrow"><!-- --></A>
++<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
++  <TR ALIGN="center" VALIGN="top">
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="org/openmrs/tools/doclet/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Use</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="org/openmrs/tools/doclet/package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="index-files/index-1.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Help</B></FONT>&nbsp;</TD>
++  </TR>
++</TABLE>
++</TD>
++<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
++</EM>
++</TD>
++</TR>
++
++<TR>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++&nbsp;PREV&nbsp;
++&nbsp;NEXT</FONT></TD>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++  <A HREF="index.html?help-doc.html" target="_top"><B>FRAMES</B></A>  &nbsp;
++&nbsp;<A HREF="help-doc.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
++&nbsp;<SCRIPT type="text/javascript">
++  <!--
++  if(window==top) {
++    document.writeln('<A HREF="allclasses-noframe.html"><B>All Classes</B></A>');
++  }
++  //-->
++</SCRIPT>
++<NOSCRIPT>
++  <A HREF="allclasses-noframe.html"><B>All Classes</B></A>
++</NOSCRIPT>
++
++
++</FONT></TD>
++</TR>
++</TABLE>
++<A NAME="skip-navbar_top"></A>
++<!-- ========= END OF TOP NAVBAR ========= -->
++
++<HR>
++<CENTER>
++<H1>
++How This API Document Is Organized</H1>
++</CENTER>
++This API (Application Programming Interface) document has pages corresponding to the items in the navigation bar, described as follows.<H3>
++Package</H3>
++<BLOCKQUOTE>
++
++<P>
++Each package has a page that contains a list of its classes and interfaces, with a summary for each. This page can contain four categories:<UL>
++<LI>Interfaces (italic)<LI>Classes<LI>Enums<LI>Exceptions<LI>Errors<LI>Annotation Types</UL>
++</BLOCKQUOTE>
++<H3>
++Class/Interface</H3>
++<BLOCKQUOTE>
++
++<P>
++Each class, interface, nested class and nested interface has its own separate page. Each of these pages has three sections consisting of a class/interface description, summary tables, and detailed member descriptions:<UL>
++<LI>Class inheritance diagram<LI>Direct Subclasses<LI>All Known Subinterfaces<LI>All Known Implementing Classes<LI>Class/interface declaration<LI>Class/interface description
++<P>
++<LI>Nested Class Summary<LI>Field Summary<LI>Constructor Summary<LI>Method Summary
++<P>
++<LI>Field Detail<LI>Constructor Detail<LI>Method Detail</UL>
++Each summary entry contains the first sentence from the detailed description for that item. The summary entries are alphabetical, while the detailed descriptions are in the order they appear in the source code. This preserves the logical groupings established by the programmer.</BLOCKQUOTE>
++</BLOCKQUOTE>
++<H3>
++Annotation Type</H3>
++<BLOCKQUOTE>
++
++<P>
++Each annotation type has its own separate page with the following sections:<UL>
++<LI>Annotation Type declaration<LI>Annotation Type description<LI>Required Element Summary<LI>Optional Element Summary<LI>Element Detail</UL>
++</BLOCKQUOTE>
++</BLOCKQUOTE>
++<H3>
++Enum</H3>
++<BLOCKQUOTE>
++
++<P>
++Each enum has its own separate page with the following sections:<UL>
++<LI>Enum declaration<LI>Enum description<LI>Enum Constant Summary<LI>Enum Constant Detail</UL>
++</BLOCKQUOTE>
++<H3>
++Use</H3>
++<BLOCKQUOTE>
++Each documented package, class and interface has its own Use page.  This page describes what packages, classes, methods, constructors and fields use any part of the given class or package. Given a class or interface A, its Use page includes subclasses of A, fields declared as A, methods that return A, and methods and constructors with parameters of type A.  You can access this page by first going to the package, class or interface, then clicking on the "Use" link in the navigation bar.</BLOCKQUOTE>
++<H3>
++Tree (Class Hierarchy)</H3>
++<BLOCKQUOTE>
++There is a <A HREF="overview-tree.html">Class Hierarchy</A> page for all packages, plus a hierarchy for each package. Each hierarchy page contains a list of classes and a list of interfaces. The classes are organized by inheritance structure starting with <code>java.lang.Object</code>. The interfaces do not inherit from <code>java.lang.Object</code>.<UL>
++<LI>When viewing the Overview page, clicking on "Tree" displays the hierarchy for all packages.<LI>When viewing a particular package, class or interface page, clicking "Tree" displays the hierarchy for only that package.</UL>
++</BLOCKQUOTE>
++<H3>
++Deprecated API</H3>
++<BLOCKQUOTE>
++The <A HREF="deprecated-list.html">Deprecated API</A> page lists all of the API that have been deprecated. A deprecated API is not recommended for use, generally due to improvements, and a replacement API is usually given. Deprecated APIs may be removed in future implementations.</BLOCKQUOTE>
++<H3>
++Index</H3>
++<BLOCKQUOTE>
++The <A HREF="index-files/index-1.html">Index</A> contains an alphabetic list of all classes, interfaces, constructors, methods, and fields.</BLOCKQUOTE>
++<H3>
++Prev/Next</H3>
++These links take you to the next or previous class, interface, package, or related page.<H3>
++Frames/No Frames</H3>
++These links show and hide the HTML frames.  All pages are available with or without frames.
++<P>
++<H3>
++Serialized Form</H3>
++Each serializable or externalizable class has a description of its serialization fields and methods. This information is of interest to re-implementors, not to developers using the API. While there is no link in the navigation bar, you can get to this information by going to any serialized class and clicking "Serialized Form" in the "See also" section of the class description.
++<P>
++<H3>
++Constant Field Values</H3>
++The <a href="constant-values.html">Constant Field Values</a> page lists the static final fields and their values.
++<P>
++<FONT SIZE="-1">
++<EM>
++This help file applies to API documentation generated using the standard doclet.</EM>
++</FONT>
++<BR>
++<HR>
++
++
++<!-- ======= START OF BOTTOM NAVBAR ====== -->
++<A NAME="navbar_bottom"><!-- --></A>
++<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
++<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
++<TR>
++<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
++<A NAME="navbar_bottom_firstrow"><!-- --></A>
++<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
++  <TR ALIGN="center" VALIGN="top">
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="org/openmrs/tools/doclet/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Class</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <FONT CLASS="NavBarFont1">Use</FONT>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="org/openmrs/tools/doclet/package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="index-files/index-1.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
++  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Help</B></FONT>&nbsp;</TD>
++  </TR>
++</TABLE>
++</TD>
++<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
++</EM>
++</TD>
++</TR>
++
++<TR>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++&nbsp;PREV&nbsp;
++&nbsp;NEXT</FONT></TD>
++<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
++  <A HREF="index.html?help-doc.html" target="_top"><B>FRAMES</B></A>  &nbsp;
++&nbsp;<A HREF="help-doc.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
++&nbsp;<SCRIPT type="text/javascript">
++  <!--
++  if(window==top) {
++    document.writeln('<A HREF="allclasses-noframe.html"><B>All Classes</B></A>');
++  }
++  //-->
++</SCRIPT>
++<NOSCRIPT>
++  <A HREF="allclasses-noframe.html"><B>All Classes</B></A>
++</NOSCRIPT>
++
++
++</FONT></TD>
++</TR>
++</TABLE>
++<A NAME="skip-navbar_bottom"></A>
++<!-- ======== END OF BOTTOM NAVBAR ======= -->
++
++<HR>
++
++</BODY>
++</HTML>
+Index: doc/stylesheet.css
+===================================================================
+--- doc/stylesheet.css	(revision 0)
++++ doc/stylesheet.css	(revision 0)
+@@ -0,0 +1,29 @@
++/* Javadoc style sheet */
++
++/* Define colors, fonts and other style attributes here to override the defaults */
++
++/* Page background color */
++body { background-color: #FFFFFF; color:#000000 }
++
++/* Headings */
++h1 { font-size: 145% }
++
++/* Table colors */
++.TableHeadingColor     { background: #CCCCFF; color:#000000 } /* Dark mauve */
++.TableSubHeadingColor  { background: #EEEEFF; color:#000000 } /* Light mauve */
++.TableRowColor         { background: #FFFFFF; color:#000000 } /* White */
++
++/* Font used in left-hand frame lists */
++.FrameTitleFont   { font-size: 100%; font-family: Helvetica, Arial, sans-serif; color:#000000 }
++.FrameHeadingFont { font-size:  90%; font-family: Helvetica, Arial, sans-serif; color:#000000 }
++.FrameItemFont    { font-size:  90%; font-family: Helvetica, Arial, sans-serif; color:#000000 }
++
++/* Navigation bar fonts and colors */
++.NavBarCell1    { background-color:#EEEEFF; color:#000000} /* Light mauve */
++.NavBarCell1Rev { background-color:#00008B; color:#FFFFFF} /* Dark Blue */
++.NavBarFont1    { font-family: Arial, Helvetica, sans-serif; color:#000000;color:#000000;}
++.NavBarFont1Rev { font-family: Arial, Helvetica, sans-serif; color:#FFFFFF;color:#FFFFFF;}
++
++.NavBarCell2    { font-family: Arial, Helvetica, sans-serif; background-color:#FFFFFF; color:#000000}
++.NavBarCell3    { font-family: Arial, Helvetica, sans-serif; background-color:#FFFFFF; color:#000000}
++
+Index: webapp/src/main/webapp/WEB-INF/messages.properties
+===================================================================
+--- webapp/src/main/webapp/WEB-INF/messages.properties	(revision 24091)
++++ webapp/src/main/webapp/WEB-INF/messages.properties	(working copy)
+@@ -2203,6 +2203,13 @@
+ Hl7InArchive.migrate.stopped=Migration has been stopped
+ Hl7InArchive.migrate.archives.dir=Archives folder location
+ 
++HL7OutQueue.title=View HL7 OutQueue Messages
++Hl7OutQueue.queueList.dateCreated=Date Created
++Hl7OutQueue.queueList.id = ID
++Hl7OutQueue.queueList.data=Data
++Hl7OutQueue.queueList.showMore=more &raquo;
++Hl7OutQueue.queueList.hideMore=&laquo; less
++
+ Hl7Source.title=HL7 Source
+ HL7Source.save=Save HL7 Source
+ HL7Source.purgeHL7Source=Purge HL7 Source
+Index: webapp/src/main/webapp/WEB-INF/messages_hi.properties
+===================================================================
+--- webapp/src/main/webapp/WEB-INF/messages_hi.properties	(revision 24091)
++++ webapp/src/main/webapp/WEB-INF/messages_hi.properties	(working copy)
+@@ -2035,6 +2035,14 @@
+ Hl7InArchive.migrate.stopped=Migration has been stopped
+ Hl7InArchive.migrate.archives.dir=Archives folder location
+ 
++HL7OutQueue.title=View HL7 OutQueue Messages
++Hl7OutQueue.queueList.dateCreated=Date Created
++Hl7OutQueue.queueList.id = ID
++Hl7OutQueue.queueList.data=Data
++Hl7OutQueue.queueList.showMore=more &raquo;
++Hl7OutQueue.queueList.hideMore=&laquo; less
++
++
+ Hl7Source.title=HL7 Source
+ HL7Source.save=Save HL7 Source
+ HL7Source.purgeHL7Source=Purge HL7 Source
+Index: webapp/src/main/webapp/WEB-INF/view/admin/hl7/hl7OutQueueList.jsp
+===================================================================
+--- webapp/src/main/webapp/WEB-INF/view/admin/hl7/hl7OutQueueList.jsp	(revision 0)
++++ webapp/src/main/webapp/WEB-INF/view/admin/hl7/hl7OutQueueList.jsp	(revision 0)
+@@ -0,0 +1,107 @@
++<%@ include file="/WEB-INF/template/include.jsp"%>
++
++<openmrs:require privilege="View HL7 Outbound Queue"
++	otherwise="/login.htm" redirect="/admin/hl7/hl7OutQueueList.htm" />
++
++<%@ include file="/WEB-INF/template/header.jsp"%>
++<%@ include file="localHeader.jsp"%>
++
++<openmrs:htmlInclude file="/scripts/jquery/highlight/jquery.highlight-3.js" />
++<openmrs:htmlInclude file="/scripts/jquery/dataTables/js/jquery.dataTables.min.js" />
++<openmrs:htmlInclude file="/scripts/jquery/dataTables/js/jquery.dataTables.filteringDelay.js" />
++<openmrs:htmlInclude file="/scripts/jquery-ui/js/jquery-ui.custom.min.js" />
++<link href="<openmrs:contextPath/>/scripts/jquery-ui/css/<spring:theme code='jqueryui.theme.name' />/jquery-ui.custom.css" type="text/css" rel="stylesheet" />
++<openmrs:htmlInclude file="/scripts/jquery/dataTables/css/dataTables.css" />
++<openmrs:htmlInclude file="/scripts/jquery/dataTables/css/dataTables_jui.css" />
++
++<script type="text/javascript">
++	var hl7table;
++	
++	$j(document).ready(function() {
++	
++		hl7table = $j('#hl7Table').dataTable( { 
++			"aoColumns": [  { "sName": "id", "bSortable": false, "bHidden": true},				
++							{ "sName": "data", "bSortable": false,
++					         "fnRender": function ( oObj ) {
++								return '<div id="hl7' + oObj.iDataRow + '" class="showmore"><pre>' + oObj.aData[1] + 
++									'</pre></div><a id="show'+ oObj.iDataRow + '" href=# onClick="showMore(' + oObj.iDataRow +
++									')"><spring:message code="Hl7OutQueue.queueList.showMore" /></a>' +
++									'<a id="hide'+ oObj.iDataRow + '" style="display:none;" href=# onClick="hideMore(' + oObj.iDataRow + 
++									')"><spring:message code="Hl7OutQueue.queueList.hideMore" /></a>';
++								}
++							}
++			  			 ],
++			"sDom": '<"fg-toolbar ui-widget-header ui-corner-tl ui-corner-tr ui-helper-clearfix"flip>' + 
++				'rt<"fg-toolbar ui-widget-header ui-corner-bl ui-corner-br ui-helper-clearfix"i>',
++			"sPaginationType": "full_numbers",
++			"bAutoWidth": false,
++			"bLengthChange": true,
++			"bProcessing": true,
++			"bServerSide": true,
++			"bStateSave": false,
++			"sAjaxSource": "hl7OutQueueList.json?messageState=${messageState}",
++			"bJQueryUI": true,
++			"oLanguage": {
++				"sInfoFiltered": "(_MAX_ in queue)"
++			},
++			"fnDrawCallback": function() {
++				$j("#hl7Table td").highlight(hl7table.fnSettings().oPreviousSearch.sSearch);
++			}
++		});
++		hl7table.fnSetFilteringDelay(1000);
++		
++	} );
++	
++	function showMore(id) {
++		$j('#hl7' + id).animate({height: "100%"}, "slow");
++		$j('#show' + id).hide();
++		$j('#hide' + id).show();
++	}
++	
++	function hideMore(id) {
++		$j('#hl7' + id).animate({height: "50px"}, "slow");
++		$j('#hide' + id).hide();
++		$j('#show' + id).show();
++	}
++
++	function setMessage(data) {
++		$j("#message").fadeOut("fast", function() {
++			if ("openmrs_msg" in data)
++				$j("#message .content").html(data.openmrs_msg);
++			else if ("openmrs_error" in data)
++				$j("#message .content").html(data.openmrs_error);
++			$j("#message").fadeIn("slow");
++		});
++	}
++	
++</script>
++
++<style>
++	.showmore { height: 50px; overflow: hidden; }
++	#hl7Table button { padding: 0.5em; }
++</style>
++
++<h2><spring:message code="HL7OutQueue.title" /></h2>
++
++<div id="message" class="ui-widget"
++	style="display: none; margin-bottom: 1em;">
++	<div class="ui-state-highlight ui-corner-all" style="padding: 0.5em;">
++		<span class="ui-icon ui-icon-info"
++			style="float: left; margin-right: 0.3em;"></span> <span class="content"></span>
++	</div>
++</div>
++
++<table cellpadding="5" cellspacing="0" id="hl7Table" width="100%">
++	<thead>
++		<tr>
++			
++			
++			<th><spring:message code="Hl7OutQueue.queueList.id" /></th>
++			<th width="80%"><spring:message
++				code="Hl7OutQueue.queueList.data" /></th>
++		</tr>
++	</thead>
++	<tbody></tbody>
++</table>
++
++<%@ include file="/WEB-INF/template/footer.jsp"%>
+Index: webapp/src/main/webapp/WEB-INF/view/admin/hl7/localHeader.jsp
+===================================================================
+--- webapp/src/main/webapp/WEB-INF/view/admin/hl7/localHeader.jsp	(revision 24091)
++++ webapp/src/main/webapp/WEB-INF/view/admin/hl7/localHeader.jsp	(working copy)
+@@ -45,6 +45,13 @@
+ 			</a>
+ 		</li>
+ 	</openmrs:hasPrivilege>
++	<openmrs:hasPrivilege privilege="View HL7 Outbound Queue">
++		<li <c:if test='<%= request.getRequestURI().contains("hl7OutQueueList") %>'>class="active"</c:if>>
++			<a href="${pageContext.request.contextPath}/admin/hl7/hl7OutQueueList.htm" class="active">
++				<spring:message code="HL7OutQueue.title"/>
++			</a>
++		</li>
++	</openmrs:hasPrivilege>
+ 	<openmrs:extensionPoint pointId="org.openmrs.admin.hl7.localHeader" type="html">
+ 			<c:forEach items="${extension.links}" var="link">
+ 				<li <c:if test='${fn:endsWith(pageContext.request.requestURI, link.key)}'>class="active"</c:if> >
+Index: web/pom.xml
+===================================================================
+--- web/pom.xml	(revision 24091)
++++ web/pom.xml	(working copy)
+@@ -131,17 +131,6 @@
+                </excludes> 
+             </configuration> 
+          </plugin>
+-         <plugin>
+-            <groupId>com.googlecode.maven-java-formatter-plugin</groupId>
+-            <artifactId>maven-java-formatter-plugin</artifactId>
+-            <executions>
+-               <execution>
+-                  <goals>
+-                     <goal>format</goal>
+-                  </goals>
+-               </execution>
+-            </executions>
+-         </plugin>
+       </plugins>
+    </build>
+ 
+Index: web/src/main/java/org/openmrs/hl7/web/controller/Hl7OutQueueListController.java
+===================================================================
+--- web/src/main/java/org/openmrs/hl7/web/controller/Hl7OutQueueListController.java	(revision 0)
++++ web/src/main/java/org/openmrs/hl7/web/controller/Hl7OutQueueListController.java	(revision 0)
+@@ -0,0 +1,110 @@
++/**
++ * The contents of this file are subject to the OpenMRS Public License
++ * Version 1.0 (the "License"); you may not use this file except in
++ * compliance with the License. You may obtain a copy of the License at
++ * http://license.openmrs.org
++ *
++ * Software distributed under the License is distributed on an "AS IS"
++ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
++ * License for the specific language governing rights and limitations
++ * under the License.
++ *
++ * Copyright (C) OpenMRS, LLC.  All Rights Reserved.
++ */
++
++package org.openmrs.hl7.web.controller;
++
++import java.io.IOException;
++import java.util.ArrayList;
++import java.util.HashMap;
++import java.util.List;
++import java.util.Map;
++
++import org.apache.commons.logging.Log;
++import org.apache.commons.logging.LogFactory;
++import org.openmrs.api.APIException;
++import org.openmrs.api.context.Context;
++import org.openmrs.hl7.HL7Constants;
++import org.openmrs.hl7.HL7InQueue;
++import org.openmrs.hl7.HL7OutQueue;
++import org.openmrs.hl7.HL7Service;
++import org.openmrs.messagesource.MessageSourceService;
++import org.openmrs.web.WebConstants;
++import org.springframework.stereotype.Controller;
++import org.springframework.ui.ModelMap;
++import org.springframework.web.bind.annotation.RequestMapping;
++import org.springframework.web.bind.annotation.RequestParam;
++import org.springframework.web.bind.annotation.ResponseBody;
++
++@Controller
++public class Hl7OutQueueListController {
++	
++	/**
++	 * Logger for this class and subclasses
++	 */
++	private static final Log log = LogFactory.getLog(Hl7OutQueueListController.class);
++	
++	/**
++	 * Render the outQueue HL7 queue messages page
++	 * 
++	 * @param modelMap
++	 * @return
++	 */
++	@RequestMapping("/admin/hl7/hl7OutQueueList.htm")
++	public String listOutQueueHL7s(ModelMap modelMap) {
++		modelMap.addAttribute("messageState", HL7Constants.HL7_STATUS_PENDING);
++		return "/admin/hl7/hl7OutQueueList";
++	}	
++	
++	
++	/**
++	 * method for returning a batch of HL7s from the queue based on datatable parameters
++	 * 
++	 * @param iDisplayStart start index for search
++	 * @param iDisplayLength amount of terms to return
++	 * @param sSearch search term(s)
++	 * @param sEcho check d
++	 * igit for datatables
++	 * @param messageState HL7OutQueue state to look up
++	 * @return batch of HL7OutQueue objects to be converted to JSON
++	 * @throws IOException
++	 */
++	@RequestMapping("/admin/hl7/hl7OutQueueList.json")
++	public @ResponseBody
++	Map<String, Object> getHL7OutQueueBatchAsJson(@RequestParam("iDisplayStart") int iDisplayStart,
++	        @RequestParam("iDisplayLength") int iDisplayLength, @RequestParam("sSearch") String sSearch,
++	        @RequestParam("sEcho") int sEcho, @RequestParam("messageState") int messageState) throws IOException {
++		
++		// get the data
++		List<HL7OutQueue> hl7s = Context.getHL7Service().getHL7OutQueueBatch(iDisplayStart, iDisplayLength, messageState,
++		    sSearch);
++	
++		// form the results dataset
++		List<Object> results = new ArrayList<Object>();
++		for (HL7OutQueue hl7 : hl7s)
++			results.add(splitHL7OutQueue(hl7));
++		
++		// build the response
++		Map<String, Object> response = new HashMap<String, Object>();
++		response.put("iTotalRecords", Context.getHL7Service().countHL7OutQueue(messageState, null));
++		response.put("iTotalDisplayRecords", Context.getHL7Service().countHL7OutQueue(messageState, sSearch));
++		response.put("sEcho", sEcho);
++		response.put("aaData", results.toArray());
++		
++		// send it
++		return response;
++	}
++	
++	/**
++	 * create an object array for a given HL7OutQueue
++	 * 
++	 * @param q HL7OutQueue object
++	 * @return object array for use with datatables
++	 */
++	private Object[] splitHL7OutQueue(HL7OutQueue q) {
++		// try to stick to basic types; String, Integer, etc (not Date)
++		return new Object[] { q.getHL7OutQueueId().toString(), 
++		     q.getHL7Data() };
++	}
++	
++}

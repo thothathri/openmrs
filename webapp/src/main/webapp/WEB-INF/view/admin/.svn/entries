@@ -1,0 +1,110 @@
+10
+
+dir
+24091
+http://svn.openmrs.org/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/admin
+http://svn.openmrs.org
+
+
+
+2011-10-24T13:14:32.582708Z
+24082
+dkayiwa
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+5bac5841-c719-aa4e-b3fe-cce5062f897a
+
+concepts
+dir
+
+encounters
+dir
+
+forms
+dir
+
+hl7
+dir
+
+index.jsp
+file
+
+
+
+
+2011-10-25T06:56:14.909000Z
+27bcc9df5489a6cfebf7a11bc844ac95
+2011-09-27T05:53:27.725271Z
+23655
+darius
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6562
+
+locations
+dir
+
+maintenance
+dir
+
+modules
+dir
+
+observations
+dir
+
+orders
+dir
+
+patients
+dir
+
+person
+dir
+
+programs
+dir
+
+provider
+dir
+
+scheduler
+dir
+
+users
+dir
+
+visits
+dir
+

@@ -1,0 +1,11 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/!svn/ver/15075/openmrs/trunk/api/src/test/java/org/openmrs/notification/db/hibernate
+END
+HibernateAlertDAOTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/!svn/ver/15075/openmrs/trunk/api/src/test/java/org/openmrs/notification/db/hibernate/HibernateAlertDAOTest.java
+END

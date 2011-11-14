@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/!svn/ver/17337/openmrs/trunk/api/src/test/java/org/openmrs/report
+END
+PatientSearchTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/17337/openmrs/trunk/api/src/test/java/org/openmrs/report/PatientSearchTest.java
+END
+PepfarReportFromXmlTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/15075/openmrs/trunk/api/src/test/java/org/openmrs/report/PepfarReportFromXmlTest.java
+END
+PatientSearchParameterTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/15075/openmrs/trunk/api/src/test/java/org/openmrs/report/PatientSearchParameterTest.java
+END
+RowPerObsDatasetTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/15148/openmrs/trunk/api/src/test/java/org/openmrs/report/RowPerObsDatasetTest.java
+END
+ReportSchemaXmlNonContextTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/15075/openmrs/trunk/api/src/test/java/org/openmrs/report/ReportSchemaXmlNonContextTest.java
+END
+EvaluationContextTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/15075/openmrs/trunk/api/src/test/java/org/openmrs/report/EvaluationContextTest.java
+END
+RowPerProgramEnrollmentDatasetTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/!svn/ver/15075/openmrs/trunk/api/src/test/java/org/openmrs/report/RowPerProgramEnrollmentDatasetTest.java
+END
+ReportSchemaXmlTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/15075/openmrs/trunk/api/src/test/java/org/openmrs/report/ReportSchemaXmlTest.java
+END
+PepfarReportSerializationTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/15075/openmrs/trunk/api/src/test/java/org/openmrs/report/PepfarReportSerializationTest.java
+END
+PepfarReportTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/15075/openmrs/trunk/api/src/test/java/org/openmrs/report/PepfarReportTest.java
+END

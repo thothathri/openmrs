@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/23931/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/dictionary
+END
+concept.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/23550/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/dictionary/concept.jsp
+END
+conceptStatsForm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/21740/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/dictionary/conceptStatsForm.jsp
+END
+conceptForm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/23731/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/dictionary/conceptForm.jsp
+END
+index.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/23931/openmrs/trunk/webapp/src/main/webapp/WEB-INF/view/dictionary/index.jsp
+END

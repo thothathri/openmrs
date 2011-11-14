@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/!svn/ver/23855/openmrs/trunk/api/src/test/resources/org/openmrs/include
+END
+standardTestDataset.xml
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/23855/openmrs/trunk/api/src/test/resources/org/openmrs/include/standardTestDataset.xml
+END
+initialInMemoryTestDataSet.xml
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/include/initialInMemoryTestDataSet.xml
+END

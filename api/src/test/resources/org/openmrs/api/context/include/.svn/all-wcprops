@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/api/context/include
+END
+dssmodule-1.44.omod
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/api/context/include/dssmodule-1.44.omod
+END
+daemonUser.xml
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/15075/openmrs/trunk/api/src/test/resources/org/openmrs/api/context/include/daemonUser.xml
+END
