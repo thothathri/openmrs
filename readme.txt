@@ -15,5 +15,9 @@ license.txt			the OpenMRS license
 liquibase.build.xml	ANT build file containing convenience methods to run liquibase actions
 openmrs-checkstyle.properties	checkstyle jar properties
 pom.xml				The main maven file  
+<<<<<<< HEAD
 readme.txt			this readme file
 openmrs_v3.patch		the patch file with changes made to the project
+=======
+readme.txt			this readme file
+>>>>>>> a1c21ee5e3fcb79729a8e510d38dc64bfc0d2413

@@ -57,7 +57,11 @@ public interface HL7Service extends OpenmrsService {
 	 * @param hl7OutQueue the item to be saved into the database
 	 * @return the saved HL7OutQueue object
 	 */
+<<<<<<< HEAD
 	public HL7OutQueue addToOutQueue(Patient patient, HL7OutQueue hl7OutQueue) throws APIException;
+=======
+	public HL7OutQueue saveHL7OutQueue(Patient patient, HL7OutQueue hl7OutQueue) throws APIException;
+>>>>>>> a1c21ee5e3fcb79729a8e510d38dc64bfc0d2413
 	
 	/**
 	 * Save the given <code>hl7OutQueue</code> to the database for each 
@@ -67,7 +71,11 @@ public interface HL7Service extends OpenmrsService {
 	 * @param hl7OutQueue the item to be saved into the database
 	 * @return the saved HL7OutQueue object
 	 */
+<<<<<<< HEAD
 	public HL7OutQueue addToOutQueue(Encounter encounter, HL7OutQueue hl7outqueue) throws APIException;
+=======
+	public HL7OutQueue saveEncounterHL7OutQueue(Patient patient, HL7OutQueue hl7outqueue) throws APIException;
+>>>>>>> a1c21ee5e3fcb79729a8e510d38dc64bfc0d2413
 	/**
 	 * Save the given <code>hl7Source</code> to the database
 	 * 

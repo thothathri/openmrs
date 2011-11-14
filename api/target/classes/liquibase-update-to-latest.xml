@@ -5959,7 +5959,11 @@
             <column name="template" type="text"/>
         </addColumn>
 	</changeSet>
+<<<<<<< HEAD
 	<changeSet id="201010291835" author="thothathri">
+=======
+	<changeSet id="201010291835" author="thothathri" dbms="mysql">
+>>>>>>> a1c21ee5e3fcb79729a8e510d38dc64bfc0d2413
 		<preConditions onFail="MARK_RAN">
 			<not><tableExists tableName="hl7_out_queue"/></not>
 		</preConditions>

@@ -122,8 +122,11 @@ public class HL7ORUR01Encoder {
 	
 	private static int sequenceNumber = 0;
 	
+<<<<<<< HEAD
 	private Log log = LogFactory.getLog(HL7ORUR01Encoder.class);
 	
+=======
+>>>>>>> a1c21ee5e3fcb79729a8e510d38dc64bfc0d2413
 	public  HL7ORUR01Encoder() {
 	/* Default Constructor*/	
 	}
@@ -167,7 +170,11 @@ public class HL7ORUR01Encoder {
  		}
  		
  		catch(Exception e) {
+<<<<<<< HEAD
  			log.error("Error casting to HL7ORU_R01", e);
+=======
+ 			System.out.println("Exception in HL7ORUR01Encoder#getPatientInfo");
+>>>>>>> a1c21ee5e3fcb79729a8e510d38dc64bfc0d2413
  		}
 	}
 	

@@ -534,5 +534,9 @@ public class PrivilegeConstants {
 	public static final String MANAGE_ENCOUNTER_ROLES = "Manage Encounter Roles";
 	
 	@AddOnStartup(description = "Able to view HL7 Outbound Messages")
+<<<<<<< HEAD
 	public static final String PRIV_VIEW_HL7_OUT_QUEUE = "View HL7 Outbound Queue";
+=======
+	public static final String PRIV_ADD_HL7_OUT_QUEUE = "View HL7 Outbound Queue";
+>>>>>>> a1c21ee5e3fcb79729a8e510d38dc64bfc0d2413
 }

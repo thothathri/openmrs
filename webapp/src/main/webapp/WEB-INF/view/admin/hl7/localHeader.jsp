@@ -47,7 +47,11 @@
 	</openmrs:hasPrivilege>
 	<openmrs:hasPrivilege privilege="View HL7 Outbound Queue">
 		<li <c:if test='<%= request.getRequestURI().contains("hl7OutQueueList") %>'>class="active"</c:if>>
+<<<<<<< HEAD
 			<a href="${pageContext.request.contextPath}/admin/hl7/hl7OutQueueList.htm" class="active">
+=======
+			<a href="${pageContext.request.contextPath}/admin/hl7/hl7OutQueueList.htm" class="retired">
+>>>>>>> a1c21ee5e3fcb79729a8e510d38dc64bfc0d2413
 				<spring:message code="HL7OutQueue.title"/>
 			</a>
 		</li>

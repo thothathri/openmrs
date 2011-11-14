@@ -14,12 +14,22 @@
 package org.openmrs.hl7;
 
 import java.io.Serializable;
+<<<<<<< HEAD
 import org.openmrs.BaseOpenmrsObject;
 import java.util.Date;
 
 
 /**
  * Represents an hl7 message that is saved when a new Patient is saved or when new Encounter is saved.
+=======
+////
+import org.openmrs.BaseOpenmrsObject;
+import java.util.Date;
+////
+
+/**
+ * Represents an hl7 message that has yet to be processed.
+>>>>>>> a1c21ee5e3fcb79729a8e510d38dc64bfc0d2413
  * 
  * @see HL7Service
  */
