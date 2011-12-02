@@ -759,7 +759,7 @@ public interface HL7Service extends OpenmrsService {
 	 * @return the saved item
 	 * @throws APIException
 	 */
-	//@Authorized(HL7Constants.PRIV_ADD_HL7_OUT_QUEUE_DESTINATION)
+	@Authorized(HL7Constants.PRIV_PURGE_HL7_IN_EXCEPTION)
 	public HL7OutQueueDestination saveHL7OutQueueDestination(HL7OutQueueDestination hl7OutQueueDestination) throws APIException;
 	
 	/**

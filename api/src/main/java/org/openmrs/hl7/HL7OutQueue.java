@@ -28,19 +28,19 @@ public class HL7OutQueue extends BaseOpenmrsObject implements Serializable {
 	
 	private static final long serialVersionUID = 8882704913734764446L;
 	
-	private transient Integer hl7OutQueueId;
+	private Integer hl7OutQueueId;
 	
-	private transient String errorMessage;
+	private String errorMessage;
 	
-	private transient Integer messageState;
+	private Integer messageState;
 	
 	private String hl7Data;
 	
-	private transient Date dateCreated;
+	private Date dateCreated;
 	
-	private transient Date dateProcessed;
+	private Date dateProcessed;
 	
-	private transient Integer hoqdId;	
+	private Integer hoqdId;	
 
 	/**
 	 * Default constructor

@@ -129,7 +129,6 @@ public class HL7ADTA28Encoder {
 		Calendar currentDate = Calendar.getInstance();
 		SimpleDateFormat formatter= new SimpleDateFormat("yyyyMMddHHmm");
 		String dateNow = formatter.format(currentDate.getTime());
-		System.out.println("Now the date is :=>  " + dateNow);
 		// Populate the MSH Segment
 		try{
         mshSegment.getFieldSeparator().setValue("|");

@@ -1370,10 +1370,10 @@ public class HL7ServiceImpl extends BaseOpenmrsService implements HL7Service {
 	
 	public HL7OutQueueDestination saveHL7OutQueueDestination(HL7OutQueueDestination hl7OutQueueDestination) throws APIException {
 		if (hl7OutQueueDestination.getCreatedBy() == null)
-			hl7OutQueueDestination.setCreatedBy(Context.getAuthenticatedUser().getId());
+			hl7OutQueueDestination.setCreatedBy(Context.getAuthenticatedUser().getUserId());
 		if (hl7OutQueueDestination.getDateCreated() == null)
 			hl7OutQueueDestination.setDateCreated(new Date());
-		
+		System.out.println("**************** In saveHL7OutQueueDestination *********"+hl7OutQueueDestination.getCreatedBy());
 		return dao.saveHL7OutQueueDestination(hl7OutQueueDestination);
 	}
 	

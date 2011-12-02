@@ -43,6 +43,13 @@ import org.springframework.ui.ModelMap;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import java.util.Date;
+import java.util.List;
+import java.util.Calendar;
+import java.text.SimpleDateFormat;
+import org.openmrs.User;
+import java.lang.Integer;
+
 
 
 
@@ -78,8 +85,17 @@ public class HL7OutQueueDestinationFormController extends SimpleFormController {
 	 */
 	protected ModelAndView onSubmit(HttpServletRequest request, HttpServletResponse response, Object obj,
 	        BindException errors) throws Exception {
-		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$WOWOWOWW$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-		log.info("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$WOWOWOWW$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+		String name = request.getParameter("name");
+		String description = request.getParameter("description");
+		String destination = request.getParameter("destination");
+		Integer id = Context.getAuthenticatedUser().getUserId();
+		Calendar currentDate = Calendar.getInstance();
+		SimpleDateFormat formatter= new SimpleDateFormat("yyyyMMddHHmm");
+		String dateNow = formatter.format(currentDate.getTime());
+		Date date = formatter.parse(dateNow);
+		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$WOWOWOWW$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"+name);
+		System.out.println("Id USer"+id);
+		log.info("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$WOWOWOWW$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"+name);
 		HttpSession httpSession = request.getSession();
 		
 		String view = getFormView();
@@ -88,10 +104,16 @@ public class HL7OutQueueDestinationFormController extends SimpleFormController {
 			System.out.println("*********AUTHENTICATED***************");
 			log.info("*********AUTHENTICATED***************");
 			HL7OutQueueDestination hl7OutQueueDestination = (HL7OutQueueDestination) obj;
+			hl7OutQueueDestination.setName(name);
+			hl7OutQueueDestination.setDescription(description);
+			hl7OutQueueDestination.setDestination(destination);
+			hl7OutQueueDestination.setCreatedBy(id);
+			hl7OutQueueDestination.setDateCreated(date);
 			HL7Service es = Context.getHL7Service();
+
 			
 		//	if (request.getParameter("save") != null) {
-				es.saveHL7OutQueueDestination(hl7OutQueueDestination);
+			    hl7OutQueueDestination = es.saveHL7OutQueueDestination(hl7OutQueueDestination);
 				view = getSuccessView();
 				httpSession.setAttribute(WebConstants.OPENMRS_MSG_ATTR, "HL7OutQueueDestination.saved");
 		//	}

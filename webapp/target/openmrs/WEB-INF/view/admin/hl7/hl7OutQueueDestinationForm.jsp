@@ -3,7 +3,6 @@
 <%@ include file="/WEB-INF/template/header.jsp" %>
 <%@ include file="localHeader.jsp" %>
 <h2><spring:message code="Hl7Destination.manage.title"/></h2>
-
 <br />
 <br />
 <b class="boxHeader"><spring:message code="Hl7Destination.list.title"/></b>
@@ -18,7 +17,7 @@
 	Enter Destination:
 	<input type = "string" name="destination" />
 	<br/>
-	<input type="submit" />
+	<input type="submit"/>
 
 </form>
 <%@ include file="/WEB-INF/template/footer.jsp" %>
