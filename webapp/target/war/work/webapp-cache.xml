@@ -188,6 +188,8 @@
           <string>WEB-INF/view/admin/hl7/hl7InErrorList.jsp</string>
           <string>WEB-INF/view/admin/hl7/hl7InQueueList.jsp</string>
           <string>WEB-INF/view/admin/hl7/hl7OnHoldList.jsp</string>
+          <string>WEB-INF/view/admin/hl7/hl7OutQueueDestinationForm.jsp</string>
+          <string>WEB-INF/view/admin/hl7/hl7OutQueueDestinationList.jsp</string>
           <string>WEB-INF/view/admin/hl7/hl7OutQueueList.jsp</string>
           <string>WEB-INF/view/admin/hl7/hl7SourceForm.jsp</string>
           <string>WEB-INF/view/admin/hl7/hl7SourceList.jsp</string>

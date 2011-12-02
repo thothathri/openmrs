@@ -5959,16 +5959,12 @@
             <column name="template" type="text"/>
         </addColumn>
 	</changeSet>
-<<<<<<< HEAD
 	<changeSet id="201010291835" author="thothathri">
-=======
-	<changeSet id="201010291835" author="thothathri" dbms="mysql">
->>>>>>> a1c21ee5e3fcb79729a8e510d38dc64bfc0d2413
 		<preConditions onFail="MARK_RAN">
 			<not><tableExists tableName="hl7_out_queue"/></not>
 		</preConditions>
 		<comment>	
-			Create the hl7_out_queue table
+			Create the new hl7_out_queue table
 		</comment>
 		<createTable tableName="hl7_out_queue">
 		<column name="hl7_out_queue_id" type="int" autoIncrement="true">
@@ -5982,5 +5978,50 @@
              <column name="uuid" type="char(38)" defaultValue="null"><constraints unique="true" /></column>
 		</createTable>
 	</changeSet>
+	<changeSet id="201111292300" author="thotha">
+		<preConditions onFail="MARK_RAN">
+			<not><tableExists tableName="hl7_out_queue_destination"/></not>
+		</preConditions>
+		<comment>	
+			Create the hl7_destination list
+		</comment>
+		<createTable tableName="hl7_out_queue_destination">
+		<column name="hoqd_id" type="int" autoIncrement="true">
+                 <constraints primaryKey="true" nullable="false" />
+         </column>
+             <column name="name" type="varchar(255)"><constraints nullable="false" /></column>
+             <column name="description" type="text" defaultValue="null" ></column>
+             <column name="destination" type="varchar(255)"><constraints nullable="false" /></column>
+             <column name="date_created" type="datetime" defaultValue="null" />
+             <column defaultValueNumeric="0" name="creator" type="int"><constraints nullable="false"/></column>
+             <column name="date_changed" type="datetime" defaultValue="null" />
+             <column name="changed_by" type="int" defaultValue="null"/>
+             <column defaultValueNumeric="0" name="retired" type="tinyint"><constraints nullable="false" /></column>
+             <column name="date_retired" type="datetime" defaultValue="null" />
+             <column name="retired_by" type="int" defaultValue="null"/>
+             <column name="retire_reason" type="varchar(255)" defaultValue="null"></column> 
+             
+		</createTable>
+	</changeSet>
+ 	<changeSet id="201111300201" author="thothathri">
+	<preConditions onFail="MARK_RAN">
+			<changeSetExecuted id="201111292300" author="thotha" changeLogFile="liquibase-update-to-latest.xml"/>
+	</preConditions>
+ 		<comment>Renaming the creator column from the hl7_out_queue_destination table</comment>
+  		<renameColumn tableName="hl7_out_queue_destination"
+  			oldColumnName="creator" newColumnName="created_by" columnDataType="int"/>    
+ 	</changeSet>
+ 	<changeSet id="201111302016" author="thothathri">
+	<preConditions onFail="MARK_RAN">
+			<changeSetExecuted id="201010291835" author="thothathri" changeLogFile="liquibase-update-to-latest.xml"/>
+	</preConditions>
+ 		<comment>Adding the hoqd_id column from the hl7_out_queue_destination table as a foreign key in hl7_out_queue</comment>
+  		<addColumn tableName="hl7_out_queue">
+            <column name="hoqd_id" type="int" defaultValue="null"/>
+        </addColumn>
+        <addForeignKeyConstraint constraintName="hoqd_id_fk"
+             baseTableName="hl7_out_queue" baseColumnNames="hoqd_id" referencedTableName="hl7_out_queue_destination"
+             referencedColumnNames="hoqd_id" />
+ 	</changeSet>
 </databaseChangeLog>
 

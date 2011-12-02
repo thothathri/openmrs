@@ -201,12 +201,7 @@ public class EncounterServiceImpl extends BaseOpenmrsService implements Encounte
 		dao.saveEncounter(encounter);
 		// now saving in the HL7OutQueue table in the database
 		HL7OutQueue hl7outqueue = new HL7OutQueue();
-<<<<<<< HEAD
-		hl7outqueue = Context.getHL7Service().addToOutQueue(encounter, hl7outqueue);
-=======
-		HL7OutQueue hl7Out = new HL7OutQueue();
-		hl7Out = Context.getHL7Service().saveEncounterHL7OutQueue(encounter.getPatient(), hl7outqueue);
->>>>>>> a1c21ee5e3fcb79729a8e510d38dc64bfc0d2413
+		hl7outqueue = Context.getHL7Service().addToOutQueue(encounter);
 		return encounter;
 	}
 	

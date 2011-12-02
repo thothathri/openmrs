@@ -65,6 +65,9 @@ import org.openmrs.validator.PatientIdentifierValidator;
 import org.openmrs.hl7.handler.HL7ADTA28Encoder;
 import org.openmrs.hl7.handler.HL7ORUR01Encoder;
 
+import org.openmrs.hl7.HL7OutQueueDestination;
+import java.lang.Integer;
+
 import ca.uhn.hl7v2.HL7Exception;
 import ca.uhn.hl7v2.app.Application;
 import ca.uhn.hl7v2.app.ApplicationException;
@@ -332,28 +335,28 @@ public class HL7ServiceImpl extends BaseOpenmrsService implements HL7Service {
 	/**
 	 * @see org.openmrs.hl7.HL7Service#saveHL7OutQueue(org.openmrs.hl7.HL7OutQueue)
 	 */
-<<<<<<< HEAD
-	public HL7OutQueue addToOutQueue(Patient patient, HL7OutQueue hl7outqueue) throws APIException {
-=======
-	public HL7OutQueue saveHL7OutQueue(Patient patient, HL7OutQueue hl7outqueue) throws APIException {
->>>>>>> a1c21ee5e3fcb79729a8e510d38dc64bfc0d2413
+
+	public HL7OutQueue addToOutQueue(Patient patient) throws APIException {
+
+//	public HL7OutQueue saveHL7OutQueue(Patient patient, HL7OutQueue hl7outqueue) throws APIException {
+		HL7OutQueue hl7outqueue = new HL7OutQueue();
 		HL7ADTA28Encoder A28Encoder = new HL7ADTA28Encoder();
 		String encodedMessage = new String();
 		try{
-		encodedMessage = A28Encoder.HL7EncodeAdtA05Msg(patient.getPatientId());
+		encodedMessage = A28Encoder.HL7EncodeAdtA05Msg(patient);
 		}
 		catch(HL7Exception e) {
-<<<<<<< HEAD
+
 			log.error("HL7 Exception while saving out queue for patient "+ patient.getPatientId() ,e);
 		}
 		hl7outqueue.setHL7Data(encodedMessage);
 		hl7outqueue.setErrorMessage("");
-=======
-			System.out.println("HL7 Exception Encountered!");
-		}
-		hl7outqueue.setHL7Data(encodedMessage);
-		hl7outqueue.setErrorMessage("No Error");
->>>>>>> a1c21ee5e3fcb79729a8e510d38dc64bfc0d2413
+
+			//System.out.println("HL7 Exception Encountered!");
+		//}
+		//hl7outqueue.setHL7Data(encodedMessage);
+		//hl7outqueue.setErrorMessage("No Error");
+
 		if (hl7outqueue.getMessageState() == null)
 			hl7outqueue.setMessageState(HL7Constants.HL7_STATUS_PENDING);
 		return dao.saveHL7OutQueue(hl7outqueue);				
@@ -362,17 +365,17 @@ public class HL7ServiceImpl extends BaseOpenmrsService implements HL7Service {
 	/**
 	 * @see org.openmrs.hl7.HL7Service#saveEncounterHL7OutQueue(org.openmrs.hl7.HL7OutQueue)
 	 */
-<<<<<<< HEAD
-	public HL7OutQueue addToOutQueue(Encounter encounter, HL7OutQueue hl7outqueue) throws APIException {
-=======
-	public HL7OutQueue saveEncounterHL7OutQueue(Patient patient, HL7OutQueue hl7outqueue) throws APIException {
->>>>>>> a1c21ee5e3fcb79729a8e510d38dc64bfc0d2413
+
+	public HL7OutQueue addToOutQueue(Encounter encounter) throws APIException {
+
+//	public HL7OutQueue saveEncounterHL7OutQueue(Patient patient, HL7OutQueue hl7outqueue) throws APIException {
+		HL7OutQueue hl7outqueue = new HL7OutQueue();
 		HL7ORUR01Encoder ORUEncoder = new HL7ORUR01Encoder();
 		String encodedMessage = new String();
 		try{
 			String [] a = {"CE","TX"};
 			String [] b = {"TestMessage","TestMessage2"};
-<<<<<<< HEAD
+
 		encodedMessage = ORUEncoder.HL7EncodeOruR01Msg(encounter.getPatient().getPatientId(), a,b);
 		}
 		catch(HL7Exception e) {
@@ -384,17 +387,17 @@ public class HL7ServiceImpl extends BaseOpenmrsService implements HL7Service {
 			hl7outqueue.setMessageState(HL7Constants.HL7_STATUS_PENDING);
 		
 		return dao.saveHL7OutQueue(hl7outqueue);		
-=======
-		encodedMessage = ORUEncoder.HL7EncodeOruR01Msg(patient.getPatientId(), a,b);
-		}
-		catch(HL7Exception e) {
-			System.out.println("HL7 Exception Encountered!");
-		}
-		hl7outqueue.setHL7Data(encodedMessage);
-		hl7outqueue.setErrorMessage("No Error");
-		System.out.println("*** Data Stored is "+hl7outqueue.getHL7Data()+"***");
-		System.out.println("*** Error is "+hl7outqueue.getErrorMessage()+"***");
-		if (hl7outqueue.getMessageState() == null)
+
+//		encodedMessage = ORUEncoder.HL7EncodeOruR01Msg(patient.getPatientId(), a,b);
+	//	}
+		//catch(HL7Exception e) {
+			//System.out.println("HL7 Exception Encountered!");
+		//}
+		//hl7outqueue.setHL7Data(encodedMessage);
+		//hl7outqueue.setErrorMessage("No Error");
+		//System.out.println("*** Data Stored is "+hl7outqueue.getHL7Data()+"***");
+		//System.out.println("*** Error is "+hl7outqueue.getErrorMessage()+"***");
+		/*if (hl7outqueue.getMessageState() == null)
 			hl7outqueue.setMessageState(HL7Constants.HL7_STATUS_PENDING);
 		try {
 		if(dao == null)
@@ -405,8 +408,8 @@ public class HL7ServiceImpl extends BaseOpenmrsService implements HL7Service {
 			System.out.println("*** Exception in HL7 .. In catch! **");
 			return hl7outqueue;
 		}		
-		
->>>>>>> a1c21ee5e3fcb79729a8e510d38dc64bfc0d2413
+		*/
+
 	}
 	/**
 	 * @see org.openmrs.hl7.HL7Service#createHL7InQueue(org.openmrs.hl7.HL7InQueue)
@@ -1357,6 +1360,39 @@ public class HL7ServiceImpl extends BaseOpenmrsService implements HL7Service {
 			return result;
 		}
 		return null;
+	}
+	
+	
+	//////////////////////////////////////////////////////////////////////////////////////////
+	
+	
+	
+	
+	public HL7OutQueueDestination saveHL7OutQueueDestination(HL7OutQueueDestination hl7OutQueueDestination) throws APIException {
+		if (hl7OutQueueDestination.getCreatedBy() == null)
+			hl7OutQueueDestination.setCreatedBy(Context.getAuthenticatedUser().getId());
+		if (hl7OutQueueDestination.getDateCreated() == null)
+			hl7OutQueueDestination.setDateCreated(new Date());
+		
+		return dao.saveHL7OutQueueDestination(hl7OutQueueDestination);
+	}
+	
+	/**
+	 * @see org.openmrs.hl7.HL7Service#purgeHL7Source(org.openmrs.hl7.HL7Source)
+	 */
+	public void purgeHL7OutQueueDestination(HL7OutQueueDestination hl7OutQueueDestination) throws APIException {
+		dao.deleteHL7OutQueueDestination(hl7OutQueueDestination);
+	}
+	
+	public HL7OutQueueDestination getHL7OutQueueDestination(Integer hoqdId) {
+		return dao.getHL7OutQueueDestination(hoqdId);
+	}
+	
+	/**
+	 * @see org.openmrs.hl7.HL7Service#getAllHL7Sources()
+	 */
+	public List<HL7OutQueueDestination> getAllHL7OutQueueDestinations() throws APIException {
+		return dao.getAllHL7OutQueueDestinations();
 	}
 	
 }

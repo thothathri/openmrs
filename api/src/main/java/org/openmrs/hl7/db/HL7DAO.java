@@ -23,6 +23,9 @@ import org.openmrs.hl7.HL7OutQueue;
 import org.openmrs.hl7.HL7Service;
 import org.openmrs.hl7.HL7Source;
 
+import org.openmrs.hl7.HL7OutQueueDestination;
+import java.lang.*;
+
 /**
  * OpenMRS HL7 database related methods This class shouldn't be instantiated by itself. Use the
  * {@link org.openmrs.api.context.Context}
@@ -209,4 +212,12 @@ public interface HL7DAO {
 	 */
 	public void garbageCollect();
 	
+	//////////////////////////////////////////////
+	public HL7OutQueueDestination saveHL7OutQueueDestination(HL7OutQueueDestination hl7OutQueueDestination) throws DAOException;
+	
+	public List<HL7OutQueueDestination> getAllHL7OutQueueDestinations() throws DAOException;
+	
+	public void deleteHL7OutQueueDestination(HL7OutQueueDestination hl7OutQueueDestination) throws DAOException;
+	
+	public HL7OutQueueDestination getHL7OutQueueDestination(Integer hoqdId) throws DAOException;
 }

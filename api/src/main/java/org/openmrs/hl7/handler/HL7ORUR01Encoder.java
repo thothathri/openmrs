@@ -122,11 +122,11 @@ public class HL7ORUR01Encoder {
 	
 	private static int sequenceNumber = 0;
 	
-<<<<<<< HEAD
+
 	private Log log = LogFactory.getLog(HL7ORUR01Encoder.class);
 	
-=======
->>>>>>> a1c21ee5e3fcb79729a8e510d38dc64bfc0d2413
+
+
 	public  HL7ORUR01Encoder() {
 	/* Default Constructor*/	
 	}
@@ -140,20 +140,20 @@ public class HL7ORUR01Encoder {
 		  Calendar currentDate = Calendar.getInstance();
 		  SimpleDateFormat formatter= new SimpleDateFormat("yyyyMMddHHmm");
 		  String dateNow = formatter.format(currentDate.getTime());
-		  System.out.println("Now the date is :=>  " + dateNow);
+		  
 		// Populate the MSH Segment
 		try{
         mshSegment.getFieldSeparator().setValue("|");
         mshSegment.getEncodingCharacters().setValue("^~\\&");
         mshSegment.getDateTimeOfMessage().getTime().setValue(dateNow);
-        mshSegment.getSendingApplication().getNamespaceID().setValue("OpenMrs");
+        mshSegment.getSendingApplication().getNamespaceID().setValue("OpenMRS");
         mshSegment.getSequenceNumber().setValue(Integer.toString(sequenceNumber++));
         mshSegment.getMessageType().getMessageCode().setValue(msgType);
         mshSegment.getMessageType().getTriggerEvent().setValue(trigEvent);
         mshSegment.getMessageType().getMessageStructure().setValue(msgType+" "+trigEvent);
 		}
 		catch(Exception e) {
-			System.out.println("Exception at getGeneralMshSeg");
+			log.info("Exception at getGeneralMshSeg");
 		}
 	}
 
@@ -166,15 +166,15 @@ public class HL7ORUR01Encoder {
  		try {
  		    pid.getPatientName(0).getFamilyName().getSurname().setValue(person.getFamilyName());
  		    pid.getPatientName(0).getGivenName().setValue(person.getGivenName());
- 		    pid.getPatientIdentifierList(0).getIDNumber().setValue(patientId.toString());
+ 		    pid.getPatientIdentifierList(0).getIDNumber().setValue(Context.getPatientService().getPatient(patientId).getPatientIdentifier().getIdentifier());
  		}
  		
  		catch(Exception e) {
-<<<<<<< HEAD
+
  			log.error("Error casting to HL7ORU_R01", e);
-=======
- 			System.out.println("Exception in HL7ORUR01Encoder#getPatientInfo");
->>>>>>> a1c21ee5e3fcb79729a8e510d38dc64bfc0d2413
+
+// 			System.out.println("Exception in HL7ORUR01Encoder#getPatientInfo");
+
  		}
 	}
 	
@@ -199,7 +199,7 @@ public class HL7ORUR01Encoder {
         OBR obr = orderObservation.getOBR();
         obr.getSetIDOBR().setValue("1");
         obr.getFillerOrderNumber().getEntityIdentifier().setValue("1234");
-        obr.getFillerOrderNumber().getNamespaceID().setValue("OpenMrs");
+        obr.getFillerOrderNumber().getNamespaceID().setValue("OpenMRS");
         obr.getUniversalServiceIdentifier().getIdentifier().setValue("88304");
 
         for (int i = 0; i < obxTypes.length; i = i + 1) { 
@@ -236,8 +236,8 @@ public class HL7ORUR01Encoder {
         Parser parser = new PipeParser();
         String encodedMessage = parser.encode(oru);
         
-        System.out.println("Printing Encoded Message:");
-        System.out.println(encodedMessage);
+        log.info("Printing Encoded Message:");
+        log.info(encodedMessage);
         
         return encodedMessage;
     }

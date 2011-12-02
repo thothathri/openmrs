@@ -78,6 +78,7 @@
 		<mapping resource="org/openmrs/hl7/db/hibernate/HL7InArchive.hbm.xml" />
 		<mapping resource="org/openmrs/hl7/db/hibernate/HL7InError.hbm.xml" />
 		<mapping resource="org/openmrs/hl7/db/hibernate/HL7OutQueue.hbm.xml" />
+		<mapping resource="org/openmrs/hl7/db/hibernate/HL7OutQueueDestination.hbm.xml" />
 		
 		<!-- Reporting -->
 		<mapping resource="org/openmrs/reporting/db/hibernate/Report.hbm.xml" />

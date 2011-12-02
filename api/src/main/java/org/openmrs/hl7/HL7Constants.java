@@ -123,6 +123,8 @@ public class HL7Constants {
 	
 	public static final String HL7_LOCAL_RELATIONSHIP = "99REL";
 	
+	
+	
 	/**
 	 * @since 1.5
 	 */

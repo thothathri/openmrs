@@ -37,6 +37,8 @@ import org.openmrs.hl7.HL7Source;
 import org.openmrs.hl7.Hl7InArchivesMigrateThread;
 import org.openmrs.hl7.db.HL7DAO;
 
+import org.openmrs.hl7.HL7OutQueueDestination;
+
 /**
  * OpenMRS HL7 API database default hibernate implementation This class shouldn't be instantiated by
  * itself. Use the {@link org.openmrs.api.context.Context}
@@ -364,4 +366,22 @@ public class HibernateHL7DAO implements HL7DAO {
 		return crit.list();
 	}
 	
+	////////////////////////////////////////////
+	@SuppressWarnings("unchecked")
+	public List<HL7OutQueueDestination> getAllHL7OutQueueDestinations() throws DAOException {
+		return sessionFactory.getCurrentSession().createQuery("from HL7OutQueueDestination order by hoqd_id").list();
+	}
+	
+	public void deleteHL7OutQueueDestination(HL7OutQueueDestination hl7OutQueueDestination) throws DAOException {
+		sessionFactory.getCurrentSession().delete(hl7OutQueueDestination);
+	}
+	
+	public HL7OutQueueDestination saveHL7OutQueueDestination(HL7OutQueueDestination hl7OutQueueDestination) throws DAOException {
+		sessionFactory.getCurrentSession().save(hl7OutQueueDestination);
+		return hl7OutQueueDestination;
+	}
+	
+	public HL7OutQueueDestination getHL7OutQueueDestination(Integer hoqdId) throws DAOException {
+		return (HL7OutQueueDestination) sessionFactory.getCurrentSession().get(HL7OutQueueDestination.class, hoqdId);
+	}
 }

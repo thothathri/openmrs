@@ -57,11 +57,9 @@ public interface HL7Service extends OpenmrsService {
 	 * @param hl7OutQueue the item to be saved into the database
 	 * @return the saved HL7OutQueue object
 	 */
-<<<<<<< HEAD
-	public HL7OutQueue addToOutQueue(Patient patient, HL7OutQueue hl7OutQueue) throws APIException;
-=======
-	public HL7OutQueue saveHL7OutQueue(Patient patient, HL7OutQueue hl7OutQueue) throws APIException;
->>>>>>> a1c21ee5e3fcb79729a8e510d38dc64bfc0d2413
+
+	public HL7OutQueue addToOutQueue(Patient patient) throws APIException;
+
 	
 	/**
 	 * Save the given <code>hl7OutQueue</code> to the database for each 
@@ -71,11 +69,8 @@ public interface HL7Service extends OpenmrsService {
 	 * @param hl7OutQueue the item to be saved into the database
 	 * @return the saved HL7OutQueue object
 	 */
-<<<<<<< HEAD
-	public HL7OutQueue addToOutQueue(Encounter encounter, HL7OutQueue hl7outqueue) throws APIException;
-=======
-	public HL7OutQueue saveEncounterHL7OutQueue(Patient patient, HL7OutQueue hl7outqueue) throws APIException;
->>>>>>> a1c21ee5e3fcb79729a8e510d38dc64bfc0d2413
+
+	public HL7OutQueue addToOutQueue(Encounter encounter) throws APIException;
 	/**
 	 * Save the given <code>hl7Source</code> to the database
 	 * 
@@ -734,5 +729,45 @@ public interface HL7Service extends OpenmrsService {
 	 * @sine 1.9
 	 */
 	public HL7QueueItem getHl7QueueItemByUuid(String uuid) throws APIException;
+	
+	////////////////////////////////////////////////
+	
+	/**
+	 * Get all archive hl7 queue items from the database
+	 * 
+	 * @return list of archive items
+	 */
+	@Transactional(readOnly = true)
+	//@Authorized(HL7Constants.PRIV_VIEW_HL7_OUT_QUEUE_DESTINATION)
+	public List<HL7OutQueueDestination> getAllHL7OutQueueDestinations() throws APIException;
+	
+	/**
+	 * Get the hl7 queue item with the given primary key id
+	 * 
+	 * @param hl7InQueueId the id to search on
+	 * @return the desired hl7InQueue object or null if none found
+	 * @throws APIException
+	 */
+	@Transactional(readOnly = true)
+	//@Authorized(HL7Constants.PRIV_VIEW_HL7_OUT_QUEUE_DESTINATION)
+	public HL7OutQueueDestination getHL7OutQueueDestination(Integer hoqdId) throws APIException;
+	
+	/**
+	 * Save the given error item to the database
+	 * 
+	 * @param hl7InError the item to save
+	 * @return the saved item
+	 * @throws APIException
+	 */
+	//@Authorized(HL7Constants.PRIV_ADD_HL7_OUT_QUEUE_DESTINATION)
+	public HL7OutQueueDestination saveHL7OutQueueDestination(HL7OutQueueDestination hl7OutQueueDestination) throws APIException;
+	
+	/**
+	 * Completely delete the hl7 in queue item from the database.
+	 * 
+	 * @param hl7InQueue
+	 */
+	//@Authorized(HL7Constants.PRIV_PURGE_HL7_OUT_QUEUE_DESTINATION)
+	public void purgeHL7OutQueueDestination(HL7OutQueueDestination hl7OutQueueDestination);
 	
 }

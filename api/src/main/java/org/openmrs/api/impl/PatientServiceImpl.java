@@ -66,13 +66,7 @@ import org.openmrs.patient.impl.LuhnIdentifierValidator;
 import org.openmrs.util.OpenmrsConstants;
 import org.openmrs.util.PrivilegeConstants;
 import org.openmrs.validator.PatientIdentifierValidator;
-
 import org.openmrs.hl7.HL7OutQueue;
-import org.openmrs.hl7.db.HL7DAO;
-<<<<<<< HEAD
-=======
-///
->>>>>>> a1c21ee5e3fcb79729a8e510d38dc64bfc0d2413
 
 /**
  * Default implementation of the patient service. This class should not be used on its own. The
@@ -89,11 +83,6 @@ public class PatientServiceImpl extends BaseOpenmrsService implements PatientSer
 	
 	private PatientDAO dao;
 	
-<<<<<<< HEAD
-=======
-	private HL7DAO hl7dao;
-	
->>>>>>> a1c21ee5e3fcb79729a8e510d38dc64bfc0d2413
 	/**
 	 * PatientIdentifierValidators registered through spring's applicationContext-service.xml
 	 */
@@ -106,13 +95,6 @@ public class PatientServiceImpl extends BaseOpenmrsService implements PatientSer
 		this.dao = dao;
 	}
 	
-<<<<<<< HEAD
-=======
-	public void setHL7DAO(HL7DAO hl7dao) {
-		this.hl7dao = hl7dao;
-	}
-	
->>>>>>> a1c21ee5e3fcb79729a8e510d38dc64bfc0d2413
 	/**
 	 * Clean up after this class. Set the static var to null so that the classloader can reclaim the
 	 * space.
@@ -154,14 +136,9 @@ public class PatientServiceImpl extends BaseOpenmrsService implements PatientSer
 		tempPatient = dao.savePatient(patient);
 		
 		//saving HL7OutQueue message into database
-<<<<<<< HEAD
 		HL7OutQueue hl7outqueue = new HL7OutQueue();	
-		hl7outqueue = Context.getHL7Service().addToOutQueue(patient, hl7outqueue);
-=======
-		HL7OutQueue hl7outqueue = new HL7OutQueue();
-		HL7OutQueue hl7Out = new HL7OutQueue();		
-		hl7Out = Context.getHL7Service().saveHL7OutQueue(patient, hl7outqueue);
->>>>>>> a1c21ee5e3fcb79729a8e510d38dc64bfc0d2413
+		hl7outqueue = Context.getHL7Service().addToOutQueue(patient);
+	
 		
 		return tempPatient;
 	}	

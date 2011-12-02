@@ -14,22 +14,13 @@
 package org.openmrs.hl7;
 
 import java.io.Serializable;
-<<<<<<< HEAD
+
 import org.openmrs.BaseOpenmrsObject;
 import java.util.Date;
 
 
 /**
  * Represents an hl7 message that is saved when a new Patient is saved or when new Encounter is saved.
-=======
-////
-import org.openmrs.BaseOpenmrsObject;
-import java.util.Date;
-////
-
-/**
- * Represents an hl7 message that has yet to be processed.
->>>>>>> a1c21ee5e3fcb79729a8e510d38dc64bfc0d2413
  * 
  * @see HL7Service
  */
@@ -37,18 +28,20 @@ public class HL7OutQueue extends BaseOpenmrsObject implements Serializable {
 	
 	private static final long serialVersionUID = 8882704913734764446L;
 	
-	private Integer hl7OutQueueId;
+	private transient Integer hl7OutQueueId;
 	
-	private String errorMessage;
+	private transient String errorMessage;
 	
-	private Integer messageState;
+	private transient Integer messageState;
 	
 	private String hl7Data;
 	
-	private Date dateCreated;
+	private transient Date dateCreated;
 	
-	private Date dateProcessed;
+	private transient Date dateProcessed;
 	
+	private transient Integer hoqdId;	
+
 	/**
 	 * Default constructor
 	 */
@@ -164,4 +157,21 @@ public class HL7OutQueue extends BaseOpenmrsObject implements Serializable {
 		setHL7OutQueueId(id);
 	}
 	
+    /**
+     * @return the hoqdId
+     */
+    public Integer getHoqdId() {
+    	return hoqdId;
+    }
+
+	
+    /**
+     * @param hoqdId the hoqdId to set
+     */
+    public void setHoqdId(Integer hoqdId) {
+    	this.hoqdId = hoqdId;
+    }
+    
+    
+
 }

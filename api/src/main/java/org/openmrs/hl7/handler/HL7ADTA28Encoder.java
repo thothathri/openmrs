@@ -114,6 +114,9 @@ import ca.uhn.hl7v2.parser.PipeParser;
 public class HL7ADTA28Encoder {
 	
 	private static int sequenceNumber = 0;
+	
+	private final Log log = LogFactory.getLog(this.getClass());
+	
 	public  HL7ADTA28Encoder() {
 	/* Default Constructor*/	
 	}
@@ -133,6 +136,7 @@ public class HL7ADTA28Encoder {
         mshSegment.getEncodingCharacters().setValue("^~\\&");
         mshSegment.getDateTimeOfMessage().getTime().setValue(dateNow);
         mshSegment.getSendingApplication().getNamespaceID().setValue("OpenMrs");
+        mshSegment.getReceivingApplication().getNamespaceID().setValue("XRayDiv");
         mshSegment.getSequenceNumber().setValue(Integer.toString(sequenceNumber++));
         mshSegment.getMessageType().getMessageCode().setValue(msgType);
         mshSegment.getMessageType().getTriggerEvent().setValue(trigEvent);
@@ -148,14 +152,16 @@ public class HL7ADTA28Encoder {
 	 * @param person a Person object
 	 * @param patientId the ID of the Patient
 	 */
-	public void getPatientInfo(PID pid,Person person,Integer patientId) {
+	public void getPatientInfo(PID pid,Person person) {
+		Integer patientId = person.getPersonId();
+		
  		try {
  		    pid.getPatientName(0).getFamilyName().getSurname().setValue(person.getFamilyName());
  		    pid.getPatientName(0).getGivenName().setValue(person.getGivenName());
- 		    pid.getPatientIdentifierList(0).getIDNumber().setValue(patientId.toString());
+ 		    pid.getPatientIdentifierList(0).getIDNumber().setValue(Context.getPatientService().getPatient(patientId).getPatientIdentifier().getIdentifier());
  		}
  		catch(Exception e) {
- 			System.out.println("Exception in HL7ADTA28Encoder#getPatientInfo");
+ 			log.error("Exception in HL7ADTA28Encoder#getPatientInfo",e);
  		}
 	}
 	
@@ -176,12 +182,13 @@ public class HL7ADTA28Encoder {
  		
  		try {
  		   newPersonName = Context.getPersonService().getPersonName(patientId);
+ 		   
  		} 		
  		catch(Exception e)  {
  			System.out.println("Exception in HL7ADTA28Encoder");
  		}
  		
- 		getPatientInfo(adt.getPID(),newPersonName.getPerson(),patientId);
+ 		getPatientInfo(adt.getPID(),newPersonName.getPerson());
  		
         Parser parser = new PipeParser();
         String encodedMessage = parser.encode(adt);
@@ -193,10 +200,10 @@ public class HL7ADTA28Encoder {
 	 * @param patientId the ID of the Patient object
 	 * @return String with the encoded message
 	 */
-	public String HL7EncodeAdtA05Msg(Integer patientId) throws HL7Exception {
+	public String HL7EncodeAdtA05Msg(Patient patient) throws HL7Exception {
 
         ADT_A05 adt = new ADT_A05();
-
+        Integer patientId = patient.getPatientId();
         // Populate the MSH Segment
         MSH mshSegment = adt.getMSH();
         getGeneralMshSeg(mshSegment,"ADT","A05");
@@ -212,7 +219,7 @@ public class HL7ADTA28Encoder {
  			System.out.println("Exception in HL7ADTA28Encoder");
  		}
  		
- 		getPatientInfo(adt.getPID(),newPersonName.getPerson(),patientId);
+ 		getPatientInfo(adt.getPID(),newPersonName.getPerson());
 		
         Parser parser = new PipeParser();
         String encodedMessage = parser.encode(adt);

@@ -43,11 +43,11 @@ public class HL7InQueue extends HL7QueueItem implements Serializable {
 	 * @since 1.5
 	 */
 	public HL7InQueue(HL7InArchive hl7InArchive) {
-<<<<<<< HEAD
+
 		setHL7Source(hl7InArchive.getHL7Source());
 		setHL7SourceKey(hl7InArchive.getHL7SourceKey());
-=======
->>>>>>> a1c21ee5e3fcb79729a8e510d38dc64bfc0d2413
+
+
 		setHL7Data(hl7InArchive.getHL7Data());
 		setMessageState(HL7Constants.HL7_STATUS_PENDING);
 	}
