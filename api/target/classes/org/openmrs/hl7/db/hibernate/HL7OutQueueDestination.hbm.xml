@@ -7,7 +7,7 @@
 
 	<class name="org.openmrs.hl7.HL7OutQueueDestination" table="hl7_out_queue_destination">
 
-		<id name="hoqdId" type="int" column="hoqd_id" unsaved-value="0">
+		<id name="hoqdId" type="java.lang.Integer" column="hoqd_id" unsaved-value="0">
 			<generator class="native">
 				<param name="sequence">hl7_out_queue_destination_hoqd_id_seq</param>
 			</generator>
@@ -27,14 +27,14 @@
  		<property name="dateCreated" type="java.util.Date" 
 			column="date_created" not-null="false" length="19" />
 			
-		<many-to-one name="createdBy" class="User" not-null="true">
+		<many-to-one name="createdBy" class="org.openmrs.User" not-null="true">
 			<column name="created_by" />
 		</many-to-one>
 		
 		<property name="dateChanged" type="java.util.Date" 
 			column="date_changed" not-null="false" length="19" />
 			
-		<many-to-one name="changedBy" class="User" not-null="false">
+		<many-to-one name="changedBy" class="org.openmrs.User" not-null="false">
 			<column name="changed_by" />
 		</many-to-one>	
 		
@@ -44,10 +44,10 @@
 		<property name="retired" type="java.lang.Boolean" column="retired"
 			length="1" not-null="true" />
 			
-		<many-to-one name="retiredBy" class="User" not-null="false">
+		<many-to-one name="retiredBy" class="org.openmrs.User" not-null="false">
 			<column name="retired_by" />
-		</many-to-one>
-			
+		</many-to-one> 
+		
 		<property name="retireReason" type="java.lang.String" 
 			column="retire_reason" not-null="false" length="255" />
 		

@@ -47,8 +47,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Calendar;
 import java.text.SimpleDateFormat;
-import org.openmrs.User;
+//import org.openmrs.User;
 import java.lang.Integer;
+import java.lang.Boolean;
 
 
 
@@ -88,11 +89,14 @@ public class HL7OutQueueDestinationFormController extends SimpleFormController {
 		String name = request.getParameter("name");
 		String description = request.getParameter("description");
 		String destination = request.getParameter("destination");
-		Integer id = Context.getAuthenticatedUser().getUserId();
+		//Integer id = Context.getAuthenticatedUser().getId();
 		Calendar currentDate = Calendar.getInstance();
 		SimpleDateFormat formatter= new SimpleDateFormat("yyyyMMddHHmm");
 		String dateNow = formatter.format(currentDate.getTime());
 		Date date = formatter.parse(dateNow);
+		Integer i = 1, id=1;
+		Boolean b = false;
+		
 		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$WOWOWOWW$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"+name);
 		System.out.println("Id USer"+id);
 		log.info("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$WOWOWOWW$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"+name);
@@ -103,17 +107,22 @@ public class HL7OutQueueDestinationFormController extends SimpleFormController {
 		if (Context.isAuthenticated()) {
 			System.out.println("*********AUTHENTICATED***************");
 			log.info("*********AUTHENTICATED***************");
-			HL7OutQueueDestination hl7OutQueueDestination = (HL7OutQueueDestination) obj;
+	//		HL7OutQueueDestination hl7OutQueueDestination = (HL7OutQueueDestination) obj;
+			HL7OutQueueDestination hl7OutQueueDestination = new HL7OutQueueDestination();
 			hl7OutQueueDestination.setName(name);
 			hl7OutQueueDestination.setDescription(description);
 			hl7OutQueueDestination.setDestination(destination);
 			hl7OutQueueDestination.setCreatedBy(id);
 			hl7OutQueueDestination.setDateCreated(date);
+			hl7OutQueueDestination.setHoqdId(i);
+			hl7OutQueueDestination.setRetired(b);
 			HL7Service es = Context.getHL7Service();
 
 			
 		//	if (request.getParameter("save") != null) {
+				System.out.println("******* PHASE 1 *******");
 			    hl7OutQueueDestination = es.saveHL7OutQueueDestination(hl7OutQueueDestination);
+			    System.out.println("******* PHASE 2 *******");
 				view = getSuccessView();
 				httpSession.setAttribute(WebConstants.OPENMRS_MSG_ATTR, "HL7OutQueueDestination.saved");
 		//	}

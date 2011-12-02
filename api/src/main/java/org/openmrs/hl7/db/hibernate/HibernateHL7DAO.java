@@ -378,7 +378,8 @@ public class HibernateHL7DAO implements HL7DAO {
 	
 	public HL7OutQueueDestination saveHL7OutQueueDestination(HL7OutQueueDestination hl7OutQueueDestination) throws DAOException {
 		System.out.println("********* INSIDE SAVEHL7QueQDestn in HibernateHL7DAO**************");
-		sessionFactory.getCurrentSession().save(hl7OutQueueDestination);
+		sessionFactory.getCurrentSession().saveOrUpdate(hl7OutQueueDestination);
+		System.out.println("********* Done SAVEHL7QueQDestn in HibernateHL7DAO**************" +hl7OutQueueDestination.getCreatedBy());
 		return hl7OutQueueDestination;
 	}
 	

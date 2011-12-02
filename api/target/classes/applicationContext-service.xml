@@ -178,6 +178,7 @@
 	<bean id="visitDAO" class="org.openmrs.api.db.hibernate.HibernateVisitDAO">
         <property name="sessionFactory"><ref bean="sessionFactory"/></property>
     </bean>
+   
 	<bean id="providerDAO" class="org.openmrs.api.db.hibernate.HibernateProviderDAO">
         <property name="sessionFactory"><ref bean="sessionFactory"/></property>
     </bean>
