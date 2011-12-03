@@ -76,7 +76,6 @@
 	
 	function func() {
 		$j.getJSON("hl7OutQueueDestinationList.json", function(json) {
-			alert(json.aaData[2][2]);
 			window.location.replace("sendHL7Messages.htm");
 			});
 	}

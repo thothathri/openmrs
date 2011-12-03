@@ -18,13 +18,13 @@
         $j(document).ready(function() {
            
                 
-                alert("hi");
+               
 				var i = 0;
                     $j.getJSON('hl7OutQueueDestinationList.json' , function(json) {
                       var k = json.aaData.length;      
 					
 					  $j.each(json.aaData, function() {
-					var rdb = "<tr><td><input id=RadioButton  type=radio name=name value=" + json.aaData[i][0] +" /><label for=RadioButton" + i + ">" + json.aaData[i][2] + "</label></td></tr>";
+					var rdb = "<tr><td><input id=RadioButton  type=radio name=destinations value=" + json.aaData[i][2] +" /><label for=RadioButton" + i + ">" + json.aaData[i][0] + "</label></td></tr>";
 					i=i+1;
                             $j('#hl7OutQueueDestTable').append(rdb);	
 					});							
@@ -32,7 +32,13 @@
 			});
 			
 			function fun(){
-			alert("Done!");
+			var hostname = $j("input[@name=destinations]:checked").val();
+			
+			$j.ajax({
+				type:"POST",
+				url:hostname
+			});
+			alert("Messages Sent!");
 			}
  
 
