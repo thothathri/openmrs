@@ -65,6 +65,8 @@ public class HL7OutQueueDestinationFormController extends SimpleFormController {
 	
 	private final Log log = LogFactory.getLog(this.getClass());
 	
+//	private static Integer i=1;
+	
 	@RequestMapping(value = "/admin/hl7/hl7OutQueueDestinationForm.htm", method = RequestMethod.POST)
 		public void afterPageSubmission(
 				ModelMap map,
@@ -94,15 +96,17 @@ public class HL7OutQueueDestinationFormController extends SimpleFormController {
 		SimpleDateFormat formatter= new SimpleDateFormat("yyyyMMddHHmm");
 		String dateNow = formatter.format(currentDate.getTime());
 		Date date = formatter.parse(dateNow);
-		Integer i = 1, id=1;
+		Integer id;
 		Boolean b = false;
-		
+		id = Context.getAuthenticatedUser().getId();
 		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$WOWOWOWW$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"+name);
 		System.out.println("Id USer"+id);
 		log.info("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$WOWOWOWW$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"+name);
 		HttpSession httpSession = request.getSession();
 		
 		String view = getFormView();
+		String successView = "hl7OutQueueDestinationList.htm";
+		setSuccessView(successView);
 		
 		if (Context.isAuthenticated()) {
 			System.out.println("*********AUTHENTICATED***************");
@@ -114,7 +118,8 @@ public class HL7OutQueueDestinationFormController extends SimpleFormController {
 			hl7OutQueueDestination.setDestination(destination);
 			hl7OutQueueDestination.setCreatedBy(id);
 			hl7OutQueueDestination.setDateCreated(date);
-			hl7OutQueueDestination.setHoqdId(i);
+			//hl7OutQueueDestination.setHoqdId(i++);
+		//	System.out.println("******** i is now: "+i+" **************");
 			hl7OutQueueDestination.setRetired(b);
 			HL7Service es = Context.getHL7Service();
 

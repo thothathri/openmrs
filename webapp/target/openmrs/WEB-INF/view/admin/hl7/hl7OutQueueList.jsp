@@ -74,6 +74,12 @@
 		});
 	}
 	
+	function func() {
+		$j.getJSON("hl7OutQueueDestinationList.json", function(json) {
+			alert(json.aaData[2][2]);
+			window.location.replace("sendHL7Messages.htm");
+			});
+	}
 </script>
 
 <style>
@@ -90,7 +96,9 @@
 			style="float: left; margin-right: 0.3em;"></span> <span class="content"></span>
 	</div>
 </div>
-
+<form>
+<input type="button" value="Send Hl7 Messages" onClick="func()" />
+</form>
 <table cellpadding="5" cellspacing="0" id="hl7Table" width="100%">
 	<thead>
 		<tr>

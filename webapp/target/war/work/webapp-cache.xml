@@ -194,6 +194,7 @@
           <string>WEB-INF/view/admin/hl7/hl7SourceForm.jsp</string>
           <string>WEB-INF/view/admin/hl7/hl7SourceList.jsp</string>
           <string>WEB-INF/view/admin/hl7/localHeader.jsp</string>
+          <string>WEB-INF/view/admin/hl7/sendHL7Messages.jsp</string>
           <string>WEB-INF/view/admin/index.jsp</string>
           <string>WEB-INF/view/admin/locations/addressTemplate.jsp</string>
           <string>WEB-INF/view/admin/locations/hierarchy.jsp</string>

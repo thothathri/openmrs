@@ -56,6 +56,10 @@ public class Hl7OutQueueDestinationListController {
 		return "/admin/hl7/hl7OutQueueDestinationList";
 	}	
 	
+	@RequestMapping("/admin/hl7/sendHL7Messages.htm")
+	public String listOutQueueDestinations1(ModelMap modelMap) {
+		return "/admin/hl7/sendHL7Messages";
+	}	
 	
 	/**
 	 * method for returning a batch of HL7s from the queue based on datatable parameters
@@ -71,15 +75,35 @@ public class Hl7OutQueueDestinationListController {
 	 */
 	@RequestMapping("/admin/hl7/hl7OutQueueDestinationList.json")
 	public @ResponseBody
-	List<HL7OutQueueDestination> getHL7OutQueueDestinationBatchAsJson() throws IOException {
+	Map<String, Object> getHL7OutQueueDestinationBatchAsJson() throws IOException {
 		
 		// get the data
 		List<HL7OutQueueDestination> hl7OutQueueDestinations = Context.getHL7Service().getAllHL7OutQueueDestinations();
 
+		// form the results dataset
+				List<Object> results = new ArrayList<Object>();
+				for (HL7OutQueueDestination hl7OutQueueDestination : hl7OutQueueDestinations)
+					results.add(splitHL7OutQueueDestination(hl7OutQueueDestination));
+				
+				Map<String, Object> response = new HashMap<String, Object>();
+				//0response.put("iTotalRecords", Context.getHL7Service().countHL7OutQueue(messageState, null));
+				//response.put("iTotalDisplayRecords", Context.getHL7Service().countHL7OutQueue(messageState, sSearch));
+				//response.put("sEcho", sEcho);
+				response.put("aaData", results.toArray());				
 		// send it
-		return hl7OutQueueDestinations;
+		return response;
 	}
 	
-
+	/**
+	 * create an object array for a given HL7OutQueue
+	 * 
+	 * @param q HL7OutQueue object
+	 * @return object array for use with datatables
+	 */
+	private Object[] splitHL7OutQueueDestination(HL7OutQueueDestination q) {
+		// try to stick to basic types; String, Integer, etc (not Date)
+		return new Object[] {  q.getName().toString(),q.getDescription().toString(),
+				q.getDestination().toString(), };
+	}
 	
 }
